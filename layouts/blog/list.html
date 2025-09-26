@@ -1,0 +1,98 @@
+{{/* layouts/blog/list.html */}}
+{{ define "main" }}
+
+  <section class="blog-list">
+
+    {{ partial "title.html" . }}
+
+    {{ if not .Pages }}
+      <p class="no-posts">Aún no hay entradas en el diario.</p>
+    {{ else }}
+
+      {{ $posts := .Pages.ByDate.Reverse }}
+
+      {{ range $posts }}
+      {{/* -------------- BUSCAR LA IMAGEN DESTACADA -------------- */}}
+      {{ $featured := .Resources.GetMatch "*featured*" }}
+
+      <article class="entry-card">
+
+        {{/* Miniatura (solo si la foto existe) */}}
+        {{ with $featured }}
+          <img src="{{ .RelPermalink }}" alt="{{ $.Title }} portada"
+               class="post-thumb mb-4">
+        {{ end }}
+
+          {{/* ---------- CABECERA ---------- */}}
+          <header class="entry-header mb-2">
+            <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}"
+                  class="entry-date text-sm text-gray-500 dark:text-gray-400">
+              {{ .Date.Format "02 Jan 2006" }}
+            </time>
+
+            <h2 class="entry-title text-2xl font-semibold">
+              <a href="{{ .RelPermalink }}" class="title-link hover:underline">
+                {{ .Title }}
+              </a>
+            </h2>
+          </header>
+
+          {{/* ---------- ETIQUETAS (opcional) ---------- */}}
+          {{ with .Params.tags }}
+            <div class="entry-meta mb-2">
+              <ul class="tag-list flex flex-wrap gap-2">
+                {{ range . }}
+                  <li class="tag-item">
+                    <a href="{{ "/tags/" | relURL }}{{ . | urlize }}"
+                       class="inline-block bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded px-2 py-1 text-xs hover:bg-gray-300 dark:hover:bg-gray-700 transition">
+                      {{ . }}
+                    </a>
+                  </li>
+                {{ end }}
+              </ul>
+            </div>
+          {{ end }}
+
+          {{/* ---------- RESUMEN ---------- */}}
+          <div class="entry-summary prose lg:prose-lg dark:prose-invert">
+            {{ with .Params.summary }}
+              <p>{{ . }}</p>
+            {{ else }}
+              <p>{{ .Summary }}</p>
+            {{ end }}
+          </div>
+
+          {{/* ---------- ENLACE "LEER MÁS" ---------- */}}
+          <footer class="entry-footer mt-4">
+            <a href="{{ .RelPermalink }}"
+               class="read-more-btn inline-block text-blue-600 dark:text-blue-400 hover:underline font-medium">
+              Leer la entrada →
+            </a>
+          </footer>
+
+        </article>
+
+        <hr class="entry-separator border-t border-gray-200 dark:border-gray-700 my-6">
+      {{ end }}
+
+      {{/* ---------- PAGINACIÓN (opcional) ---------- */}}
+      {{ if .Paginator }}
+        <nav class="pagination flex justify-between mt-8">
+          {{ if .Paginator.HasPrev }}
+            <a href="{{ .Paginator.Prev.URL }}" class="prev-page text-blue-600 dark:text-blue-400 hover:underline">
+              ← Anterior
+            </a>
+          {{ end }}
+          {{ if .Paginator.HasNext }}
+            <a href="{{ .Paginator.Next.URL }}" class="next-page text-blue-600 dark:text-blue-400 hover:underline">
+              Siguiente →
+            </a>
+          {{ end }}
+        </nav>
+      {{ end }}
+
+    {{ end }}
+
+  </section>
+
+{{ end }}

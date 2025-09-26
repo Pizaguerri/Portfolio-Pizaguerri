@@ -1,0 +1,67 @@
+
+# Configuración básica de Hugo
+baseURL = "https://www.pabloizaguerri.com"
+title = "Pablo Izaguerri"
+languageCode = "es"
+defaultContentLanguage = "es"
+
+
+# Tema
+theme = "gallery"
+
+
+# Goldmark (motor de Markdown)
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+    [markup.goldmark.extensions]
+      definitionList = true
+      footnote = true
+      linkify = true
+      strikethrough = true
+      table = true
+      taskList = true
+      typographer = true
+      attribute = true
+
+
+# Parámetros del sitio
+[params]
+  description = "Antropología visual y fotografía documental"
+  logo = "/images/profilepic.png"
+  [params.author]
+    name = "Pablo Izaguerri"
+    email = "pablo@example.com"
+
+  [params.assets]
+    customCSS = ["css/custom.css"]
+  
+  [params.gallery]
+    lightbox_download = false 
+
+  [params.socialIcons]
+    instagram = "https://www.instagram.com/"
+    github = "https://github.com/nicokaiser/hugo-theme-gallery/"
+    youtube = "https://www.youtube.com/"
+    email = "mailto:user@example.com"
+
+
+# Menú principal
+[menu]
+
+  [[menu.main]]
+    name = "Proyectos"
+    url = "/proyectos/"
+    weight = 10
+
+  [[menu.main]]
+    name = "Blog"
+    url = "/blog/"
+    weight = 20
+
+  [[menu.main]]
+    name = "Sobre mí"
+    url = "/about/"
+    weight = 30
+

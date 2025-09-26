@@ -1,0 +1,14 @@
+{{ define "main" }}
+
+  {{ partial "title.html" . }}
+
+  {{/* -------------------------------------------------
+       GALERÍA DE ÁLBUMES (la que ya tenías)
+       ------------------------------------------------- */}}
+  <section class="galleries">
+    {{ range where .Pages "Params.private" "ne" true }}
+      {{ partial "album-card.html" . }}
+    {{ end }}
+  </section>
+
+{{ end }}

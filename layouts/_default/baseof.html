@@ -1,0 +1,36 @@
+{{/* layouts/_default/baseof.html */}}
+<!doctype html>
+{{- $theme := .Params.theme | default .Site.Params.defaultTheme }}
+
+<html class="{{- if (eq $theme "light") -}}light{{- else if (eq $theme "dark") }}dark{{ end }}"
+      lang="{{- site.LanguageCode | default "en" -}}">
+
+  {{/* -------------------- HEAD -------------------- */}}
+  {{ partial "head.html" . }}
+
+  {{/* ---- TU HOJA DE ESTILOS PERSONALIZADA ---- */}}
+  {{/*  assets/css/blog.css → assets/css/blog.css  */}}
+  {{ $blogCSS := resources.Get "css/blog.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $blogCSS.RelPermalink }}">
+
+  {{/* -------------------- BODY -------------------- */}}
+  <body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+
+    {{/* -------------------- HEADER -------------------- */}}
+    {{ block "header" . }}{{ partial "header.html" . }}{{ end }}
+
+    {{/* -------------------- MAIN (contenido) -------------------- */}}
+    <main class="flex-grow">
+      {{ block "main" . }}{{ end }}
+    </main>
+
+    {{/* -------------------- FOOTER -------------------- */}}
+    {{ block "footer" . }}{{ partialCached "footer.html" . }}{{ end }}
+
+    {{/* ---------- SCRIPT DE HARDENING (Lightbox) ---------- */}}
+    {{/* assets/js/gallery-hardening.js – se carga después del script del tema */}}
+    {{ $hardening := resources.Get "js/gallery-hardening.js" | resources.Minify | resources.Fingerprint }}
+    <script src="{{ $hardening.RelPermalink }}"></script>
+
+  </body>
+</html>

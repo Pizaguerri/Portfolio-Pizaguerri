@@ -1,0 +1,22 @@
+{{/* layouts/blog/single.html */}}
+{{ define "main" }}
+
+  {{ partial "title.html" . }}
+
+  {{/* ---------- IMAGEN DESTACADA (portada) ---------- */}}
+  {{ $featured := .Resources.GetMatch "*featured*" }}
+  {{ with $featured }}
+    <figure class="post-featured-wrapper mb-6">
+      <img src="{{ .RelPermalink }}" alt="{{ $.Title }} portada"
+           class="post-featured">
+    </figure>
+  {{ end }}
+
+  {{/* ---------- CONTENIDO DEL POST ---------- */}}
+  {{ with .Content }}
+    <section class="prose lg:prose-lg dark:prose-invert">
+      {{ . }}
+    </section>
+  {{ end }}
+
+{{ end }}

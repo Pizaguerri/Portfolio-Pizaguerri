@@ -1,0 +1,137 @@
+/* Contenedor del logo en la barra de navegación */
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;               /* espacio entre logo e texto */
+    text-decoration: none;
+  }
+  
+  /* Imagen del logo */
+  .site-logo {
+    max-height: 40px;          /* controla la altura máxima */
+    width: auto;
+  }
+  
+  /* Opcional: un poco de margen cuando la barra se colapsa en móvil */
+  @media (max-width: 640px) {
+    .site-logo {
+      max-height: 32px;
+    }
+  }
+
+  .profile-pic {
+    float: left;
+    max-width: 200px;
+    margin: 0 1.5rem 1rem 0;
+    border-radius: 8px;
+  }
+
+  /* Foto de perfil dentro de About */
+.profile-pic {
+  float: left;                 /* texto envuelve la imagen */
+  max-width: 200px;            /* ancho máximo en escritorio */
+  margin: 0 1.5rem 1rem 0;     /* espacio a la derecha y abajo */
+  border-radius: 8px;          /* esquinas redondeadas (opcional) */
+}
+
+/* Ajuste para móviles */
+@media (max-width: 640px) {
+  .profile-pic {
+    max-width: 150px;
+    margin-bottom: 0.75rem;
+  }
+}
+
+/* Sobre el Blog
+
+/* ---------- Contenedor principal ---------- */
+.blog-list {
+  max-width: 720px;
+  margin: 10 auto;
+  padding: 2rem 1rem;
+}
+
+/* ---------- Tarjeta de entrada ---------- */
+.entry-card {
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+/* Cabecera */
+.entry-header {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+.entry-date {
+  font-size: 0.85rem;
+  color: var(--color-muted, #acacf9);
+}
+.entry-title {
+  margin: 0;
+  font-size: 3rem;
+}
+.title-link {
+  text-decoration: none;
+  color: inherit;
+}
+.title-link:hover { color: var(--color-primary, #acacf9); }
+
+/* Metadatos (tags + tiempo de lectura) */
+.entry-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--color-muted, #d4d4d4);
+}
+.tag-list {
+  list-style: none;
+  display: flex;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+}
+.tag-item a {
+  color: var(--color-tag-fg, #d4d4d4);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.78rem;
+}
+
+/* Resumen */
+.entry-summary p {
+  margin: 1rem 0 0;
+  line-height: 1.6;
+  color: var(--color-text, #d4d4d4);
+}
+
+/* Footer */
+.entry-footer {
+  margin-top: 1rem;
+}
+
+
+/* Paginación */
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+.prev-page, .next-page {
+  color: var(--color-primary, #0066ff);
+  text-decoration: none;
+}
+.prev-page:hover, .next-page:hover {
+  text-decoration: underline;
+}
+
+/* Mensaje sin posts */
+.no-posts {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--color-muted, #777);
+}
