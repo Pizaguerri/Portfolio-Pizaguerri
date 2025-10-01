@@ -6,8 +6,7 @@ title                   = "Pablo Izaguerri"
 languageCode            = "es"
 defaultContentLanguage  = "es"
 
-# Tema que utilizas
-theme = "gallery"
+
 
 [build]
   publishResources = false
