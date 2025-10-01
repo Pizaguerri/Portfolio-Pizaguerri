@@ -1,58 +1,82 @@
 {{/* layouts/partials/head.html */}}
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>{{ with .Title }}{{ . }} -{{ end }} {{ .Site.Title }}</title>
+<title>
+  {{ with .Title }}{{ . }} -{{ end }} {{ .Site.Title }}
+</title>
 
-<link rel="canonical" href="{{ .Permalink }}" />
+<link rel="canonical" href="{{ .Permalink }}">
 
 {{/* ---------- FAVICONS ---------- */}}
 <link rel="icon" type="image/svg+xml" href="{{ "images/favicon.svg" | relURL }}">
-<link rel="icon" type="image/png" href="{{ "images/favicon.png" | relURL }}">
+<link rel="icon" type="image/png"    href="{{ "images/favicon.png" | relURL }}">
 <link rel="apple-touch-icon" sizes="180x180" href="{{ "images/apple-touch-icon.png" | relURL }}">
 
-{{/* Fallbacks y tamaños adicionales (los que ya tenías) */}}
+{{/* Fallbacks y tamaños adicionales */}}
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="shortcut icon" href="/favicon.ico">               <!-- fallback para navegadores antiguos -->
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">   <!-- para iOS -->
 
 {{/* ---------- META ---------- */}}
-<meta name="description" content="{{ with .Description }}{{ . | markdownify | plainify }}{{ else }}{{ with .Site.Params.description }}{{ . | markdownify | plainify }}{{ end }}{{ end }}">
+<meta name="description"
+      content="{{ with .Description }}{{ . | markdownify | plainify }}
+               {{ else }}{{ with .Site.Params.description }}{{ . | markdownify | plainify }}{{ end }}
+               {{ end }}">
+
 {{ if .Params.keywords }}
-<meta name="keywords" content="{{ delimit .Params.keywords `, ` }}">
+  <meta name="keywords" content="{{ delimit .Params.keywords `, ` }}">
 {{ end }}
 
 {{ if .Params.private }}
-<meta name="robots" content="noindex, nofollow">
+  <meta name="robots" content="noindex, nofollow">
 {{ else }}
-<meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow">
 {{ end }}
 
+{{/* Alternative output formats (RSS, JSON, etc.) */}}
 {{ range .AlternativeOutputFormats -}}
   {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
 {{ end -}}
 
+{{/* Open Graph / Twitter Card (se asume que tienes un partial opengraph.html) */}}
 {{ partial "opengraph.html" . }}
 
-{{ $css := resources.Get "/css/main.scss" | toCSS | minify | fingerprint }}
-<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+{{/* ------------------------------------------------------------
+   Hoja de estilos principal del tema (SCSS → CSS)
+   ------------------------------------------------------------ */}}
+   {{ $css := resources.Get "/css/main.scss" | toCSS | minify | fingerprint }}
+   <link rel="stylesheet" href="{{ $css.RelPermalink }}">
+   
+   {{ $customCSS := resources.Get "css/custom.css" | minify | fingerprint }}
+   <link rel="stylesheet" href="{{ $customCSS.RelPermalink }}">
 
-{{/* ---------- GALLERY PARAMS ---------- */}}
+   {{ $blogCss := resources.Get "css/blog.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $blogCss.RelPermalink }}">
+
+
+
+{{/* ------------------------------------------------------------
+   Parámetros para la galería (Lightbox, descarga, etc.)
+   ------------------------------------------------------------ */}}
 {{ $params := dict
-    "closeTitle"      (i18n "closeTitle")
-    "zoomTitle"       (i18n "zoomTitle")
-    "arrowPrevTitle"  (i18n "arrowPrevTitle")
-    "arrowNextTitle"  (i18n "arrowNextTitle")
-    "errorMsg"        (i18n "errorMsg")
-    "downloadTitle"   (i18n "downloadTitle")
-    "boxSpacing"      (default 8 .Site.Params.gallery.boxSpacing)
-    "targetRowHeight" (default 288 .Site.Params.gallery.targetRowHeight)
-    "targetRowHeightTolerance" (default 0.25 .Site.Params.gallery.targetRowHeightTolerance)
-    "enableDownload"  (default true .Params.build.publishResources)
+    "closeTitle"                (i18n "closeTitle")
+    "zoomTitle"                 (i18n "zoomTitle")
+    "arrowPrevTitle"            (i18n "arrowPrevTitle")
+    "arrowNextTitle"            (i18n "arrowNextTitle")
+    "errorMsg"                  (i18n "errorMsg")
+    "downloadTitle"             (i18n "downloadTitle")
+    "boxSpacing"                (default 8 .Site.Params.gallery.boxSpacing)
+    "targetRowHeight"           (default 288 .Site.Params.gallery.targetRowHeight)
+    "targetRowHeightTolerance"  (default 0.25 .Site.Params.gallery.targetRowHeightTolerance)
+    "enableDownload"            (default true .Params.build.publishResources)
 }}
+
+{{/* JavaScript de la galería (con los parámetros anteriores) */}}
 {{ $js := resources.Get "js/main.js" | js.Build (dict "minify" true "params" $params) | resources.Fingerprint }}
 <script src="{{ $js.RelPermalink }}" defer></script>
 
-{{/* Si tu tema tiene un head‑custom opcional, mantenlo */}}
+{{/* Si tu tema incluye un partial opcional `head-custom.html`,
+    se carga aquí para permitir extensiones sin tocar este archivo. */}}
 {{- partial "head-custom.html" . -}}

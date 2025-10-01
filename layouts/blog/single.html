@@ -1,4 +1,3 @@
-{{/* layouts/blog/single.html */}}
 {{ define "main" }}
 
   {{ partial "title.html" . }}
@@ -14,7 +13,7 @@
 
   {{/* ---------- CONTENIDO DEL POST ---------- */}}
   {{ with .Content }}
-    <section class="prose lg:prose-lg dark:prose-invert">
+    <section class="page-content">
       {{ . }}
     </section>
   {{ end }}

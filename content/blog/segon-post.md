@@ -1,6 +1,11 @@
 ---
-title: "Mi segundo post"
-date: 2025-08-29T20:00:00+02:00
+title: "Segon post"
+subtitle: "Un subtítulo breve que complementa al título"
+date: 2025-09-24T14:30:00+01:00
+tags: ["antropología", "fotografía"]
+summary: "Una breve introducción al tema."
 draft: false
+featured_image: "featured.jpg"   # nombre del archivo de la foto destacada (debe estar en la misma carpeta)
 ---
-un post del blog
+
+### Segon post

@@ -1,14 +1,21 @@
+{{/* layouts/_default/home.html */}}
 {{ define "main" }}
 
   {{ partial "title.html" . }}
 
-  {{/* -------------------------------------------------
-       GALERÍA DE ÁLBUMES (la que ya tenías)
-       ------------------------------------------------- */}}
-  <section class="galleries">
-    {{ range where .Pages "Params.private" "ne" true }}
-      {{ partial "album-card.html" . }}
-    {{ end }}
-  </section>
+  {{/* Mostrar solo los álbumes/taxonomías marcados como featured */}}
+  {{ $featured := where .Site.RegularPages "Params.featured" true }}
+
+  {{ if $featured }}
+    <section class="featured-content container mx-auto px-4 py-12 max-w-4xl">
+      {{ range $featured }}
+        {{ partial "album-card.html" . }}
+      {{ end }}
+    </section>
+  {{ else }}
+    <p class="text-center text-gray-600 dark:text-gray-400">
+      No hay contenido destacado.
+    </p>
+  {{ end }}
 
 {{ end }}

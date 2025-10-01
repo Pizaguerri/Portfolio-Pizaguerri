@@ -5,14 +5,12 @@ type: "page"
 layout: "single"
 ---
 
-<img src="/images/profilepic.png" class="profile-pic">
+<img src="/images/profilepic.png" class="profile-pic" alt="Foto de Pablo Izaguerri">
 
+Pablo Izaguerri, nacido en Mallorca en 1995. Soy narrador visual y antropólogo basado en Barcelona.
 
-Pablo Izaguerri, born in Mallorca in 1995. I'm a visual storyteller and anthropologist based in Barcelona.
+Mientras estudiaba **Cultura y Antropología Social** en la URV de Barcelona, también exploré la fotografía dentro de mis círculos sociales y, más tarde, en la **Escuela Libre Date Cuenta**.
 
-While studying Cultural and Social Anthropology at URV in Barcelona, I also explored photography within my social circles, and later at Escuela Libre Date Cuenta.
+He desarrollado las habilidades necesarias para combinar ambas disciplinas, creando trabajos documentales que unen la investigación antropológica con la narrativa visual.
 
-I have managed to develop the skills needed to combine both disciplines, creating documentary work that bridges anthropological research with visual narrative.
-
-I managed my own music recommendations platform called Sonomada, and I collaborate with specialized music magazines such as Binaural and Nuevas Frecuencias.
-
+Gestioné mi propia plataforma de recomendaciones musicales llamada **Sonomada**, y colaboro con revistas especializadas como **Binaural** y **Nuevas Frecuencias**.

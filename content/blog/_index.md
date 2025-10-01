@@ -1,5 +1,5 @@
 ---
 title: "Blog"
-layout: "list"
+layout: "grid"
 draft: false
 ---

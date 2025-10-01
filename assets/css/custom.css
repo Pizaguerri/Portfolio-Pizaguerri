@@ -1,137 +1,359 @@
-/* Contenedor del logo en la barra de navegación */
-.logo-link {
+/* ==============================================================
+   1️⃣  VARIABLES COMPARTIDAS (las ya están en blog.css)
+   ============================================================== */
+
+
+/* ==============================================================
+   2️⃣  LOGO EN LA BARRA DE NAVEGACIÓN
+   ============================================================== */
+   .logo-link {
     display: flex;
     align-items: center;
-    gap: 0.5rem;               /* espacio entre logo e texto */
+    gap: 0.75rem; /* espacio entre logo y texto */
     text-decoration: none;
+    flex-shrink: 0;
   }
   
-  /* Imagen del logo */
   .site-logo {
-    max-height: 40px;          /* controla la altura máxima */
+    border-radius: 50%;
+    max-height: 40px;
     width: auto;
+    flex-shrink: 0;
   }
   
-  /* Opcional: un poco de margen cuando la barra se colapsa en móvil */
   @media (max-width: 640px) {
     .site-logo {
       max-height: 32px;
     }
   }
-
+  
+  
+  /* ==============================================================
+     3️⃣  FOTO DE PERFIL (usada en la página *About*)
+     ============================================================== */
   .profile-pic {
     float: left;
     max-width: 200px;
     margin: 0 1.5rem 1rem 0;
     border-radius: 8px;
   }
-
-  /* Foto de perfil dentro de About */
-.profile-pic {
-  float: left;                 /* texto envuelve la imagen */
-  max-width: 200px;            /* ancho máximo en escritorio */
-  margin: 0 1.5rem 1rem 0;     /* espacio a la derecha y abajo */
-  border-radius: 8px;          /* esquinas redondeadas (opcional) */
-}
-
-/* Ajuste para móviles */
-@media (max-width: 640px) {
-  .profile-pic {
-    max-width: 150px;
-    margin-bottom: 0.75rem;
+  
+  @media (max-width: 640px) {
+    .profile-pic {
+      max-width: 150px;
+      margin-bottom: 0.75rem;
+    }
   }
-}
-
-/* Sobre el Blog
-
-/* ---------- Contenedor principal ---------- */
-.blog-list {
-  max-width: 720px;
-  margin: 10 auto;
-  padding: 2rem 1rem;
-}
-
-/* ---------- Tarjeta de entrada ---------- */
-.entry-card {
-  border-radius: 8px;
-  padding: 1.5rem;
-}
-
-/* Cabecera */
-.entry-header {
-  display: flex;
-  flex-direction: row;
-  gap: 0.5rem;
-}
-.entry-date {
-  font-size: 0.85rem;
-  color: var(--color-muted, #acacf9);
-}
-.entry-title {
-  margin: 0;
-  font-size: 3rem;
-}
-.title-link {
-  text-decoration: none;
-  color: inherit;
-}
-.title-link:hover { color: var(--color-primary, #acacf9); }
-
-/* Metadatos (tags + tiempo de lectura) */
-.entry-meta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.75rem;
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
-  color: var(--color-muted, #d4d4d4);
-}
-.tag-list {
-  list-style: none;
-  display: flex;
-  gap: 0.4rem;
-  margin: 0;
-  padding: 0;
-}
-.tag-item a {
-  color: var(--color-tag-fg, #d4d4d4);
-  padding: 0.2rem 0.5rem;
-  border-radius: 4px;
-  text-decoration: none;
-  font-size: 0.78rem;
-}
-
-/* Resumen */
-.entry-summary p {
-  margin: 1rem 0 0;
-  line-height: 1.6;
-  color: var(--color-text, #d4d4d4);
-}
-
-/* Footer */
-.entry-footer {
-  margin-top: 1rem;
-}
-
-
-/* Paginación */
-.pagination {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 2rem;
-}
-.prev-page, .next-page {
-  color: var(--color-primary, #0066ff);
-  text-decoration: none;
-}
-.prev-page:hover, .next-page:hover {
-  text-decoration: underline;
-}
-
-/* Mensaje sin posts */
-.no-posts {
-  text-align: center;
-  font-size: 1.1rem;
-  color: var(--color-muted, #777);
-}
+  
+  
+  /* ==============================================================
+     4️⃣  BLOG – LISTADO DE ENTRADAS
+     ============================================================== */
+  
+  /* Modo claro */
+  body {
+    background-color: #fff;
+    color: #111;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Modo oscuro */
+  html.dark body {
+    background-color: #111 !important;
+    color: #eee !important;
+  }
+  
+  /* Blog list container */
+  .blog-list {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  
+  /* Limpiar la tarjeta de la entrada para que no tenga fondo ni sombra */
+  .entry-card {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin-bottom: 5rem;
+  }
+  
+  /* Header de la entrada */
+  .entry-header {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    align-items: baseline;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    color: inherit;
+  }
+  
+  /* Título y link del título sin fondos ni sombras */
+  .entry-title,
+  .title-link {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    color: inherit !important;
+  }
+  
+  /* Asegurar que el color del título se adapte */
+  .entry-title {
+    font-size: 2rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  /* En modo oscuro, asegurar no tener fondos blancos */
+  html.dark .entry-card,
+  html.dark .entry-header,
+  html.dark .entry-title,
+  html.dark .title-link {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    color: inherit !important;
+  }
+  
+  .entry-date {
+    font-size: 0.85rem;
+    color: var(--color-muted, #666);
+  }
+  
+  .title-link {
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  
+  .title-link:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+  }
+  
+  .entry-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--color-muted, #666);
+  }
+  
+  .tag-list {
+    list-style: none;
+    display: flex;
+    gap: 0.4rem;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .tag-item a {
+    color: var(--color-tag-fg, inherit);
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    text-decoration: none;
+    font-size: 0.78rem;
+  }
+  
+  .tag-item a:hover {
+    text-decoration: underline;
+  }
+  
+  .entry-summary p {
+    margin: 1rem 0 0;
+    line-height: 1.6;
+    color: var(--color-text, inherit);
+  }
+  
+  .entry-footer {
+    margin-top: 1rem;
+  }
+  
+  .entry-separator {
+    border-top: 1px solid var(--color-muted, #ccc);
+    opacity: 0.3;
+    margin: 3rem 0;
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+  }
+  
+  .prev-page,
+  .next-page {
+    color: var(--color-primary, #0066ff);
+    text-decoration: none;
+  }
+  
+  .prev-page:hover,
+  .next-page:hover {
+    text-decoration: underline;
+  }
+  
+  .no-posts {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--color-muted, #777);
+  }
+  
+  .post-thumb {
+    background: transparent;
+    border-radius: 0;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* ==============================================================
+     5️⃣  SWIPER – ESTILOS DEL CARRUSEL DE PROYECTOS
+     ============================================================== */
+  .project-thumb {
+    height: 250px;
+    object-fit: cover;
+  }
+  
+  .project-slide {
+    background: var(--bg-card, #fff);
+  }
+  
+  html.dark .project-slide {
+    background: var(--bg-card-dark, #1a1a1a);
+  }
+  
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: var(--color-link, #0066ff);
+  }
+  
+  .swiper-pagination-bullet {
+    background: var(--color-muted, #666);
+    opacity: 0.7;
+  }
+  
+  .swiper-pagination-bullet-active {
+    background: var(--color-link, #0066ff);
+    opacity: 1;
+  }
+  
+  @media (max-width: 640px) {
+    .project-thumb {
+      height: 180px;
+    }
+  }
+  
+  
+  /* ==============================================================
+     6️⃣  HEADER – ESTILOS GLOBALES DEL MENÚ SUPERIOR
+     ============================================================== */
+  
+  /* Header sticky + fondo adaptativo */
+  header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #000;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
+  /* En modo oscuro */
+  html.dark header {
+    background-color: rgba(20, 20, 20, 0.95);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+  }
+  
+  /* Asegurar que los enlaces hereden color adecuado */
+  header a,
+  .site-title {
+    color: inherit;
+  }
+  
+  /* Opcional: efecto hover en modo oscuro */
+  html.dark header a:hover {
+    opacity: 0.8;
+  }
+  
+  .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem; /* Separación entre logo y menú */
+  }
+  
+  .logo-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    flex-shrink: 0; /* Evita que el logo se comprima */
+  }
+  
+  .site-logo {
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  
+  .site-title {
+    white-space: nowrap; /* Evita que el título se parta en varias líneas */
+  }
+  
+  /* Menú desktop */
+  .main-nav {
+    flex-grow: 1; /* El menú ocupa el espacio disponible */
+    display: flex;
+    justify-content: flex-end; /* Alinea el menú a la derecha */
+  }
+  
+  .main-nav ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+  }
+  
+  .main-nav a {
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.2s;
+    white-space: nowrap;
+  }
+  
+  .main-nav a:hover {
+    opacity: 0.7;
+  }
+  
+  /* Ocultar hamburguesa en desktop */
+  .menu-toggle-btn {
+    display: none;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .main-nav {
+      display: none;
+    }
+    
+    .menu-toggle-btn {
+      display: block;
+    }
+  
+    .header-container {
+      gap: 1rem;
+    }
+  }
+  

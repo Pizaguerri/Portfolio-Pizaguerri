@@ -1,34 +1,32 @@
-{{/* layouts/_default/baseof.html */}}
 <!doctype html>
 {{- $theme := .Params.theme | default .Site.Params.defaultTheme }}
 
 <html class="{{- if (eq $theme "light") -}}light{{- else if (eq $theme "dark") }}dark{{ end }}"
-      lang="{{- site.LanguageCode | default "en" -}}">
+      lang="{{ site.LanguageCode | default "en" }}">
 
-  {{/* -------------------- HEAD -------------------- */}}
   {{ partial "head.html" . }}
 
-  {{/* ---- TU HOJA DE ESTILOS PERSONALIZADA ---- */}}
-  {{/*  assets/css/blog.css → assets/css/blog.css  */}}
-  {{ $blogCSS := resources.Get "css/blog.css" | minify | fingerprint }}
-  <link rel="stylesheet" href="{{ $blogCSS.RelPermalink }}">
+  {{/* ---------- ESTILOS PERSONALIZADOS CON HUGO PIPES ---------- */}}
+  {{ $blogCSS := resources.Get "css/blog.css" }}
+  {{ $customCSS := resources.Get "css/custom.css" }}
+  {{ $pageContentCSS := resources.Get "css/page-content.css" }}
+  
+  {{ $combinedCSS := slice $blogCSS $customCSS | resources.Concat "css/combined.css" | minify | fingerprint }}
+  {{ $finalContentCSS := $pageContentCSS | minify | fingerprint }}
 
-  {{/* -------------------- BODY -------------------- */}}
+  <link rel="stylesheet" href="{{ $combinedCSS.RelPermalink }}">
+  <link rel="stylesheet" href="{{ $finalContentCSS.RelPermalink }}">
+
   <body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100">
 
-    {{/* -------------------- HEADER -------------------- */}}
     {{ block "header" . }}{{ partial "header.html" . }}{{ end }}
 
-    {{/* -------------------- MAIN (contenido) -------------------- */}}
     <main class="flex-grow">
       {{ block "main" . }}{{ end }}
     </main>
 
-    {{/* -------------------- FOOTER -------------------- */}}
     {{ block "footer" . }}{{ partialCached "footer.html" . }}{{ end }}
 
-    {{/* ---------- SCRIPT DE HARDENING (Lightbox) ---------- */}}
-    {{/* assets/js/gallery-hardening.js – se carga después del script del tema */}}
     {{ $hardening := resources.Get "js/gallery-hardening.js" | resources.Minify | resources.Fingerprint }}
     <script src="{{ $hardening.RelPermalink }}"></script>
 

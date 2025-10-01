@@ -1,229 +1,86 @@
-/* --------------------------------------------------------------
-   VARIABLES – ajústalas en :root o en tu tema si ya existen
-   -------------------------------------------------------------- */
-   :root {
-    /* Texto y enlaces */
-    --color-text: #222;               /* color principal del texto */
-    --color-link: #0066ff;            /* enlaces normales */
-    --color-link-hover: #004bb5;      /* hover de enlaces */
-  
-    /* Metadatos (fecha, tags, tiempo de lectura) */
-    --color-muted: #666;              /* gris medio para información secundaria */
-  
-    /* Bordes y sombras */
-    --border-radius: 8px;
-    --border-color: #e0e0e0;          /* gris muy claro */
-    --box-shadow: 0 2px 6px rgba(0,0,0,.06);
-  
-    /* Espaciado */
-    --gap-xs: 0.4rem;
-    --gap-sm: 0.75rem;
-    --gap-md: 1.5rem;
-  }
-  
-  /* --------------------------------------------------------------
-     Contenedor principal del listado de entradas
-     -------------------------------------------------------------- */
-  .blog-list {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 2rem var(--gap-sm);
-  }
-  
-  /* --------------------------------------------------------------
-     Caja de cada entrada (la “caja ligera”)
-     -------------------------------------------------------------- */
-  .entry-card {
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
-    padding: var(--gap-md);
-    max‑width: 70%;
-    margin-left: auto;         /* centra horizontalmente */
-    margin-right: auto;
-    margin-bottom: var(--gap-md);
-    box-shadow: var(--box-shadow);
-    background: transparent;               /* sin fondo */
-  }
+/* ===============================
+   Estilo limpio tipo periódico
+   =============================== */
 
-  .card-centered {
-    max-width: 60%;          /* o el valor que prefieras */
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  /* --------------------------------------------------------------
-     Cabecera de la entrada (fecha + título)
-     -------------------------------------------------------------- */
-  .entry-header {
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap-xs);
-  }
-  .entry-date {
-    font-size: 0.85rem;
-    color: var(--color-muted);
-  }
-  .entry-title {
-    margin: 0;
-    font-size: 1.75rem;
-    line-height: 1.2;
-  }
-  .title-link {
-    text-decoration: none;
-    color: inherit;
-  }
-  .title-link:hover {
-    color: var(--color-link-hover);
-  }
-  
-  /* --------------------------------------------------------------
-     Metadatos: etiquetas y tiempo de lectura
-     -------------------------------------------------------------- */
-  .entry-meta {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: var(--gap-sm);
-    margin-top: 0.5rem;
-    font-size: 0.9rem;
-    color: var(--color-muted);
-  }
-  
-  /* Tags */
-  .tag-list {
-    list-style: none;
-    display: flex;
-    gap: 0.35rem;
-    margin: 0;
-    padding: 0;
-  }
-  .tag-item a {
-    color: var(--color-link);
-    text-decoration: none;
-    font-size: 0.78rem;
-  }
-  .tag-item a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Tiempo estimado de lectura */
-  .read-time {
-    font-style: italic;
-  }
-  
-  /* --------------------------------------------------------------
-     Resumen / extracto
-     -------------------------------------------------------------- */
-  .entry-summary p {
-    margin: 1rem 0 0;
-    line-height: 1.6;
-    color: var(--color-text);
-  }
-  
-  /* --------------------------------------------------------------
-     Footer de la entrada – botón “Leer más”
-     -------------------------------------------------------------- */
-  .entry-footer {
-    margin-top: 1rem;
-  }
-  .read-more-btn {
-    display: inline-block;
-    padding: 0.45rem 0.9rem;
-    border: 1px solid var(--color-link);
-    border-radius: 4px;
-    color: var(--color-link);
-    text-decoration: none;
-    font-weight: 500;
-    transition: background-color .2s, color .2s;
-  }
-  .read-more-btn:hover {
-    background: var(--color-link);
-    color: #fff;
-  }
-  
-  /* --------------------------------------------------------------
-     Separador entre entradas (opcional)
-     -------------------------------------------------------------- */
-  .entry-separator {
-    border: none;
-    border-top: 1px solid var(--border-color);
-    margin: 2rem 0;
-  }
-  
-  /* --------------------------------------------------------------
-     Paginación (si la activas)
-     -------------------------------------------------------------- */
-  .pagination {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 2rem;
-  }
-  .prev-page,
-  .next-page {
-    color: var(--color-link);
-    text-decoration: none;
-  }
-  .prev-page:hover,
-  .next-page:hover {
-    text-decoration: underline;
-  }
-  
-  /* --------------------------------------------------------------
-     Mensaje cuando no hay entradas
-     -------------------------------------------------------------- */
-  .no-posts {
-    text-align: center;
-    font-size: 1.1rem;
-    color: var(--color-muted);
-  }
-  
-  /* --------------------------------------------------------------
-     Responsividad básica
-     -------------------------------------------------------------- */
-  @media (max-width: 480px) {
-    .entry-title {
-      font-size: 1.5rem;
-    }
-    .entry-card {
-      padding: var(--gap-sm);
-    }
-  }
+/* Contenedor general del blog */
+.blog-list {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
 
+/* Entrada individual (sin caja) */
+.entry-card {
+  margin-bottom: 4rem;
+}
 
-/* --------------------------------------------------------------
-   IMÁGENES DESTACADAS DE LOS POSTS
-   -------------------------------------------------------------- */
-
-/* Miniatura en la lista de posts (tarjeta) */
+/* Imagen destacada más grande */
 .post-thumb {
-  width: 100%;                /* ocupa todo el ancho de la tarjeta */
-  max-height: 300px;          /* altura máxima para que la tarjeta no sea muy alta */
-  object-fit: cover;          /* recorta manteniendo proporción */
-  border-radius: var(--border-radius);
-  margin-bottom: var(--gap-sm);
-}
-
-/* Imagen grande en la página individual (portada) */
-.post-featured {
   width: 100%;
-  max-height: 450px;          /* mayor que la miniatura */
+  max-height: 400px;
   object-fit: cover;
-  border-radius: var(--border-radius);
-  margin-bottom: var(--gap-md);
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  box-shadow: none;
 }
 
-/* Opcional: sombra ligera para ambas imágenes */
-.post-thumb,
-.post-featured {
-  box-shadow: 0 2px 6px rgba(0,0,0,.08);
+/* Cabecera de entrada */
+.entry-header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
 }
 
-/* Responsividad (ajustes menores en móvil) */
-@media (max-width: 480px) {
-  .post-thumb {
-    max-height: 200px;
+/* Título */
+.entry-title {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* Enlace del título sin colorines */
+.title-link {
+  text-decoration: none;
+  transition: opacity 0.2s ease-in-out;
+}
+.title-link:hover {
+  opacity: 0.8;
+}
+
+/* Fecha y metadatos bajo el título */
+.entry-meta {
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Ocultar etiquetas en la lista de posts */
+.entry-meta .tag-list {
+  display: none;
+}
+
+/* Resumen del post */
+.entry-summary p {
+  margin-top: 1rem;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+/* Leer más (eliminado visualmente) */
+.read-more-btn {
+  display: none;
+}
+
+
+/* Responsive */
+@media (max-width: 600px) {
+  .entry-title {
+    font-size: 1.75rem;
   }
-  .post-featured {
-    max-height: 300px;
+  .post-thumb {
+    max-height: 250px;
   }
 }
