@@ -13,8 +13,8 @@
       <span class="site-title">{{ .Site.Title }}</span>
     </a>
 
-    {{/* MENÚ DESKTOP */}}
     {{ if site.Menus.main }}
+      {{/* MENÚ DESKTOP */}}
       <nav class="main-nav">
         <ul>
           {{ range site.Menus.main }}
@@ -25,23 +25,24 @@
         </ul>
       </nav>
 
-      {{/* HAMBURGUESA MÓVIL 
-      <button class="btn btn-square menu-toggle-btn"
-              id="menu-toggle"
-              aria-controls="main-menu"
-              aria-expanded="false"
-              type="button"
-              title="{{ i18n "menu" }}">
+      {{/* BOTÓN HAMBURGUESA */}}
+      <button class="menu-toggle-btn" id="menu-toggle" aria-label="Abrir menú" aria-controls="menu" aria-expanded="false" type="button" title="{{ i18n "menu" }}">
         <svg class="icon-menu" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
           <path d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z"></path>
         </svg>
-        <svg class="icon-close hidden" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z"></path>
-        </svg>
-      </button>*/}}
+      </button>
+
+      {{/* MENÚ MÓVIL (INICIALMENTE OCULTO) */}}
+      <nav id="menu" class="hidden">
+        <ul>
+          {{ range site.Menus.main }}
+            <li>
+              <a href="{{ .URL }}">{{ .Name }}</a>
+            </li>
+          {{ end }}
+        </ul>
+      </nav>
     {{ end }}
     
   </div>
 </header>
-
-{{ partial "menu.html" . }}

@@ -1,9 +1,15 @@
-const el = document.getElementById("menu-toggle");
-if (el) {
-  el.addEventListener("click", (event) => {
+const btn = document.getElementById("menu-toggle");
+const menu = document.getElementById("menu");
+
+if (btn && menu) {
+  btn.addEventListener("click", (event) => {
     event.preventDefault();
-    const target = document.getElementById("menu");
-    el.ariaExpanded = target.classList.contains("hidden");
-    target.classList.toggle("hidden");
+    const isHidden = menu.classList.contains("hidden");
+
+    // Cambia aria-expanded al valor contrario
+    btn.setAttribute("aria-expanded", isHidden ? "true" : "false");
+
+    // Alterna la clase 'hidden' para mostrar/ocultar menú
+    menu.classList.toggle("hidden");
   });
 }
