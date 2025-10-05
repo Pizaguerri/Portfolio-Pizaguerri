@@ -1,15 +1,8 @@
-/* ==============================================================
-   1️⃣  VARIABLES COMPARTIDAS (las ya están en blog.css)
-   ============================================================== */
-
-
-/* ==============================================================
-   2️⃣  LOGO EN LA BARRA DE NAVEGACIÓN
-   ============================================================== */
+/* LOGO EN LA BARRA DE NAVEGACIÓN */
 .logo-link {
   display: flex;
   align-items: center;
-  gap: 0.75rem; /* espacio entre logo y texto */
+  gap: 0.75rem;
   text-decoration: none;
   flex-shrink: 0;
 }
@@ -28,9 +21,7 @@
 }
 
 
-/* ==============================================================
-   3️⃣  FOTO DE PERFIL (usada en la página *About*)
-   ============================================================== */
+/* FOTO DE PERFIL */
 .profile-pic {
   float: left;
   max-width: 200px;
@@ -46,9 +37,7 @@
 }
 
 
-/* ==============================================================
-   4️⃣  BLOG – LISTADO DE ENTRADAS
-   ============================================================== */
+/* LISTADO DE ENTRADAS */
 
 /* Modo claro */
 body {
@@ -210,9 +199,7 @@ html.dark .title-link {
   height: auto;
 }
 
-/* ==============================================================
-   5️⃣  SWIPER – ESTILOS DEL CARRUSEL DE PROYECTOS
-   ============================================================== */
+/* SWIPER – ESTILOS DEL CARRUSEL DE PROYECTOS */
 .project-thumb {
   height: 250px;
   object-fit: cover;
@@ -248,9 +235,7 @@ html.dark .project-slide {
 }
 
 
-/* ================================
-   HEADER – Estilos del menú superior
-==================================== */
+/* HEADER */
 
 /* Estilos generales del header */
 header {
@@ -434,4 +419,32 @@ html.dark header a:hover {
   #menu {
     display: none !important;
   }
+}
+
+/* MULTILANGUAGE */
+
+footer .language-selector {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+footer .language-selector a {
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+footer .language-selector a.active {
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+footer .language-selector a:hover {
+  background-color: rgba(0, 0, 0, 0.05);
 }

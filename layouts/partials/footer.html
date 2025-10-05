@@ -1,9 +1,20 @@
 <footer>
   {{ partialCached "social-icons.html" . }}
+  
   <section>
-    {{ .Site.Copyright }}
+    <div class="language-selector">
+      {{ range $.Site.Home.AllTranslations }}
+        <a href="{{ .Permalink }}" class="{{ if eq .Language.Lang $.Language.Lang }}active{{ end }}">
+          {{ upper .Language.Lang }}
+        </a>
+      {{ end }}
+    </div>
+  </section>
+  
+  <section>
+    © {{ now.Year }} {{ .Site.Copyright }}
     {{ range .Site.Menus.footer }}
-      <a {{ with .Params.rel -}}rel="{{ . }}"{{ end -}} href="{{ .URL }}">
+      <a {{ with .Params.rel }}rel="{{ . }}"{{ end }} href="{{ .URL }}">
         {{ .Name }}
       </a>
     {{ end }}

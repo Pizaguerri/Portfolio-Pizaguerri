@@ -1,6 +1,5 @@
 ---
-title: "Get to know me"
-date: 2025-08-29
+title: "Sobre jo"
 type: "page"
 layout: "single"
 ---

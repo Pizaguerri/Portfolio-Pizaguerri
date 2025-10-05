@@ -1,12 +1,67 @@
-# ------------------------------------------------------------
-# 1️⃣  CONFIGURACIÓN BÁSICA DE HUGO
-# ------------------------------------------------------------
-baseURL                 = "https://www.pabloizaguerri.com"
+# CONFIGURACIÓN BÁSICA DE HUGO
+baseURL                 = "https://www.pabloizaguerri.org"
 title                   = "Pablo Izaguerri"
-languageCode            = "es"
 defaultContentLanguage  = "es"
 
+[languages.ca]
+  languageCode = "ca"
+  languageName = "Català"
+  weight = 1
+  copyright = "Pablo Izaguerri. Tots els drets reservats."
+  [languages.ca.params]
+    description = "Antropologia visual i fotografia documental"
+  [[languages.ca.menu.main]]
+    name = "Projectes"
+    pageRef = "/proyectos"
+    weight = 1
+  [[languages.ca.menu.main]]
+    name = "Blog"
+    url = "/blog/"
+    weight = 2
+  [[languages.ca.menu.main]]
+    name = "Sobre jo"
+    pageRef = "/about"
+    weight = 3
 
+[languages.es]
+  languageCode = "es"
+  languageName = "Español"
+  weight = 2
+  copyright = "Pablo Izaguerri. Todos los derechos reservados."
+  [languages.es.params]
+    description = "Antropología visual y fotografía documental"
+  [[languages.es.menu.main]]
+    name = "Proyectos"
+    pageRef = "/proyectos"
+    weight = 1
+  [[languages.es.menu.main]]
+    name = "Blog"
+    pageRef = "/blog"
+    weight = 2
+  [[languages.es.menu.main]]
+    name = "Sobre mí"
+    pageRef = "/about"
+    weight = 3
+
+[languages.en]
+  languageCode = "en"
+  languageName = "English"
+  weight = 3
+  copyright = "Pablo Izaguerri. All rights reserved."
+  [languages.en.params]
+    description = "Visual anthropology and documentary photography"
+  [[languages.en.menu.main]]
+    name = "Projects"
+    pageRef = "/proyectos"
+    weight = 1
+  [[languages.en.menu.main]]
+    name = "Blog"
+    url = "/blog/"
+    weight = 2
+  [[languages.en.menu.main]]
+    name = "About"
+    pageRef = "/about"
+    weight = 3
 
 [build]
   publishResources = false
@@ -15,15 +70,10 @@ defaultContentLanguage  = "es"
   quality = 75
   resampleFilter = "lanczos"
 
-
-# ------------------------------------------------------------
-# 2️⃣  MARKUP (Goldmark – motor de Markdown)
-# ------------------------------------------------------------
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
-      unsafe = true                     # permite HTML crudo en los .md
-
+      unsafe = true
     [markup.goldmark.extensions]
       definitionList = true
       footnote       = true
@@ -34,51 +84,22 @@ defaultContentLanguage  = "es"
       typographer    = true
       attribute      = true
 
-
-# ------------------------------------------------------------
-# 3️⃣  PARÁMETROS DEL SITIO
-# ------------------------------------------------------------
 [params]
-  description = "Antropología visual y fotografía documental"
-  logo        = "/images/profilepic.png"
-
-  # ---- Autor ----
+  logo = "/images/profilepic.png"
+  
   [params.author]
     name  = "Pablo Izaguerri"
-    email = "pablo@example.com"
-
-  # ---- Assets personalizados (CSS, JS, etc.) ----
+    email = "infopizaguerri@pm.me"
+  
   [params.assets]
-    customCSS = ["css/custom.css"]   # tu hoja custom.css
-
-  # ---- Configuración de la galería (tema Gallery) ----
+    customCSS = ["css/custom.css"]
+  
   [params.gallery]
-    lightbox_download = false       # desactiva el botón de descarga en Lightbox
-
-  # ---- Redes sociales / contactos ----
+    lightbox_download = false
+  
   [params.socialIcons]
-    instagram = "https://www.instagram.com/"
-    github    = "https://github.com/nicokaiser/hugo-theme-gallery/"
-    youtube   = "https://www.youtube.com/"
-    email     = "mailto:user@example.com"
-
-
-# ------------------------------------------------------------
-# 4️⃣  MENÚ PRINCIPAL
-# ------------------------------------------------------------
-[menu]
-
-  [[menu.main]]
-    name   = "Proyectos"
-    url    = "/proyectos/"
-    weight = 1
-
-  [[menu.main]]
-    name   = "Blog"
-    url    = "/blog/"
-    weight = 2
-
-  [[menu.main]]
-    name   = "Sobre mí"
-    url    = "/about/"
-    weight = 3
+    email     = "mailto:infopizaguerri@pm.me"
+    instagram = "https://www.instagram.com/pizaguerri/"
+    mastodon  = "https://mastodon.social/@Pizzaguerri"
+    youtube   = "http://www.youtube.com/@Pizzaguerri"
+    github    = "https://github.com/Pizaguerri"

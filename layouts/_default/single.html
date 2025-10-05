@@ -1,10 +1,15 @@
 {{ define "main" }}
-  {{ partial "title.html" . }}
+ {{ partial "title.html" . }}
+ {{ if .Params.gallery_position | eq "top" | default true }}
   {{ partial "gallery.html" . }}
-  {{ partial "related.html" . }}
-  {{ with .Content }}
-    <section class="page-content">
-      {{ . }}
-    </section>
-  {{ end }}
+ {{ end }}
+ {{ with .Content }}
+<section class="page-content">
+ {{ . }}
+</section>
+ {{ end }}
+ {{ if .Params.gallery_position | eq "bottom" }}
+  {{ partial "gallery.html" . }}
+ {{ end }}
+ {{ partial "related.html" . }}
 {{ end }}

@@ -1,0 +1,23 @@
+menu: Menú
+home: Inici
+pageNotFound: Pàgina no trobada
+toHomepage: Anar a l'inici
+closeTitle: Tancar
+zoomTitle: Ampliar
+arrowPrevTitle: Anterior
+arrowNextTitle: Següent
+errorMsg: La foto no es pot carregar
+downloadTitle: Descarregar
+relatedAlbums: Àlbums relacionats
+photoCount:
+  one: 1 foto
+  other: "{{ . }} fotos"
+albumCount:
+  one: "{{ .photoCount }} en {{ .count }} àlbum"
+  other: "{{ .photoCount }} en {{ .count }} àlbums"
+noPosts: "Encara no hi ha entrades al diari."
+previous: "Anterior"
+next: "Següent"
+previousPage: "Pàgina anterior"
+nextPage: "Pàgina següent"
+featuredImageAlt: "portada"

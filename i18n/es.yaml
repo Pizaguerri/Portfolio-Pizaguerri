@@ -15,3 +15,9 @@ photoCount:
 albumCount:
   one: "{{ .photoCount }} en {{ .count }} álbum"
   other: "{{ .photoCount }} en {{ .count }} álbumes"
+noPosts: "Aún no hay entradas en el diario."
+previous: "Anterior"
+next: "Siguiente"
+previousPage: "Página anterior"
+nextPage: "Página siguiente"
+featuredImageAlt: "portada"

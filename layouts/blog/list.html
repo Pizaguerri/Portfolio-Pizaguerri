@@ -1,38 +1,28 @@
 {{ define "main" }}
-
 <section class="blog-list">
-
   {{ partial "title.html" . }}
-
+  
   {{ if not .Pages }}
-    <p class="no-posts">Aún no hay entradas en el diario.</p>
+    <p class="no-posts">{{ i18n "noPosts" }}</p>
   {{ else }}
-
     {{ $posts := .Pages.ByDate.Reverse }}
-
     {{ range $posts }}
       {{ $featured := .Resources.GetMatch "*featured*" }}
-
       <article class="entry-card">
-
         {{ with $featured }}
-          <img src="{{ .RelPermalink }}" alt="{{ $.Title }} portada" class="post-thumb">
+          <img src="{{ .RelPermalink }}" alt="{{ $.Title }} {{ i18n "featuredImageAlt" }}" class="post-thumb">
         {{ end }}
-
         <div class="entry-content">
           <header class="entry-header">
             <h2 class="entry-title">
               <a href="{{ .RelPermalink }}" class="title-link">{{ .Title }}</a>
             </h2>
-
             <div class="entry-meta">
               <time datetime="{{ .Date.Format "2006-01-02" }}" class="entry-date">
                 {{ .Date.Format "02 Jan 2006" }}
               </time>
-              {{/* Etiquetas ocultas en la lista, visibles en single.html */}}
             </div>
           </header>
-
           <div class="entry-summary">
             {{ with .Params.summary }}
               <p>{{ . }}</p>
@@ -41,29 +31,24 @@
             {{ end }}
           </div>
         </div>
-
       </article>
-
       <hr class="entry-separator">
     {{ end }}
-
+    
     {{ if .Paginator }}
-      <nav class="pagination" role="navigation" aria-label="Paginación de entradas">
+      <nav class="pagination" role="navigation" aria-label="{{ i18n "previousPage" }}">
         {{ if .Paginator.HasPrev }}
-          <a href="{{ .Paginator.Prev.URL }}" class="prev-page" aria-label="Página anterior">
-            ← Anterior
+          <a href="{{ .Paginator.Prev.URL }}" class="prev-page" aria-label="{{ i18n "previousPage" }}">
+            ← {{ i18n "previous" }}
           </a>
         {{ end }}
         {{ if .Paginator.HasNext }}
-          <a href="{{ .Paginator.Next.URL }}" class="next-page" aria-label="Página siguiente">
-            Siguiente →
+          <a href="{{ .Paginator.Next.URL }}" class="next-page" aria-label="{{ i18n "nextPage" }}">
+            {{ i18n "next" }} →
           </a>
         {{ end }}
       </nav>
     {{ end }}
-
   {{ end }}
-
 </section>
-
 {{ end }}

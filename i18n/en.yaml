@@ -15,3 +15,9 @@ photoCount:
 albumCount:
   one: "{{ .photoCount }} in {{ .count }} album"
   other: "{{ .photoCount }} in {{ .count }} albums"
+noPosts: "No journal entries yet."
+previous: "Previous"
+next: "Next"
+previousPage: "Previous page"
+nextPage: "Next page"
+featuredImageAlt: "cover"
