@@ -2,6 +2,7 @@
 baseURL                 = "https://www.pabloizaguerri.org"
 title                   = "Pablo Izaguerri"
 defaultContentLanguage  = "es"
+defaultContentLanguageInSubdir = true
 
 [languages.ca]
   languageCode = "ca"
