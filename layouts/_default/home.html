@@ -1,21 +1,153 @@
 {{/* layouts/_default/home.html */}}
 {{ define "main" }}
-
   {{ partial "title.html" . }}
-
-  {{/* Mostrar solo los álbumes/taxonomías marcados como featured */}}
+  
   {{ $featured := where .Site.RegularPages "Params.featured" true }}
-
+  
   {{ if $featured }}
-    <section class="featured-content container mx-auto px-4 py-12 max-w-4xl">
-      {{ range $featured }}
-        {{ partial "album-card.html" . }}
-      {{ end }}
+    <section class="home-slider">
+      <div class="slider-container">
+        {{ range $index, $project := $featured }}
+          {{ $cover := $project.Resources.GetMatch "*feature*" }}
+          {{ with $cover }}
+            {{ $image := .Fill "1920x1080 center" }}
+            <a href="{{ $project.RelPermalink }}" class="slide {{ if eq $index 0 }}active{{ end }}" data-index="{{ $index }}">
+              <div class="slide-image" style="background-image: url('{{ $image.RelPermalink }}');"></div>
+              <div class="slide-overlay"></div>
+              <div class="slide-content">
+                <h2 class="slide-title">{{ $project.Title }}</h2>
+                {{ with $project.Params.description }}
+                  <p class="slide-description">{{ . }}</p>
+                {{ end }}
+              </div>
+            </a>
+          {{ end }}
+        {{ end }}
+      </div>
+      
+      <!-- Navegación -->
+      <button class="slider-nav prev" aria-label="Anterior">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+      <button class="slider-nav next" aria-label="Siguiente">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+      
+      <!-- Indicadores -->
+      <div class="slider-indicators">
+        {{ range $index, $project := $featured }}
+          <button class="indicator {{ if eq $index 0 }}active{{ end }}" data-index="{{ $index }}" aria-label="Ir a slide {{ add $index 1 }}"></button>
+        {{ end }}
+      </div>
     </section>
+    
+    <script>
+      (function() {
+        const slides = document.querySelectorAll('.slide');
+        const indicators = document.querySelectorAll('.indicator');
+        const prevBtn = document.querySelector('.slider-nav.prev');
+        const nextBtn = document.querySelector('.slider-nav.next');
+        let currentIndex = 0;
+        let autoplayInterval;
+        
+        function goToSlide(index) {
+          slides[currentIndex].classList.remove('active');
+          indicators[currentIndex].classList.remove('active');
+          
+          currentIndex = index;
+          if (currentIndex < 0) currentIndex = slides.length - 1;
+          if (currentIndex >= slides.length) currentIndex = 0;
+          
+          slides[currentIndex].classList.add('active');
+          indicators[currentIndex].classList.add('active');
+          
+          resetAutoplay();
+        }
+        
+        function nextSlide() {
+          goToSlide(currentIndex + 1);
+        }
+        
+        function prevSlide() {
+          goToSlide(currentIndex - 1);
+        }
+        
+        function startAutoplay() {
+          autoplayInterval = setInterval(nextSlide, 5000);
+        }
+        
+        function resetAutoplay() {
+          clearInterval(autoplayInterval);
+          startAutoplay();
+        }
+        
+        prevBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          prevSlide();
+        });
+        
+        nextBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          nextSlide();
+        });
+        
+        indicators.forEach((indicator, index) => {
+          indicator.addEventListener('click', function(e) {
+            e.preventDefault();
+            goToSlide(index);
+          });
+        });
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'ArrowLeft') prevSlide();
+          if (e.key === 'ArrowRight') nextSlide();
+        });
+        
+        // Touch swipe
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        document.querySelector('.slider-container').addEventListener('touchstart', (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        document.querySelector('.slider-container').addEventListener('touchend', (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          if (touchStartX - touchEndX > 50) nextSlide();
+          if (touchEndX - touchStartX > 50) prevSlide();
+        });
+        
+        startAutoplay();
+      })();
+    </script>
   {{ else }}
     <p class="text-center text-gray-600 dark:text-gray-400">
       No hay contenido destacado.
     </p>
   {{ end }}
-
+  
+  {{/* Último post del blog */}}
+  {{ $blogSection := .Site.GetPage "/blog" }}
+  {{ with $blogSection }}
+    {{ $latestPost := index (.Pages.ByDate.Reverse) 0 }}
+    {{ with $latestPost }}
+      <section class="latest-post-section">
+        <a href="{{ .RelPermalink }}" class="latest-post-wrapper">
+          {{ $featured := .Resources.GetMatch "*featured*" }}
+          {{ with $featured }}
+            <div class="latest-post-image-container">
+              <img src="{{ .RelPermalink }}" alt="{{ $latestPost.Title }}" class="latest-post-img">
+              <div class="latest-post-overlay"></div>
+              <h2 class="latest-post-title-overlay">{{ $latestPost.Title }}</h2>
+            </div>
+          {{ end }}
+        </a>
+      </section>
+    {{ end }}
+  {{ end }}
 {{ end }}
