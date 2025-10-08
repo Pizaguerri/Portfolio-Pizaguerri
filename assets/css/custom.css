@@ -267,6 +267,10 @@ html.dark header a:hover {
   opacity: 0.8;
 }
 
+.site-header {
+  margin-bottom: 1rem;
+}
+
 .header-container {
   max-width: 1200px;
   margin: 0 auto;

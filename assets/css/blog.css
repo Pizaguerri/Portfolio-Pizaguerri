@@ -4,7 +4,26 @@
 .blog-list {
   max-width: 720px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 4rem 1rem 2rem 1rem;
+}
+
+/* Título generado por partial/title.html */
+hgroup {
+  margin-bottom: 3rem;
+  padding-top: 1rem;
+}
+
+hgroup h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+hgroup p {
+  font-size: 1.1rem;
+  color: #666;
+  margin: 0;
 }
 
 /* Entrada individual */
