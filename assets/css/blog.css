@@ -4,13 +4,13 @@
 .blog-list {
   max-width: 720px;
   margin: 0 auto;
-  padding: 4rem 1rem 2rem 1rem;
+  padding: 8rem 1rem 2rem 1rem; /* Aumentado de 4rem a 8rem */
 }
 
 /* Título generado por partial/title.html */
 hgroup {
   margin-bottom: 3rem;
-  padding-top: 1rem;
+  padding-top: 4rem;
 }
 
 hgroup h1 {
