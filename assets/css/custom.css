@@ -467,7 +467,7 @@ html.dark header a:hover {
   right: 0;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
-  background-color: rgb(255, 255, 255, 0.99);  
+  background-color: rgba(255, 255, 255, 0.99);  
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 8px rgba(0,0,0,0);
   z-index: 1001;
@@ -514,7 +514,7 @@ html.dark header a:hover {
 
 /* Modo oscuro */
 html.dark #menu {
-  background-color: rgb(20, 20, 20, 0.99);
+  background-color: rgba(20, 20, 20, 0.99);
   box-shadow: 0 4px 8px rgba(0,0,0,0);
 }
 
