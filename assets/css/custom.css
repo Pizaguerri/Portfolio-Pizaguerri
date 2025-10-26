@@ -20,6 +20,16 @@
   }
 }
 
+/* ========== TÍTULO PRINCIPAL DE LA HOME ========== */
+
+/* Título principal */
+hgroup h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+  line-height: 1;
+}
 
 /* ========== PÁGINA SOBRE MÍ ========== */
 
@@ -450,6 +460,7 @@ html.dark header a:hover {
   font-size: 1.5rem;
   margin-left: auto;
   z-index: 1100;
+  position: relative;
 }
 
 /* Ícono del botón (SVG) */
@@ -475,6 +486,11 @@ html.dark header a:hover {
   display: none;
   flex-direction: column;
   gap: 0;
+}
+
+/* Transformar el icono cuando está abierto (opcional - convertir en X) */
+.menu-toggle-btn.menu-open svg {
+  transform: rotate(90deg);
 }
 
 #menu ul {
@@ -581,224 +597,16 @@ footer .language-selector a:hover {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-/* HOME SLIDERS */
-
-/* Home Slider Styles */
-.home-slider {
-  position: relative;
-  width: 100vw;
-  height: 70vh;
-  overflow: hidden;
-  margin-left: calc(-50vw + 50%);
-}
-
-.slider-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-  pointer-events: none;
-}
-
-.slide.active {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.slide-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.slide-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.3) 0%,
-    rgba(0, 0, 0, 0.5) 100%
-  );
-}
-
-.slide-content {
-  display: outside;
-  position: absolute;
-  bottom: 8%;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  color: white;
-  z-index: 10;
-  max-width: 800px;
-  padding: 0 2rem;
-}
-
-.slide-title {
-  display: outside;
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 0.75rem;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-}
-
-.slide-description {
-  font-size: 1.1rem;
-  margin-bottom: 1.5rem;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
-  line-height: 1.6;
-}
-
-.slide-cta {
-  display: inline-block;
-  padding: 0.875rem 2rem;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  color: white;
-  text-decoration: none;
-  border: 2px solid rgba(255, 255, 255, 0.8);
-  border-radius: 4px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  transition: all 0.3s ease;
-}
-
-.slide-cta:hover {
-  background: rgba(255, 255, 255, 0.25);
-  border-color: white;
-  transform: translateY(-2px);
-}
-
-/* Navegación */
-.slider-nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: white;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 20;
-  transition: all 0.3s ease;
-}
-
-.slider-nav:hover {
-  background: rgba(255, 255, 255, 0.3);
-  transform: translateY(-50%) scale(1.1);
-}
-
-.slider-nav.prev {
-  left: 2rem;
-}
-
-.slider-nav.next {
-  right: 2rem;
-}
-
-/* Indicadores */
-.slider-indicators {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 0.75rem;
-  z-index: 20;
-}
-
-.indicator {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.4);
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.indicator:hover {
-  background: rgba(255, 255, 255, 0.6);
-  transform: scale(1.2);
-}
-
-.indicator.active {
-  background: white;
-  width: 32px;
-  border-radius: 6px;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .home-slider {
-    height: 60vh;
-  }
-  
-  .slide-title {
-    font-size: 1.75rem;
-  }
-  
-  .slide-description {
-    font-size: 0.95rem;
-  }
-  
-  .slide-cta {
-    padding: 0.625rem 1.25rem;
-    font-size: 0.875rem;
-  }
-  
-  .slider-nav {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .slider-nav.prev {
-    left: 1rem;
-  }
-  
-  .slider-nav.next {
-    right: 1rem;
-  }
-  
-  .slide-content {
-    bottom: 6%;
-    padding: 0 1rem;
-  }
-}
-
-/* Latest Post Section */
+/* BLOG Latest Post Section */
 .latest-post-section {
   width: 100%;
   display: flex;
   justify-content: center;
-  padding: 4rem 0;
+  padding: 2rem 0 4rem 0;
 }
 
 .latest-post-wrapper {
-  width: 70%;
+  width: 80%;
   display: block;
   text-decoration: none;
   transition: transform 0.3s ease;
@@ -856,6 +664,7 @@ footer .language-selector a:hover {
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
   line-height: 1.2;
   z-index: 2;
+  transition: opacity 0.3s ease;  /* Solo opacidad */
 }
 
 /* Responsive Latest Post */
@@ -907,4 +716,190 @@ header {
   left: 0;
   right: 0;
   z-index: 1000;
+}
+
+/* ========== SLIDER DE PROYECTOS - CON IMG REAL ========== */
+
+/* Contenedor principal del slider */
+.home-slider {
+  position: relative;
+  width: 80%;
+  max-width: 100%;
+  margin: 0 auto 2rem auto;
+  overflow: visible;
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  min-height: 400px;
+}
+
+/* Cada slide */
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease-in-out, visibility 0.8s;
+  pointer-events: none;
+  text-decoration: none;
+  display: block;
+}
+
+.slide.active {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  animation: fadeInSlide 0.8s ease-in-out;
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Wrapper de la imagen */
+.slide-image-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transition: transform 0.5s ease;
+}
+
+.slide:hover .slide-image-wrapper {
+  transform: scale(1.02);
+}
+
+/* Imagen real */
+.slide-image-real {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+/* Contenido del slide - DEBAJO DE LA IMAGEN */
+.slide-content {
+  position: relative;
+  width: 100%;
+  padding: 1.5rem 0 0 0;
+  text-align: center;
+}
+
+.slide-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.3;
+  color: inherit;
+  text-shadow: none;
+  transition: opacity 0.3s ease;
+}
+
+html.dark .slide-title {
+  color: #eee;
+}
+
+.slide:hover .slide-title {
+  opacity: 0.7;
+}
+
+/* Ocultar overlay, descripción y botón CTA */
+.slide-overlay,
+.slide-description,
+.slide-cta {
+  display: none;
+}
+
+/* BOTONES DE NAVEGACIÓN - ELIMINADOS */
+.slider-nav {
+  display: none !important;
+}
+
+/* Indicadores */
+.slider-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.3);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator:hover {
+  background: rgba(0, 0, 0, 0.5);
+  transform: scale(1.2);
+}
+
+.indicator.active {
+  background: rgba(0, 0, 0, 0.8);
+  width: 28px;
+  border-radius: 5px;
+}
+
+/* Modo oscuro */
+html.dark .indicator {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+html.dark .indicator:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+html.dark .indicator.active {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .home-slider {
+    width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-slider {
+    width: 90%;
+    margin: 3rem auto;
+  }
+  
+  .slide-title {
+    font-size: 1.5rem;
+    padding-top: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-slider {
+    width: 95%;
+  }
+  
+  .slide-title {
+    font-size: 1.25rem;
+    padding-top: 0.75rem;
+  }
+  
+  .slider-container {
+    min-height: 250px;
+  }
 }

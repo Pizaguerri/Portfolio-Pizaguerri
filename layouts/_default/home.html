@@ -10,10 +10,10 @@
         {{ range $index, $project := $featured }}
           {{ $cover := $project.Resources.GetMatch "*feature*" }}
           {{ with $cover }}
-            {{ $image := .Fill "1920x1080 center" }}
             <a href="{{ $project.RelPermalink }}" class="slide {{ if eq $index 0 }}active{{ end }}" data-index="{{ $index }}">
-              <div class="slide-image" style="background-image: url('{{ $image.RelPermalink }}');"></div>
-              <div class="slide-overlay"></div>
+              <div class="slide-image-wrapper">
+                <img src="{{ .RelPermalink }}" alt="{{ $project.Title }}" class="slide-image-real">
+              </div>
               <div class="slide-content">
                 <h2 class="slide-title">{{ $project.Title }}</h2>
                 {{ with $project.Params.description }}

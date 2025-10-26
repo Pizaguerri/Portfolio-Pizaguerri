@@ -8,15 +8,13 @@
     {{ $posts := .Pages.ByDate.Reverse }}
     {{ range $posts }}
       {{ $featured := .Resources.GetMatch "*featured*" }}
-      <article class="entry-card">
+      <a href="{{ .RelPermalink }}" class="entry-card">
         {{ with $featured }}
           <img src="{{ .RelPermalink }}" alt="{{ $.Title }} {{ i18n "featuredImageAlt" }}" class="post-thumb">
         {{ end }}
         <div class="entry-content">
           <header class="entry-header">
-            <h2 class="entry-title">
-              <a href="{{ .RelPermalink }}" class="title-link">{{ .Title }}</a>
-            </h2>
+            <h2 class="entry-title">{{ .Title }}</h2>
             <div class="entry-meta">
               <time datetime="{{ .Date.Format "2006-01-02" }}" class="entry-date">
                 {{ .Date.Format "02 Jan 2006" }}
@@ -31,7 +29,7 @@
             {{ end }}
           </div>
         </div>
-      </article>
+      </a>
       <hr class="entry-separator">
     {{ end }}
     

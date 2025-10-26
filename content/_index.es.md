@@ -1,5 +1,5 @@
 ---
-title: "Antropología Visual - Fotografía Documental"
+title: "Antropología Visual"
 type: "gallery"
 layout: "gallery"
 ---
