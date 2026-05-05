@@ -68,8 +68,9 @@ defaultContentLanguageInSubdir = true
   publishResources = false
 
 [imaging]
-  quality = 75
+  quality = 82
   resampleFilter = "lanczos"
+  formats = ["webp", "jpg"]
 
 [markup]
   [markup.goldmark]
