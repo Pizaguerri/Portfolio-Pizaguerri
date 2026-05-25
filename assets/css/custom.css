@@ -80,7 +80,7 @@ html.dark .page-content strong {
 
 /* Primera letra grande (opcional - descomenta si te gusta) */
 
-.page-content p:first-of-type::first-letter {
+/*.page-content p:first-of-type::first-letter {
   font-size: 3.5rem;
   font-weight: 700;
   line-height: 1;
