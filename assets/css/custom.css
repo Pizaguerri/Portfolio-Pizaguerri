@@ -240,7 +240,7 @@ html.dark .title-link {
 
 .title-link:hover {
   text-decoration: underline;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .entry-meta {
@@ -341,7 +341,7 @@ html.dark .project-slide {
 
 .swiper-pagination-bullet {
   background: var(--color-muted, #666);
-  opacity: 0.7;
+  opacity: 0.9;
 }
 
 .swiper-pagination-bullet-active {
@@ -386,7 +386,7 @@ header a,
 }
 
 html.dark header a:hover {
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .site-header {
@@ -639,12 +639,14 @@ header {
 
 .home-slider {
   width: 100%;
-  margin: 0 0 4rem 0;
+  margin: 0 0 2rem 0;
+  overflow: hidden;
 }
 
 .slider-container {
   position: relative;
   width: 100%;
+  overflow: hidden;
 }
 
 .slide {
@@ -655,12 +657,30 @@ header {
 
 .slide.active {
   display: block;
-  animation: fadeIn 0.8s ease-in-out;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+.slide.slide-enter {
+  display: block;
+  animation: slideInRight 0.6s ease-in-out forwards;
+}
+
+.slide.slide-exit {
+  display: block;
+  animation: slideOutLeft 0.6s ease-in-out forwards;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes slideOutLeft {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
 }
 
 .slide-image-wrapper {
@@ -672,11 +692,6 @@ header {
   width: 100%;
   height: auto;
   display: block;
-  transition: opacity 0.3s ease;
-}
-
-.slide:hover .slide-image-real {
-  opacity: 0.85;
 }
 
 .slide-content {
@@ -686,10 +701,46 @@ header {
 
 .slide-title {
   font-size: 0.8rem;
-  font-weight: 400;
+  font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   margin: 0;
+  color: #111;
+}
+
+html.dark .slide-title {
+  color: #eee;
+}
+
+/* ========== HOVER CONSISTENTE ========== */
+
+.slide-image-wrapper:hover .slide-image-real,
+.latest-post-image-container:hover .latest-post-img,
+.card figure:hover > img {
+  filter: grayscale(100%);
+  transition: filter 0.8s ease;
+}
+
+.slide-image-real,
+.latest-post-img,
+.card figure > img {
+  filter: grayscale(0%);
+  transition: filter 0.8s ease;
+}
+
+/* ========== TÍTULOS EN NEGRITA ========== */
+
+.slide-title,
+.latest-post-title,
+.card > div > h2 {
+  font-weight: 600;
+  color: #111;
+}
+
+html.dark .slide-title,
+html.dark .latest-post-title,
+html.dark .card > div > h2 {
+  color: #eee;
 }
 
 /* ========== ÚLTIMO POST HOME ========== */
@@ -719,20 +770,15 @@ header {
   border-radius: 0;
 }
 
-.latest-post-wrapper:hover .latest-post-img {
-  opacity: 0.85;
-}
-
 .latest-post-title {
   font-size: 0.8rem;
-  font-weight: 400;
+  font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   margin: 0.75rem 0 0 0;
   text-align: center;
   display: block;
 }
-
 @media (max-width: 768px) {
   .latest-post-section {
     padding: 0 0 1rem 0;
@@ -780,7 +826,7 @@ section.galleries {
 }
 
 .card:hover figure > img {
-  opacity: 0.85;
+  opacity: 0.9;
 }
 
 .card > div > h2 {
