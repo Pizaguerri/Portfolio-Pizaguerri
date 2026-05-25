@@ -139,13 +139,23 @@ html.dark .page-content strong {
   .page-content {
     padding: 2rem 1rem;
   }
+}
 
-  .profile-pic {
-    float: none !important;
-    display: block !important;
-    margin: 0 auto 2rem auto !important;
-    width: 150px !important;
-  }
+.about-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.profile-pic {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  float: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 /* LISTADO DE ENTRADAS */
@@ -902,4 +912,77 @@ html.dark .indicator.active {
   .slider-container {
     min-height: 250px;
   }
+}
+
+/* ========== PROYECTOS - ESTILO MINIMALISTA ========== */
+
+section.galleries {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 3rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+@media (max-width: 640px) {
+  section.galleries {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+}
+
+.card > figure,
+.card > img,
+.card figure > img {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.card > figure {
+  border-radius: 0 !important;
+}
+
+.card figure > img {
+  border-radius: 0 !important;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover figure > img {
+  opacity: 0.85;
+}
+
+.card > div > h2 {
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-top: 0.75rem;
+  color: inherit;
+}
+
+.card > div {
+  padding: 0.5rem 0 0 0;
+  gap: 0;
+}
+
+section.galleries {
+  padding: 0 4rem;
+}
+
+.card > figure {
+  overflow: hidden;
+  width: 100%;
+}
+
+.card figure > img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Ítem activo en el menú */
+.main-nav a.active,
+#menu a.active {
+  font-weight: 700;
 }

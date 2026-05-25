@@ -4,7 +4,9 @@ type: "page"
 layout: "single"
 ---
 
-<img src="/images/profilepic.png" class="profile-pic" alt="Foto de Pablo Izaguerri">
+<div class="about-header">
+  <img src="/images/profilepic.png" class="profile-pic" alt="Foto de Pablo Izaguerri">
+</div>
 
 Pablo Izaguerri, nacido en Mallorca en 1995. Soy narrador visual y antropólogo basado en Barcelona.
 
