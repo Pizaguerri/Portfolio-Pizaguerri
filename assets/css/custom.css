@@ -607,109 +607,6 @@ footer .language-selector a:hover {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-/* BLOG Latest Post Section */
-.latest-post-section {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding: 2rem 0 4rem 0;
-}
-
-.latest-post-wrapper {
-  width: 80%;
-  display: block;
-  text-decoration: none;
-  transition: transform 0.3s ease;
-}
-
-.latest-post-wrapper:hover {
-  transform: translateY(-8px);
-}
-
-.latest-post-image-container {
-  position: relative;
-  width: 100%;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-}
-
-.latest-post-img {
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: transform 0.5s ease;
-}
-
-.latest-post-wrapper:hover .latest-post-img {
-  transform: scale(1.05);
-}
-
-.latest-post-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.3) 50%,
-    rgba(0, 0, 0, 0.7) 100%
-  );
-  pointer-events: none;
-  z-index: 1;
-}
-
-.latest-post-title-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 2rem;
-  margin: 0;
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: white;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
-  line-height: 1.2;
-  z-index: 2;
-  transition: opacity 0.3s ease;  /* Solo opacidad */
-}
-
-/* Responsive Latest Post */
-@media (max-width: 1200px) {
-  .latest-post-wrapper {
-    width: 80%;
-  }
-}
-
-@media (max-width: 768px) {
-  .latest-post-section {
-    padding: 3rem 0;
-  }
-  
-  .latest-post-wrapper {
-    width: 90%;
-  }
-  
-  .latest-post-title-overlay {
-    font-size: 1.75rem;
-    padding: 1.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .latest-post-wrapper {
-    width: 95%;
-  }
-  
-  .latest-post-title-overlay {
-    font-size: 1.5rem;
-    padding: 1rem;
-  }
-}
-
 /* Prevenir superposición con header sticky */
 .blog-list,
 .entry-card,
@@ -728,71 +625,39 @@ header {
   z-index: 1000;
 }
 
-/* ========== SLIDER DE PROYECTOS - CON IMG REAL ========== */
+/* ========== HOME SLIDER ========== */
 
-/* Contenedor principal del slider */
 .home-slider {
-  position: relative;
-  width: 80%;
-  max-width: 100%;
-  margin: 0 auto 2rem auto;
-  overflow: visible;
+  width: 100%;
+  margin: 0 0 4rem 0;
 }
 
 .slider-container {
   position: relative;
   width: 100%;
-  min-height: 400px;
 }
 
-/* Cada slide */
 .slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.8s ease-in-out, visibility 0.8s;
-  pointer-events: none;
+  display: none;
   text-decoration: none;
-  display: block;
+  color: inherit;
 }
 
 .slide.active {
-  position: relative;
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  animation: fadeInSlide 0.8s ease-in-out;
+  display: block;
+  animation: fadeIn 0.8s ease-in-out;
 }
 
-@keyframes fadeInSlide {
-  from {
-    opacity: 0;
-    transform: scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-/* Wrapper de la imagen */
 .slide-image-wrapper {
-  position: relative;
   width: 100%;
-  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  transition: transform 0.5s ease;
 }
 
-.slide:hover .slide-image-wrapper {
-  transform: scale(1.02);
-}
-
-/* Imagen real */
 .slide-image-real {
   width: 100%;
   height: auto;
@@ -800,118 +665,75 @@ header {
   transition: opacity 0.3s ease;
 }
 
-/* Contenido del slide - DEBAJO DE LA IMAGEN */
+.slide:hover .slide-image-real {
+  opacity: 0.85;
+}
+
 .slide-content {
-  position: relative;
-  width: 100%;
-  padding: 1.5rem 0 0 0;
+  padding: 0.75rem 0 0 0;
   text-align: center;
 }
 
 .slide-title {
-  font-size: 2rem;
-  font-weight: 600;
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
   margin: 0;
-  line-height: 1.3;
+}
+
+/* ========== ÚLTIMO POST HOME ========== */
+
+.latest-post-section {
+  width: 100%;
+  padding: 0 0 4rem 0;
+}
+
+.latest-post-wrapper {
+  display: block;
+  text-decoration: none;
   color: inherit;
-  text-shadow: none;
-  transition: opacity 0.3s ease;
 }
 
-html.dark .slide-title {
-  color: #eee;
+.latest-post-image-container {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 0;
+  box-shadow: none;
 }
 
-.slide:hover .slide-title {
-  opacity: 0.7;
+.latest-post-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0;
 }
 
-/* Ocultar overlay, descripción y botón CTA */
-.slide-overlay,
-.slide-description,
-.slide-cta {
-  display: none;
+.latest-post-wrapper:hover .latest-post-img {
+  opacity: 0.85;
 }
 
-/* BOTONES DE NAVEGACIÓN - ELIMINADOS */
-.slider-nav {
-  display: none !important;
-}
-
-/* Indicadores */
-.slider-indicators {
-  display: flex;
-  justify-content: center;
-  gap: 0.75rem;
-  margin-top: 1.5rem;
-}
-
-.indicator {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.3);
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.indicator:hover {
-  background: rgba(0, 0, 0, 0.5);
-  transform: scale(1.2);
-}
-
-.indicator.active {
-  background: rgba(0, 0, 0, 0.8);
-  width: 28px;
-  border-radius: 5px;
-}
-
-/* Modo oscuro */
-html.dark .indicator {
-  background: rgba(255, 255, 255, 0.3);
-}
-
-html.dark .indicator:hover {
-  background: rgba(255, 255, 255, 0.5);
-}
-
-html.dark .indicator.active {
-  background: rgba(255, 255, 255, 0.8);
-}
-
-/* Responsive */
-@media (max-width: 1200px) {
-  .home-slider {
-    width: 80%;
-  }
+.latest-post-title {
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin: 0.75rem 0 0 0;
+  text-align: center;
+  display: block;
 }
 
 @media (max-width: 768px) {
-  .home-slider {
-    width: 90%;
-    margin: 3rem auto;
-  }
-  
-  .slide-title {
-    font-size: 1.5rem;
-    padding-top: 1rem;
+  .slide-content {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 
-@media (max-width: 480px) {
-  .home-slider {
-    width: 95%;
-  }
-  
-  .slide-title {
-    font-size: 1.25rem;
-    padding-top: 0.75rem;
-  }
-  
-  .slider-container {
-    min-height: 250px;
-  }
+.slide-image-real,
+.latest-post-img {
+  max-height: 85vh;
+  object-fit: contain;
 }
 
 /* ========== PROYECTOS - ESTILO MINIMALISTA ========== */
@@ -986,3 +808,4 @@ section.galleries {
 #menu a.active {
   font-weight: 700;
 }
+

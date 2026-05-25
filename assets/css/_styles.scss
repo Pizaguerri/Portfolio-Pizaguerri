@@ -88,6 +88,15 @@ main > section {
   @media (min-width: 640px) {
     margin-bottom: 4rem;
   }
+
+  &.home-slider,
+  &.latest-post-section {
+    padding: 0 !important;
+    margin: 0 0 3rem 0 !important;
+    max-width: none !important;
+    width: 100% !important;
+    align-self: stretch;
+  }
 }
 
 body > footer {
