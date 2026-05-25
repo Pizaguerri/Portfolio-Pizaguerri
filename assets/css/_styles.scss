@@ -89,13 +89,17 @@ main > section {
     margin-bottom: 4rem;
   }
 
-  &.home-slider,
-  &.latest-post-section {
-    padding: 0 !important;
-    margin: 0 0 3rem 0 !important;
-    max-width: none !important;
-    width: 100% !important;
-    align-self: stretch;
+&.home-slider,
+&.latest-post-section {
+  padding: 0 !important;
+  margin: 0 0 1rem 0 !important;
+  max-width: none !important;
+  width: 100% !important;
+  align-self: stretch;
+  }
+
+  @media (min-width: 640px) {
+    margin-bottom: 1rem !important;
   }
 }
 

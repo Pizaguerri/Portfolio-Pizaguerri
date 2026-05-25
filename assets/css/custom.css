@@ -607,6 +607,16 @@ footer .language-selector a:hover {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
+/* Ocultar iconos sociales y selector de idioma en la home */
+body.home footer .social-icons,
+body.home footer .language-selector {
+  display: none;
+}
+
+body.home footer section:last-of-type {
+    padding: 0.5rem !important;
+}
+
 /* Prevenir superposición con header sticky */
 .blog-list,
 .entry-card,
@@ -686,7 +696,7 @@ header {
 
 .latest-post-section {
   width: 100%;
-  padding: 0 0 4rem 0;
+  padding: 0 0 2rem 0;
 }
 
 .latest-post-wrapper {
@@ -724,9 +734,8 @@ header {
 }
 
 @media (max-width: 768px) {
-  .slide-content {
-    padding-left: 1rem;
-    padding-right: 1rem;
+  .latest-post-section {
+    padding: 0 0 1rem 0;
   }
 }
 
