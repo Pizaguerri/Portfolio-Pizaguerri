@@ -12,12 +12,10 @@
 <link rel="icon" type="image/svg+xml" href="{{ "images/favicon.svg" | relURL }}">
 <link rel="icon" type="image/png"    href="{{ "images/favicon.png" | relURL }}">
 <link rel="apple-touch-icon" sizes="180x180" href="{{ "images/apple-touch-icon.png" | relURL }}">
-
-{{/* Fallbacks y tamaños adicionales */}}
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="shortcut icon" href="/favicon.ico">               <!-- fallback para navegadores antiguos -->
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">   <!-- para iOS -->
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
 {{/* ---------- META ---------- */}}
 <meta name="description"
@@ -40,26 +38,14 @@
   {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
 {{ end -}}
 
-{{/* Open Graph / Twitter Card (se asume que tienes un partial opengraph.html) */}}
+{{/* Open Graph */}}
 {{ partial "opengraph.html" . }}
 
-{{/* ------------------------------------------------------------
-   Hoja de estilos principal del tema (SCSS → CSS)
-   ------------------------------------------------------------ */}}
-   {{ $css := resources.Get "/css/main.scss" | toCSS | minify | fingerprint }}
-   <link rel="stylesheet" href="{{ $css.RelPermalink }}">
-   
-   {{ $customCSS := resources.Get "css/custom.css" | minify | fingerprint }}
-   <link rel="stylesheet" href="{{ $customCSS.RelPermalink }}">
+{{/* ---------- CSS — un único punto de entrada ---------- */}}
+{{ $css := resources.Get "/css/main.scss" | toCSS | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
 
-   {{ $blogCss := resources.Get "css/blog.css" | minify | fingerprint }}
-    <link rel="stylesheet" href="{{ $blogCss.RelPermalink }}">
-
-
-
-{{/* ------------------------------------------------------------
-   Parámetros para la galería (Lightbox, descarga, etc.)
-   ------------------------------------------------------------ */}}
+{{/* ---------- JS de la galería ---------- */}}
 {{ $params := dict
     "closeTitle"                (i18n "closeTitle")
     "zoomTitle"                 (i18n "zoomTitle")
@@ -73,10 +59,7 @@
     "enableDownload"            (default true .Params.build.publishResources)
 }}
 
-{{/* JavaScript de la galería (con los parámetros anteriores) */}}
 {{ $js := resources.Get "js/main.js" | js.Build (dict "minify" true "params" $params) | resources.Fingerprint }}
 <script src="{{ $js.RelPermalink }}" defer></script>
 
-{{/* Si tu tema incluye un partial opcional `head-custom.html`,
-    se carga aquí para permitir extensiones sin tocar este archivo. */}}
 {{- partial "head-custom.html" . -}}

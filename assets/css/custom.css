@@ -1,166 +1,5 @@
-/* LOGO EN LA BARRA DE NAVEGACIÓN */
-.logo-link {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  text-decoration: none;
-  flex-shrink: 0;
-}
+/* ========== BODY ========== */
 
-.site-logo {
-  border-radius: 50%;
-  max-height: 40px;
-  width: auto;
-  flex-shrink: 0;
-}
-
-@media (max-width: 640px) {
-  .site-logo {
-    max-height: 32px;
-  }
-}
-
-/* ========== TÍTULO PRINCIPAL DE LA HOME ========== */
-
-/* Título principal */
-hgroup h1 {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  margin-top: 0.5rem;
-  line-height: 1;
-}
-
-/* ========== PÁGINA SOBRE MÍ ========== */
-
-/* Contenedor principal del about */
-.page-content {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 4rem 4rem;
-  line-height: 1.8;
-  font-size: 1.2rem;
-}
-
-/* Foto de perfil mejorada */
-.profile-pic {
-  float: left;
-  max-width: 320px;
-  width: 130px;
-  min-width: auto;
-  margin: 0 1rem 1rem 0;
-  padding-right: 2rem;
-  border-radius: 50%;
-  transition: transform 0.3s ease;
-}
-
-.profile-pic:hover {
-  transform: scale(1.02);
-}
-
-/* Párrafos del about */
-.page-content p {
-  margin-bottom: 3rem;
-  color: #333;
-}
-
-html.dark .page-content p {
-  color: #ddd;
-}
-
-/* Texto en negrita (nombres de instituciones, proyectos) */
-.page-content strong {
-  font-weight: 600;
-  color: #111;
-}
-
-html.dark .page-content strong {
-  color: #fff;
-}
-
-/* Primera letra grande (opcional - descomenta si te gusta) */
-
-/*.page-content p:first-of-type::first-letter {
-  font-size: 3.5rem;
-  font-weight: 700;
-  line-height: 1;
-  float: left;
-  margin: 0.1rem 0.5rem 0 0;
-  color: #111;
-}
-
-
-/* Galería de imágenes adicionales del about */
-.about-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin: 3rem 0;
-  clear: both;
-}
-
-.about-gallery img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 8px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.about-gallery img:hover {
-  transform: translateY(-4px);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .page-content {
-    padding: 3rem 1.5rem;
-    font-size: 1rem;
-  }
-
-  .profile-pic {
-    float: none !important;
-    display: block !important;
-    margin: 0 auto 2rem auto !important;
-    width: 180px !important;
-  }
-
-  .about-gallery {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .about-gallery img {
-    height: 250px;
-  }
-}
-
-@media (max-width: 480px) {
-  .page-content {
-    padding: 2rem 1rem;
-  }
-}
-
-.about-header {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 2rem;
-}
-
-.profile-pic {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  object-fit: cover;
-  display: block;
-  float: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-/* LISTADO DE ENTRADAS */
-
-/* Modo claro */
 body {
   background-color: #fff;
   color: #111;
@@ -168,197 +7,13 @@ body {
   padding: 0;
 }
 
-/* Modo oscuro */
 html.dark body {
-  background-color: #111 !important;
-  color: #eee !important;
+  background-color: #111;
+  color: #eee;
 }
 
-/* Blog list container */
-.blog-list {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-}
+/* ========== HEADER ========== */
 
-/* Limpiar la tarjeta de la entrada para que no tenga fondo ni sombra */
-.entry-card {
-  background: transparent !important;
-  box-shadow: none !important;
-  border: none !important;
-  padding: 0 !important;
-  margin-bottom: 5rem;
-}
-
-/* Header de la entrada */
-.entry-header {
-  display: flex;
-  flex-direction: row;
-  gap: 0.5rem;
-  align-items: baseline;
-  background: transparent !important;
-  box-shadow: none !important;
-  border: none !important;
-  color: inherit;
-}
-
-/* Título y link del título sin fondos ni sombras */
-.entry-title,
-.title-link {
-  background: transparent !important;
-  box-shadow: none !important;
-  border: none !important;
-  color: inherit !important;
-}
-
-/* Asegurar que el color del título se adapte */
-.entry-title {
-  font-size: 2rem;
-  margin-bottom: 0.25rem;
-}
-
-/* En modo oscuro, asegurar no tener fondos blancos */
-html.dark .entry-card,
-html.dark .entry-header,
-html.dark .entry-title,
-html.dark .title-link {
-  background: transparent !important;
-  box-shadow: none !important;
-  border: none !important;
-  color: inherit !important;
-}
-
-.entry-date {
-  font-size: 0.85rem;
-  color: var(--color-muted, #666);
-}
-
-.title-link {
-  text-decoration: none;
-  transition: opacity 0.2s;
-}
-
-.title-link:hover {
-  text-decoration: underline;
-  opacity: 0.9;
-}
-
-.entry-meta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.75rem;
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
-  color: var(--color-muted, #666);
-}
-
-.tag-list {
-  list-style: none;
-  display: flex;
-  gap: 0.4rem;
-  margin: 0;
-  padding: 0;
-}
-
-.tag-item a {
-  color: var(--color-tag-fg, inherit);
-  background: transparent;
-  padding: 0;
-  border-radius: 0;
-  text-decoration: none;
-  font-size: 0.78rem;
-}
-
-.tag-item a:hover {
-  text-decoration: underline;
-}
-
-.entry-summary p {
-  margin: 1rem 0 0;
-  line-height: 1.6;
-  color: var(--color-text, inherit);
-}
-
-.entry-footer {
-  margin-top: 1rem;
-}
-
-.entry-separator {
-  border-top: 1px solid var(--color-muted, #ccc);
-  opacity: 0.3;
-  margin: 3rem 0;
-}
-
-.pagination {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 2rem;
-}
-
-.prev-page,
-.next-page {
-  color: var(--color-primary, #0066ff);
-  text-decoration: none;
-}
-
-.prev-page:hover,
-.next-page:hover {
-  text-decoration: underline;
-}
-
-.no-posts {
-  text-align: center;
-  font-size: 1.1rem;
-  color: var(--color-muted, #777);
-}
-
-.post-thumb {
-  background: transparent;
-  border-radius: 0;
-  max-width: 100%;
-  height: auto;
-}
-
-/* SWIPER – ESTILOS DEL CARRUSEL DE PROYECTOS */
-.project-thumb {
-  height: 250px;
-  object-fit: cover;
-}
-
-.project-slide {
-  background: var(--bg-card, #fff);
-}
-
-html.dark .project-slide {
-  background: var(--bg-card-dark, #1a1a1a);
-}
-
-.swiper-button-next,
-.swiper-button-prev {
-  color: var(--color-link, #0066ff);
-}
-
-.swiper-pagination-bullet {
-  background: var(--color-muted, #666);
-  opacity: 0.9;
-}
-
-.swiper-pagination-bullet-active {
-  background: var(--color-link, #0066ff);
-  opacity: 1;
-}
-
-@media (max-width: 640px) {
-  .project-thumb {
-    height: 180px;
-  }
-}
-
-
-/* HEADER */
-
-/* Estilos generales del header */
 header {
   position: sticky;
   top: 0;
@@ -368,15 +23,13 @@ header {
   background-color: rgba(255, 255, 255, 0.99);
   backdrop-filter: blur(10px);
   color: #000;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 2px 8px rgba(0,0,0,0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0);
 }
 
-/* Modo oscuro */
 html.dark header {
   background-color: rgba(20, 20, 20, 0.99);
   color: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0);
 }
 
 header a,
@@ -459,6 +112,11 @@ html.dark header a:hover {
   opacity: 0.7;
 }
 
+.main-nav a.active,
+#menu a.active {
+  font-weight: 700;
+}
+
 /* Botón hamburguesa */
 .menu-toggle-btn {
   display: none;
@@ -473,11 +131,14 @@ html.dark header a:hover {
   position: relative;
 }
 
-/* Ícono del botón (SVG) */
 .menu-toggle-btn svg {
   display: block;
   width: 24px;
   height: 24px;
+}
+
+.menu-toggle-btn.menu-open svg {
+  transform: rotate(90deg);
 }
 
 /* Menú móvil */
@@ -488,9 +149,9 @@ html.dark header a:hover {
   right: 0;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
-  background-color: rgba(255, 255, 255, 0.99);  
+  background-color: rgba(255, 255, 255, 0.99);
   backdrop-filter: blur(10px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0);
   z-index: 1001;
   padding: 0;
   display: none;
@@ -498,9 +159,8 @@ html.dark header a:hover {
   gap: 0;
 }
 
-/* Transformar el icono cuando está abierto (opcional - convertir en X) */
-.menu-toggle-btn.menu-open svg {
-  transform: rotate(90deg);
+#menu:not(.hidden) {
+  display: flex;
 }
 
 #menu ul {
@@ -515,7 +175,7 @@ html.dark header a:hover {
 
 #menu li {
   width: 100%;
-  border: none;  /* Sin bordes */
+  border: none;
 }
 
 #menu li a {
@@ -525,7 +185,7 @@ html.dark header a:hover {
   padding: 1.5rem 2rem;
   display: block;
   width: 100%;
-  text-align: center;  /* Centrado */
+  text-align: center;
   transition: background-color 0.2s ease;
 }
 
@@ -533,36 +193,23 @@ html.dark header a:hover {
   background-color: rgba(0, 0, 0, 0.02);
 }
 
-/* Mostrar menú si está abierto */
-#menu:not(.hidden) {
-  display: flex;
-}
-
-/* Modo oscuro */
 html.dark #menu {
   background-color: rgba(20, 20, 20, 0.99);
-  box-shadow: 0 4px 8px rgba(0,0,0,0);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0);
 }
 
 html.dark #menu li a:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Mostrar menú si está abierto */
-#menu:not(.hidden) {
-  display: flex;
-}
-
-/* Responsive */
+/* Responsive menú */
 @media (max-width: 768px) {
   .main-nav {
     display: none !important;
   }
-
   .menu-toggle-btn {
     display: block !important;
   }
-
   #menu.hidden {
     display: none !important;
   }
@@ -572,49 +219,20 @@ html.dark #menu li a:hover {
   .main-nav {
     display: flex !important;
   }
-
   .menu-toggle-btn,
   #menu {
     display: none !important;
   }
 }
 
-/* MULTILANGUAGE */
+/* ========== HGROUP ========== */
 
-footer .language-selector {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 2rem;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-footer .language-selector a {
-  padding: 0.5rem 1rem;
-  text-decoration: none;
-  color: inherit;
-  border-radius: 4px;
-  transition: all 0.2s;
-}
-
-footer .language-selector a.active {
-  font-weight: bold;
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-footer .language-selector a:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-/* Ocultar iconos sociales y selector de idioma en la home */
-body.home footer .social-icons,
-body.home footer .language-selector {
-  display: none;
-}
-
-body.home footer section:last-of-type {
-    padding: 0.5rem !important;
+hgroup h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+  line-height: 1;
 }
 
 /* Prevenir superposición con header sticky */
@@ -624,15 +242,6 @@ body.home footer section:last-of-type {
 hgroup {
   position: relative;
   z-index: 1;
-}
-
-/* Asegurar que el header esté siempre encima */
-header {
-  position: sticky;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
 }
 
 /* ========== HOME SLIDER ========== */
@@ -675,12 +284,12 @@ header {
 
 @keyframes slideInRight {
   from { transform: translateX(100%); }
-  to { transform: translateX(0); }
+  to   { transform: translateX(0); }
 }
 
 @keyframes slideOutLeft {
   from { transform: translateX(0); }
-  to { transform: translateX(-100%); }
+  to   { transform: translateX(-100%); }
 }
 
 .slide-image-wrapper {
@@ -688,47 +297,19 @@ header {
   overflow: hidden;
 }
 
-.slide-image-real {
+.slide-image-real,
+.latest-post-img {
   width: 100%;
   height: auto;
   display: block;
+  max-height: 85vh;
+  object-fit: contain;
 }
 
 .slide-content {
   padding: 0.75rem 0 0 0;
   text-align: center;
 }
-
-.slide-title {
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  margin: 0;
-  color: #111;
-}
-
-html.dark .slide-title {
-  color: #eee;
-}
-
-/* ========== HOVER CONSISTENTE ========== */
-
-.slide-image-wrapper:hover .slide-image-real,
-.latest-post-image-container:hover .latest-post-img,
-.card figure:hover > img {
-  filter: grayscale(100%);
-  transition: filter 0.8s ease;
-}
-
-.slide-image-real,
-.latest-post-img,
-.card figure > img {
-  filter: grayscale(0%);
-  transition: filter 0.8s ease;
-}
-
-/* ========== TÍTULOS EN NEGRITA ========== */
 
 .slide-title,
 .latest-post-title,
@@ -743,11 +324,42 @@ html.dark .card > div > h2 {
   color: #eee;
 }
 
+.slide-title,
+.latest-post-title {
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin: 0.75rem 0 0 0;
+  text-align: center;
+  display: block;
+}
+
+/* Hover grayscale consistente */
+.slide-image-wrapper:hover .slide-image-real,
+.latest-post-image-container:hover .latest-post-img,
+.card figure:hover > img {
+  filter: grayscale(100%);
+  transition: filter 0.8s ease;
+}
+
+.slide-image-real,
+.latest-post-img,
+.card figure > img {
+  filter: grayscale(0%);
+  transition: filter 0.8s ease;
+}
+
 /* ========== ÚLTIMO POST HOME ========== */
 
 .latest-post-section {
   width: 100%;
   padding: 0 0 2rem 0;
+}
+
+@media (max-width: 768px) {
+  .latest-post-section {
+    padding: 0 0 1rem 0;
+  }
 }
 
 .latest-post-wrapper {
@@ -764,41 +376,17 @@ html.dark .card > div > h2 {
 }
 
 .latest-post-img {
-  width: 100%;
-  height: auto;
-  display: block;
   border-radius: 0;
 }
 
-.latest-post-title {
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  margin: 0.75rem 0 0 0;
-  text-align: center;
-  display: block;
-}
-@media (max-width: 768px) {
-  .latest-post-section {
-    padding: 0 0 1rem 0;
-  }
-}
-
-.slide-image-real,
-.latest-post-img {
-  max-height: 85vh;
-  object-fit: contain;
-}
-
-/* ========== PROYECTOS - ESTILO MINIMALISTA ========== */
+/* ========== PROYECTOS — GRID ========== */
 
 section.galleries {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 3rem 2rem;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 4rem;
 }
 
 @media (max-width: 640px) {
@@ -809,24 +397,29 @@ section.galleries {
   }
 }
 
-.card > figure,
+.card > figure {
+  border-radius: 0 !important;
+  overflow: hidden;
+  width: 100%;
+}
+
 .card > img,
 .card figure > img {
   border-radius: 0 !important;
   box-shadow: none !important;
-}
-
-.card > figure {
-  border-radius: 0 !important;
-}
-
-.card figure > img {
-  border-radius: 0 !important;
+  width: 100%;
+  height: auto;
+  display: block;
   transition: opacity 0.3s ease;
 }
 
 .card:hover figure > img {
   opacity: 0.9;
+}
+
+.card > div {
+  padding: 0.5rem 0 0 0;
+  gap: 0;
 }
 
 .card > div > h2 {
@@ -838,29 +431,93 @@ section.galleries {
   color: inherit;
 }
 
-.card > div {
-  padding: 0.5rem 0 0 0;
-  gap: 0;
+/* ========== ABOUT ========== */
+
+.about-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
 }
 
-section.galleries {
-  padding: 0 4rem;
-}
-
-.card > figure {
-  overflow: hidden;
-  width: 100%;
-}
-
-.card figure > img {
-  width: 100%;
-  height: auto;
+.profile-pic {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
   display: block;
+  margin: 0;
+  padding: 0;
+  transition: transform 0.3s ease;
 }
 
-/* Ítem activo en el menú */
-.main-nav a.active,
-#menu a.active {
-  font-weight: 700;
+.profile-pic:hover {
+  transform: scale(1.02);
 }
 
+.about-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+  clear: both;
+}
+
+.about-gallery img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.about-gallery img:hover {
+  transform: translateY(-4px);
+}
+
+@media (max-width: 768px) {
+  .about-gallery {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .about-gallery img {
+    height: 250px;
+  }
+}
+
+/* ========== FOOTER — MULTILANGUAGE ========== */
+
+footer .language-selector {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+footer .language-selector a {
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+footer .language-selector a.active {
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+footer .language-selector a:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Ocultar iconos sociales y selector de idioma en la home */
+body.home footer .social-icons,
+body.home footer .language-selector {
+  display: none;
+}
+
+body.home footer section:last-of-type {
+  padding: 0.5rem !important;
+}

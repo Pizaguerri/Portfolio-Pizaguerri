@@ -2,20 +2,9 @@
 {{- $theme := .Params.theme | default .Site.Params.defaultTheme }}
 
 <html class="{{- if (eq $theme "light") -}}light{{- else if (eq $theme "dark") }}dark{{ end }}"
-      lang="{{ site.LanguageCode | default "en" }}">
+      lang="{{ site.Language.Locale | default "en" }}">
 
   {{ partial "head.html" . }}
-
-  {{/* ---------- ESTILOS PERSONALIZADOS CON HUGO PIPES ---------- */}}
-  {{ $blogCSS := resources.Get "css/blog.css" }}
-  {{ $customCSS := resources.Get "css/custom.css" }}
-  {{ $pageContentCSS := resources.Get "css/page-content.css" }}
-  
-  {{ $combinedCSS := slice $blogCSS $customCSS | resources.Concat "css/combined.css" | minify | fingerprint }}
-  {{ $finalContentCSS := $pageContentCSS | minify | fingerprint }}
-
-  <link rel="stylesheet" href="{{ $combinedCSS.RelPermalink }}">
-  <link rel="stylesheet" href="{{ $finalContentCSS.RelPermalink }}">
 
   <body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100{{ if .IsHome }} home{{ end }}">
 

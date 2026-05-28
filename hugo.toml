@@ -5,8 +5,8 @@ defaultContentLanguage  = "es"
 defaultContentLanguageInSubdir = true
 
 [languages.ca]
-  languageCode = "ca"
-  languageName = "Català"
+  locale = "ca"
+  label = "Català"
   weight = 1
   copyright = "Pablo Izaguerri. Tots els drets reservats."
   [languages.ca.params]
@@ -25,8 +25,8 @@ defaultContentLanguageInSubdir = true
     weight = 3
 
 [languages.es]
-  languageCode = "es"
-  languageName = "Español"
+  locale = "es"
+  label = "Español"
   weight = 2
   copyright = "Pablo Izaguerri. Todos los derechos reservados."
   [languages.es.params]
@@ -45,8 +45,8 @@ defaultContentLanguageInSubdir = true
     weight = 3
 
 [languages.en]
-  languageCode = "en"
-  languageName = "English"
+  locale = "en"
+  label = "English"
   weight = 3
   copyright = "Pablo Izaguerri. All rights reserved."
   [languages.en.params]
