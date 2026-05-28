@@ -1,32 +1,11 @@
 ---
-Data: 2026-05-28
-Link:
-Autor:
-tags:
-  - Sobrelafotografia
-  - Fotografia
-Tipus:
+title: "Mi 4 post"
+subtitle: "Un subtítulo breve que complementa al título"
+date: 2026-05-24T14:30:00+01:00
+tags: ["antropología", "fotografía"]
+summary: "Una breve introducción al tema."
+draft: false
+featured_image: "featured.jpg"
 ---
-## Títol 
----
->[!info] **Resum**
-> Fes un breu resum d'aquest tema
 
-#### Punts Clau
-  1. 
-
->[!cite] **Alguna cita per destacar**
-> 
----
-> [!danger] Qué penso al respecte?
-> *Canvia la meva perspectiva d'alguna forma?*
-
-> [!question] Quines preguntes em faig al respecte?
-> - 
----
-#### **Relació amb altres pensaments:** 
-
-
-> [!tip] Com puc aprofundir dins això?
-> - 
-
+### 4 POST DES DE OBSIDIAN
