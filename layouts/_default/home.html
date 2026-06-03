@@ -4,20 +4,22 @@
   
   {{ if $featured }}
     <section class="home-slider">
-      <div class="slider-container">
-        {{ range $index, $project := $featured }}
-          {{ $cover := $project.Resources.GetMatch "*feature*" }}
-          {{ with $cover }}
-            <a href="{{ $project.RelPermalink }}" class="slide {{ if eq $index 0 }}active{{ end }}" data-index="{{ $index }}">
-              <div class="slide-image-wrapper">
-                <img src="{{ .RelPermalink }}" alt="{{ $project.Title }}" class="slide-image-real">
-              </div>
-              <div class="slide-content">
-                <h2 class="slide-title">{{ $project.Title }}</h2>
-              </div>
-            </a>
+      <div class="slider-wrapper">
+        <div class="slider-container">
+          {{ range $index, $project := $featured }}
+            {{ $cover := $project.Resources.GetMatch "*feature*" }}
+            {{ with $cover }}
+              <a href="{{ $project.RelPermalink }}" class="slide {{ if eq $index 0 }}active{{ end }}" data-index="{{ $index }}">
+                <div class="slide-image-wrapper">
+                  <img src="{{ .RelPermalink }}" alt="{{ $project.Title }}" class="slide-image-real">
+                </div>
+                <div class="slide-content">
+                  <h2 class="slide-title">{{ $project.Title }}</h2>
+                </div>
+              </a>
+            {{ end }}
           {{ end }}
-        {{ end }}
+        </div>
       </div>
     </section>
     
@@ -95,15 +97,17 @@
     {{ $latestPost := index (.Pages.ByDate.Reverse) 0 }}
     {{ with $latestPost }}
       <section class="latest-post-section">
-        <a href="{{ .RelPermalink }}" class="latest-post-wrapper">
-          {{ $featured := .Resources.GetMatch "*featured*" }}
-          {{ with $featured }}
-            <div class="latest-post-image-container">
-              <img src="{{ .RelPermalink }}" alt="{{ $latestPost.Title }}" class="latest-post-img">
-            </div>
-            <h2 class="latest-post-title">{{ $latestPost.Title }}</h2>
-          {{ end }}
-        </a>
+        <div class="latest-post-wrapper-outer">
+          <a href="{{ .RelPermalink }}" class="latest-post-wrapper">
+            {{ $featured := .Resources.GetMatch "*featured*" }}
+            {{ with $featured }}
+              <div class="latest-post-image-container">
+                <img src="{{ .RelPermalink }}" alt="{{ $latestPost.Title }}" class="latest-post-img">
+              </div>
+              <h2 class="latest-post-title">{{ $latestPost.Title }}</h2>
+            {{ end }}
+          </a>
+        </div>
       </section>
     {{ end }}
   {{ end }}
