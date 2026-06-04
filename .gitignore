@@ -12,7 +12,6 @@ resources/_gen/
 .hugo_cache/
 .hugo_server/
 public/
-static/
 
 # -------------------------------------------------
 # Node / NPM
