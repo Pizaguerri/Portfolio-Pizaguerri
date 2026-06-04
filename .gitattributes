@@ -2,6 +2,3 @@
 *.jpeg filter=lfs diff=lfs merge=lfs -text
 *.png filter=lfs diff=lfs merge=lfs -text
 *.webp filter=lfs diff=lfs merge=lfs -text
-public/** !filter !diff !merge text
-static/** !filter !diff !merge text
-static/** !text -filter -merge -diff

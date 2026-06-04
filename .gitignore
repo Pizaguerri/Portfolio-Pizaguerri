@@ -7,11 +7,12 @@ Thumbs.db
 # -------------------------------------------------
 # Salida del sitio Hugo (generada en cada build)
 # -------------------------------------------------
-public/
 resources/_gen/
 .hugo_build.lock
 .hugo_cache/
 .hugo_server/
+public/
+static/
 
 # -------------------------------------------------
 # Node / NPM
