@@ -5,10 +5,10 @@ date: 2025-09-24T14:30:00+01:00
 tags: ["antropología", "fotografía"]
 summary: "Una breve introducción al tema."
 draft: false
-featured_image: "featured.jpg"   # nombre del archivo de la foto destacada (debe estar en la misma carpeta)
+featured_image: "featured.jpg"
 ---
 
-### Això és una prova
+### Esto es una prueba
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque nec felis sit amet massa egestas pharetra. Donec interdum lectus non arcu luctus, ac mattis urna tempor. Praesent ligula velit, fermentum a ante ut, pretium congue dolor. Nulla facilisi. Vivamus sollicitudin nibh et odio feugiat, id mattis purus interdum. Proin malesuada vehicula diam, non accumsan magna venenatis ut. Phasellus faucibus pulvinar tempor. Fusce luctus sit amet ligula ac mollis. Aenean eu porta elit. Integer accumsan magna sit amet efficitur euismod.
 

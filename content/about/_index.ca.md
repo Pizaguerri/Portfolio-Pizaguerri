@@ -9,7 +9,7 @@ date: 2026-06-04
   <img src="/images/profilepic.png" class="profile-pic" alt="Foto de Pablo Izaguerri">
 </div>
 
-Em dic Pablo Izaguerri, Mallorca 1995, però visc a Catalunya des del 2018.  En aquests anys a la ciutat comtal m'he desenvolupat com a fotògraf, primer com amb una exploració lliure i després a la **Escuela Libre Date Cuenta**.  Com a antropòleg, he pogut estudiar al grau de la **URV** i ara participo del grup de recerca d'Antropologia i Etnografia Digital  o **ANED** del **ICA**. 
+Em dic Pablo Izaguerri, Mallorca 1995, però visc a Catalunya des del 2018.  En aquests anys a la ciutat comtal m'he desenvolupat com a fotògraf, primer com una exploració lliure i després a la **Escuela Libre Date Cuenta**.  Com a antropòleg, he pogut estudiar al grau de la **URV** i ara participo del grup de recerca d'Antropologia i Etnografia Digital  o **ANED** del **ICA**. 
 
 M'apasiona la música, pel qual vaig poder crear el meu propi projecte de recomanacions de discos diàries, **Sonomada**; i després he pogut col·laborar amb mitjans com **S'altra Música**, **Enderrock**, **Binaural** o **Nuevas Frecuencias**, ja mitjançant la fotografia. 
 
