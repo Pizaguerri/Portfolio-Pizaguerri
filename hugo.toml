@@ -105,3 +105,8 @@ defaultContentLanguageInSubdir = true
     mastodon  = "https://mastodon.social/@Pizzaguerri"
     youtube   = "http://www.youtube.com/@Pizzaguerri"
     github    = "https://github.com/Pizaguerri"
+
+    [outputs]
+      home = ["HTML", "RSS"]
+      section = ["HTML", "RSS"]
+      page = ["HTML"]
