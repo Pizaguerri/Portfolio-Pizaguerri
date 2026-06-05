@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>
-  {{ with .Title }}{{ . }} -{{ end }} {{ .Site.Title }}
+  {{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{ . }} - {{ end }}{{ .Site.Title }}{{ end }}
 </title>
 
 <link rel="canonical" href="{{ .Permalink }}">
