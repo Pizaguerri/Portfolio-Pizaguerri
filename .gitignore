@@ -37,6 +37,9 @@ yarn-error.log*
 .vscode/
 *.sublime-workspace
 *.sublime-project
+# VSCode/VSCodium
+*.code-workspace
+Portfolio-Pizaguerri
 
 # -------------------------------------------------
 # Temporales / logs / backups
@@ -56,3 +59,5 @@ yarn-error.log*
 .temp/
 .sass-cache/
 resources 2/
+.hugo_build.lock
+# .hugo-version (Per ara ho mantindré)
