@@ -1,5 +1,3 @@
-# README
-
 ### This is my portfolio in HUGO.
 
 **Un portfolio de fotografia y blog estático construido con [Hugo](https://gohugo.io/), diseñado para reemplazar plataformas como Instagram, Visura, Squarespace etc, y mostrar mi trabajo en antropología visual y fotografía documental.**
