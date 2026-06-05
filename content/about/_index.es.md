@@ -4,6 +4,7 @@ type: "page"
 layout: "single"
 date: 2026-06-04
 ---
+
 <div class="about-header">
   <img src="/images/profilepic.png" class="profile-pic" alt="Foto de Pablo Izaguerri">
 </div>

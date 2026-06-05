@@ -393,7 +393,7 @@ html.dark .card > div > h2 {
   border-radius: 0;
 }
 
-/* ========== PROYECTOS — GRID ========== */
+/* ========== PROJECTS — GRID ========== */
 
 section.galleries {
   grid-template-columns: repeat(2, minmax(0, 1fr));
