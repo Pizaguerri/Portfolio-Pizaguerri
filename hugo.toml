@@ -32,7 +32,7 @@ defaultContentLanguageInSubdir = false
   [languages.es.params]
     description = "Antropología visual y fotografía documental"
   [[languages.es.menu.main]]
-    name = "projects"
+    name = "Proyectos"
     pageRef = "/projects"
     weight = 1
   [[languages.es.menu.main]]
