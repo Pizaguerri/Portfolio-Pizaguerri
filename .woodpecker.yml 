@@ -1,7 +1,5 @@
 # .woodpecker.yml
 
-
-
 pipeline:
   deploy:
     image: node:20-alpine
