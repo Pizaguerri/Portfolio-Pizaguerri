@@ -1,0 +1,35 @@
+name: Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: codeberg-medium
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Hugo
+        run: |
+          wget https://github.com/gohugoio/hugo/releases/download/v0.148.2/hugo_extended_0.148.2_Linux-64bit.tar.gz
+          tar -xzf hugo_extended_0.148.2_Linux-64bit.tar.gz
+          sudo mv hugo /usr/local/bin/hugo
+          hugo version
+
+      - name: Build site
+        run: hugo --minify
+
+      - name: Deploy to Cloudflare Pages
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          npm install -g wrangler
+          wrangler pages deploy public --project-name=portfoliopizaguerricodeberg --verbose
