@@ -32,4 +32,4 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: |
           npm install -g wrangler
-          wrangler pages deploy public --project-name=portfoliopizaguerricodeberg --verbose
+          wrangler pages deploy public --project-name=portfoliopizaguerricodeberg --branch=main
