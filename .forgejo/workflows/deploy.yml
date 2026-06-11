@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: native
+    runs-on: codeberg-hosted
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
