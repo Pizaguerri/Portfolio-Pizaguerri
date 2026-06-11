@@ -14,3 +14,4 @@ pipeline:
       # Install wrangler and deploy
       - npm install -g wrangler
       - CLOUDFLARE_API_TOKEN=$CLOUDFLARE_API_TOKEN wrangler pages deploy public --project-name=portfoliopizaguerricodeberg --branch=main
+      
