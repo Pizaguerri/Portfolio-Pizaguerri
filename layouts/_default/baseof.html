@@ -2,7 +2,7 @@
 {{- $theme := .Params.theme | default .Site.Params.defaultTheme }}
 
 <html class="{{- if (eq $theme "light") -}}light{{- else if (eq $theme "dark") }}dark{{ end }}"
-      lang="{{ Language.Lang | default "en" }}">
+      lang="{{ .Language.Lang | default "en" }}">
 
   {{ partial "head.html" . }}
 
