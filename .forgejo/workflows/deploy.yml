@@ -1,5 +1,6 @@
 name: Deploy to Cloudflare Pages
 
+
 on:
   push:
     branches:
@@ -35,3 +36,4 @@ jobs:
         run: |
           npm install -g wrangler
           wrangler pages deploy public --project-name=portfoliopizaguerricodeberg --branch=main
+          
