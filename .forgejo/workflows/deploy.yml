@@ -37,14 +37,18 @@ jobs:
           PROJECT="portfoliopizaguerricodeberg"
           echo "📦 Building manifest..."
           
-          # Build proper manifest with all files and their hashes
-          MANIFEST="{}"
           cd public
-          for f in $(find . -type f | sed 's|^\./||'); do
-            HASH=$(sha256sum "$f" | awk '{print $1}')
-            MANIFEST=$(echo "$MANIFEST" | jq --arg key "/$f" --arg val "$HASH" '. + {($key): $val}')
+          # Build manifest using temp file to avoid subshell issue
+          echo "{}" > /tmp/manifest.json
+          find . -type f -print0 | while IFS= read -r -d '' f; do
+            filepath="${f#./}"
+            HASH=$(sha256sum "$filepath" | awk '{print $1}')
+            jq --arg key "/$filepath" --arg val "$HASH" '. + {($key): $val}' /tmp/manifest.json > /tmp/manifest_tmp.json
+            mv /tmp/manifest_tmp.json /tmp/manifest.json
           done
           cd ..
+          
+          MANIFEST=$(cat /tmp/manifest.json)
           
           echo "📦 Creating deployment..."
           RESPONSE=$(curl -s -X POST "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$PROJECT/deployments" \
