@@ -35,15 +35,22 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
           PROJECT="portfoliopizaguerricodeberg"
+          echo "📦 Building manifest..."
+          
+          # Build proper manifest with all files and their hashes
+          MANIFEST="{}"
+          cd public
+          for f in $(find . -type f | sed 's|^\./||'); do
+            HASH=$(sha256sum "$f" | awk '{print $1}')
+            MANIFEST=$(echo "$MANIFEST" | jq --arg key "/$f" --arg val "$HASH" '. + {($key): $val}')
+          done
+          cd ..
+          
           echo "📦 Creating deployment..."
-          
-          # Create a deployment with a proper manifest hash
-          MANIFEST=$(find public -type f -exec sha256sum {} \; | sort -k2 | sha256sum | awk '{print $1}')
-          
           RESPONSE=$(curl -s -X POST "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$PROJECT/deployments" \
             -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
             -H "Content-Type: application/json" \
-            -d "{\"branch\":\"main\",\"manifest\":{\"/index.html\":\"$MANIFEST\"}}")
+            -d "{\"branch\":\"main\",\"manifest\":$MANIFEST}")
           
           echo "$RESPONSE" | jq .
           
@@ -55,15 +62,12 @@ jobs:
             exit 1
           fi
           
-          echo "📤 Uploading files..."
+          echo "📤 Uploading site..."
           cd public
-          
-          # Create a tar file and upload it
           tar -czf /tmp/site.tar.gz .
           curl -s -X POST "$UPLOAD_URL" \
             -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
-            -F "file=@/tmp/site.tar.gz" \
-            -o /dev/null
+            -F "file=@/tmp/site.tar.gz"
           
           echo ""
           echo "✅ Deployment uploaded!"
