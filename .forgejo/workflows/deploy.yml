@@ -1,6 +1,5 @@
 name: Deploy to Cloudflare Pages
 
-
 on:
   push:
     branches:
@@ -33,7 +32,34 @@ jobs:
       - name: Deploy to Cloudflare Pages
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
-          npm install -g wrangler
-          wrangler pages deploy public --project-name=portfoliopizaguerricodeberg --branch=main
+          PROJECT="portfoliopizaguerricodeberg"
+          echo "📦 Creating deployment..."
           
+          RESPONSE=$(curl -s -X POST "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$PROJECT/deployments" \
+            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d '{"branch":"main"}')
+          
+          DEPLOY_ID=$(echo "$RESPONSE" | jq -r '.result.id')
+          UPLOAD_URL=$(echo "$RESPONSE" | jq -r '.result.upload_url')
+          
+          if [ -z "$DEPLOY_ID" ] || [ "$DEPLOY_ID" = "null" ]; then
+            echo "❌ Failed to create deployment"
+            echo "$RESPONSE"
+            exit 1
+          fi
+          
+          echo "📤 Uploading files..."
+          cd public
+          find . -type f | while read -r file; do
+            filepath="${file#./}"
+            curl -s -X POST "$UPLOAD_URL" \
+              -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+              -F "file=@$filepath;filename=$filepath"
+          done
+          
+          echo ""
+          echo "✅ Deployment complete!"
+          echo "   https://$PROJECT.pages.dev"
