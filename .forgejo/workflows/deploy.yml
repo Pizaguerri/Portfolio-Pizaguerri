@@ -37,29 +37,34 @@ jobs:
           PROJECT="portfoliopizaguerricodeberg"
           echo "📦 Creating deployment..."
           
+          # Create a deployment with a proper manifest hash
+          MANIFEST=$(find public -type f -exec sha256sum {} \; | sort -k2 | sha256sum | awk '{print $1}')
+          
           RESPONSE=$(curl -s -X POST "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$PROJECT/deployments" \
             -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
             -H "Content-Type: application/json" \
-            -d '{"branch":"main"}')
+            -d "{\"branch\":\"main\",\"manifest\":{\"/index.html\":\"$MANIFEST\"}}")
+          
+          echo "$RESPONSE" | jq .
           
           DEPLOY_ID=$(echo "$RESPONSE" | jq -r '.result.id')
           UPLOAD_URL=$(echo "$RESPONSE" | jq -r '.result.upload_url')
           
           if [ -z "$DEPLOY_ID" ] || [ "$DEPLOY_ID" = "null" ]; then
             echo "❌ Failed to create deployment"
-            echo "$RESPONSE"
             exit 1
           fi
           
           echo "📤 Uploading files..."
           cd public
-          find . -type f | while read -r file; do
-            filepath="${file#./}"
-            curl -s -X POST "$UPLOAD_URL" \
-              -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
-              -F "file=@$filepath;filename=$filepath"
-          done
+          
+          # Create a tar file and upload it
+          tar -czf /tmp/site.tar.gz .
+          curl -s -X POST "$UPLOAD_URL" \
+            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            -F "file=@/tmp/site.tar.gz" \
+            -o /dev/null
           
           echo ""
-          echo "✅ Deployment complete!"
-          echo "   https://$PROJECT.pages.dev"
+          echo "✅ Deployment uploaded!"
+          echo "   View at: https://$PROJECT.pages.dev"
