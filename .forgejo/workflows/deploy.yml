@@ -29,52 +29,11 @@ jobs:
       - name: Build site
         run: hugo --minify
 
+      - name: Install Wrangler
+        run: npm install -g wrangler@3.78.12
+
       - name: Deploy to Cloudflare Pages
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        run: |
-          PROJECT="portfoliopizaguerricodeberg"
-          echo "📦 Building manifest..."
-          
-          cd public
-          echo "{}" > /tmp/manifest.json
-          
-          shopt -s globstar nullglob
-          for f in **/*; do
-            [ -f "$f" ] || continue
-            HASH=$(sha256sum "$f" | awk '{print $1}')
-            jq --arg key "/$f" --arg val "$HASH" '. + {($key): $val}' /tmp/manifest.json > /tmp/manifest_tmp.json
-            mv /tmp/manifest_tmp.json /tmp/manifest.json
-          done
-          cd ..
-          
-          MANIFEST=$(cat /tmp/manifest.json)
-          echo "Manifest files: $(echo "$MANIFEST" | jq 'length')"
-          
-          echo "📦 Creating deployment..."
-          RESPONSE=$(curl -s -X POST "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$PROJECT/deployments" \
-            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
-            -H "Content-Type: application/json" \
-            -d "{\"branch\":\"main\",\"manifest\":$MANIFEST}")
-          
-          echo "$RESPONSE" | jq .
-          
-          DEPLOY_ID=$(echo "$RESPONSE" | jq -r '.result.id')
-          UPLOAD_URL=$(echo "$RESPONSE" | jq -r '.result.upload_url')
-          
-          if [ -z "$DEPLOY_ID" ] || [ "$DEPLOY_ID" = "null" ]; then
-            echo "❌ Failed to create deployment"
-            exit 1
-          fi
-          
-          echo "📤 Uploading site..."
-          cd public
-          tar -czf /tmp/site.tar.gz .
-          curl -s -X POST "$UPLOAD_URL" \
-            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
-            -F "file=@/tmp/site.tar.gz"
-          
-          echo ""
-          echo "✅ Deployment uploaded!"
-          echo "   View at: https://$PROJECT.pages.dev"
+        run: wrangler pages deploy public --project-name=portfoliopizaguerricodeberg --branch=main
