@@ -30,9 +30,10 @@ jobs:
         run: hugo --minify
 
       - name: Install Wrangler
+      - name: Install Wrangler
+        # Pinned to 3.78.12 - do not upgrade until Cloudflare fixes /memberships auth for custom tokens
         run: npm install -g wrangler@3.78.12
-             echo "⚠️ Pinned to 3.78.12 — do not upgrade until Cloudflare fixes /memberships auth for custom tokens"
-
+            
       - name: Deploy to Cloudflare Pages
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
