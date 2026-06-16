@@ -31,6 +31,7 @@ jobs:
 
       - name: Install Wrangler
         run: npm install -g wrangler@3.78.12
+             echo "⚠️ Pinned to 3.78.12 — do not upgrade until Cloudflare fixes /memberships auth for custom tokens"
 
       - name: Deploy to Cloudflare Pages
         env:
