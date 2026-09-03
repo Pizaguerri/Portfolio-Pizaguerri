@@ -16,9 +16,9 @@ resources:
       hidden: true
 ---
 
-![Les tempestes durant l'estiu són normals](03%20Projectes/Fotografia/Portfolio%20Publicar/projects/The%20Anxiety%20of%20Running%20Away%20From%20a%20Violent%20Storm/feature.jpg)]
+![Les tempestes durant l'estiu són normals](03%20Projectes/Fotografia/Portfolio%20Publicar/blog/The%20Anxiety%20of%20Running%20Away%20From%20a%20Violent%20Storm/feature.jpg)
 
-**Les tempestes durant l'estiu són normals. Però mai no hagués pensat que viuriem això.**
+**Les tempestes durant l'estiu són normals. Però mai no hagués pensat que viuriem una així.**
 
 Record que, mentre travessàvem el sud de França, es podia sentir com la humitat de les plantes s'evaporava amb la força del sol. Aquells dies feia tantíssima calor, que es preveia que l'atmosfera no fos capaç d'absorbir tanta energia. Calor, humitat i dies de templança van convergir en la por més absoluta.
 

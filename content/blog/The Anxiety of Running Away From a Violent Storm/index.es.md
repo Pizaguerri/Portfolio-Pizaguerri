@@ -13,7 +13,7 @@ resources:
     params:
       hidden: true
 ---
-![Las tormentas durante el verano son normales](03%20Projectes/Fotografia/Portfolio%20Publicar/projects/The%20Anxiety%20of%20Running%20Away%20From%20a%20Violent%20Storm/feature.jpg)
+![Las tormentas durante el verano son normales](03%20Projectes/Fotografia/Portfolio%20Publicar/blog/The%20Anxiety%20of%20Running%20Away%20From%20a%20Violent%20Storm/feature.jpg)
 
 **Las tormentas durante el verano son normales. Pero nunca habría pensado que viviríamos algo así.**
 

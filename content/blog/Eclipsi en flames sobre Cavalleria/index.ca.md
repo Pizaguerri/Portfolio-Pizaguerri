@@ -1,6 +1,6 @@
 ---
 title: Eclipsi en flames sobre Cavalleria
-subtitle: Sa imatge que cercava sense saber-ho
+description: "Sa imatge que cercava sense saber-ho"
 date: 2025-08-12
 tags:
   - fotografia
