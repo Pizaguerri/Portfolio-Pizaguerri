@@ -16,7 +16,7 @@ resources:
       hidden: true
 ---
 
-![Les tempestes durant l'estiu són normals](feature.jpg)]
+![Les tempestes durant l'estiu són normals](03%20Projectes/Fotografia/Portfolio%20Publicar/projects/The%20Anxiety%20of%20Running%20Away%20From%20a%20Violent%20Storm/feature.jpg)]
 
 **Les tempestes durant l'estiu són normals. Però mai no hagués pensat que viuriem això.**
 

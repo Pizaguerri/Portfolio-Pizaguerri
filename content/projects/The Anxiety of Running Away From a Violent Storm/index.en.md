@@ -13,7 +13,7 @@ resources:
     params:
       hidden: true
 ---
-![Summer storms are normal](feature.jpg)
+![Summer storms are normal](03%20Projectes/Fotografia/Portfolio%20Publicar/projects/The%20Anxiety%20of%20Running%20Away%20From%20a%20Violent%20Storm/feature.jpg)
 
 **Summer storms are normal. But I never thought we'd live through something like this.**
 

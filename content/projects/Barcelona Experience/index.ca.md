@@ -16,7 +16,7 @@ resources:
       hidden: true
 ---
 
-![Una reflexe del turisme a La Pedrera](feature.jpg)
+![Una reflexe del turisme a La Pedrera](03%20Projectes/Fotografia/Portfolio%20Publicar/projects/Barcelona%20Experience/feature.jpg)
 
 ## Introducción
 
