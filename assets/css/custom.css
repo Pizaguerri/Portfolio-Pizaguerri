@@ -628,14 +628,15 @@ body.home footer section:last-of-type {
   padding: 0.5rem !important;
 }
 
-/* ========== FIX HEADER MÓVIL ========== */
+/* ========== HEADER MÓVIL ========== */
 
-/* Header siempre a ancho completo (antes se encogía en móvil) */
+/* Header alineado con la caja de contenido (900px del slider) */
 .header-container {
   width: 100%;
+  max-width: calc(900px + 4rem);
 }
 
-/* Botón: tamaño táctil mínimo, el flex no puede triturarlo */
+/* Zona táctil mínima: el flex no puede triturarlo */
 .menu-toggle-btn {
   flex: 0 0 auto;
   min-width: 44px;
@@ -659,4 +660,71 @@ body.home footer section:last-of-type {
 
 .menu-toggle-btn[aria-expanded="true"] .icon-close {
   display: block;
+}
+
+/* Móvil: grid de 3 columnas, logo matemáticamente centrado */
+@media (max-width: 768px) {
+  .header-container {
+    display: grid !important;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding-inline: 1rem;
+  }
+  .logo-link {
+    grid-column: 2;
+  }
+  #menu-toggle {
+    grid-column: 3;
+    justify-self: end;
+    margin-left: 0 !important;
+  }
+  .main-nav {
+    display: none !important;
+  }
+}
+
+/* ========== CARRUSEL EDITORIAL (TODAS LAS PANTALLAS) ========== */
+
+.editorial-mosaic {
+  visibility: visible !important;
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 0px !important;
+  overflow-x: auto !important;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding-inline: 0px;
+  scroll-padding-inline: 0px;
+}
+
+.editorial-mosaic::-webkit-scrollbar {
+  display: none;
+}
+
+.editorial-mosaic-item {
+  position: static !important;
+  inset: auto !important;
+  width: 62vw !important;
+  height: auto !important;
+  flex: 0 0 62vw !important;
+  scroll-snap-align: center;
+  margin-right: 0px;
+  overflow: visible !important; 
+}
+
+.editorial-mosaic-img {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+  object-position: center;
+  filter: grayscale(0%);
+  transition: filter 0.8s ease;
+}
+
+/* En móvil cada tarjeta ocupa más pantalla */
+@media (max-width: 768px) {
+  .editorial-mosaic-item {
+    width: 82% !important;
+    flex: 0 0 82% !important;
+  }
 }
