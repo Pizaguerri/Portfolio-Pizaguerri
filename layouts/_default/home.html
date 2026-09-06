@@ -1,7 +1,7 @@
 {{/* layouts/_default/home.html */}}
 {{ define "main" }}
   {{ $featured := where .Site.RegularPages "Params.featured" true }}
-  
+
   {{ if $featured }}
     <section class="home-slider">
       <div class="slider-wrapper">
@@ -22,58 +22,58 @@
         </div>
       </div>
     </section>
-    
+
     <script>
     (function() {
       const slides = document.querySelectorAll('.slide');
       if (slides.length <= 1) return;
       let currentIndex = 0;
       let animating = false;
-    
+
       function goToSlide(nextIndex) {
         if (animating) return;
         animating = true;
-    
+
         if (nextIndex < 0) nextIndex = slides.length - 1;
         if (nextIndex >= slides.length) nextIndex = 0;
-    
+
         const current = slides[currentIndex];
         const next = slides[nextIndex];
-    
+
         next.style.display = 'block';
         next.style.transform = 'translateX(100%)';
         next.style.position = 'absolute';
         next.style.top = '0';
         next.style.left = '0';
         next.style.width = '100%';
-    
+
         requestAnimationFrame(() => {
           requestAnimationFrame(() => {
             current.style.transition = 'transform 0.6s ease-in-out';
             next.style.transition = 'transform 0.6s ease-in-out';
             current.style.transform = 'translateX(-100%)';
             next.style.transform = 'translateX(0)';
-    
+
             setTimeout(() => {
               current.classList.remove('active');
               current.style.display = '';
               current.style.transform = '';
               current.style.transition = '';
               current.style.position = '';
-    
+
               next.classList.add('active');
               next.style.position = '';
               next.style.transition = '';
-    
+
               currentIndex = nextIndex;
               animating = false;
             }, 600);
           });
         });
       }
-    
+
       setInterval(() => goToSlide(currentIndex + 1), 5000);
-    
+
       let touchStartX = 0;
       document.querySelector('.slider-container').addEventListener('touchstart', (e) => {
         touchStartX = e.changedTouches[0].screenX;
@@ -82,7 +82,7 @@
         const diff = touchStartX - e.changedTouches[0].screenX;
         if (Math.abs(diff) > 50) goToSlide(currentIndex + (diff > 0 ? 1 : -1));
       });
-    
+
       document.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowLeft') goToSlide(currentIndex - 1);
         if (e.key === 'ArrowRight') goToSlide(currentIndex + 1);
@@ -91,23 +91,30 @@
     </script>
   {{ end }}
 
-  {{/* Último post del blog */}}
+  {{/* Último editorial del blog */}}
   {{ $blogSection := .Site.GetPage "/blog" }}
   {{ with $blogSection }}
     {{ $latestPost := index (.Pages.ByDate.Reverse) 0 }}
     {{ with $latestPost }}
-      <section class="latest-post-section">
-        <div class="latest-post-wrapper-outer">
-          <a href="{{ .RelPermalink }}" class="latest-post-wrapper">
-            {{ $featured := .Resources.GetMatch "*featured*" }}
-            {{ with $featured }}
-              <div class="latest-post-image-container">
-                <img src="{{ .RelPermalink }}" alt="{{ $latestPost.Title }}" class="latest-post-img">
-              </div>
-              <h2 class="latest-post-title">{{ $latestPost.Title }}</h2>
+      <section class="editorial-section">
+        <a href="{{ .RelPermalink }}" class="editorial-card">
+          <span class="editorial-label">{{ i18n "latestPost" }}</span>
+          <div class="editorial-mosaic" id="editorial-mosaic">
+            {{ range .Params.featured_images }}
+              {{ with $latestPost.Resources.GetMatch . }}
+                <div class="editorial-mosaic-item">
+                  <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="{{ $latestPost.Title }}" class="editorial-mosaic-img">
+                </div>
+              {{ end }}
             {{ end }}
-          </a>
-        </div>
+          </div>
+          <div class="editorial-body">
+            <h2 class="editorial-title">{{ .Title }}</h2>
+            {{ with .Params.summary }}
+              <p class="editorial-excerpt">{{ . }}</p>
+            {{ end }}
+          </div>
+        </a>
       </section>
     {{ end }}
   {{ end }}

@@ -7,7 +7,11 @@ tags:
   - paisatge
 summary: Fotografia de l'eclipsi total del 12 d'Agost, sobre el cel del Cap de Cavalleria, Menorca.
 draft: false
-featured_image: featured.jpg
+featured_image: featured-1.jpg
+featured_images:
+  - featured-1.jpg
+  - featured-2.jpg
+  - featured-3.jpg
 ---
 
 ### Eclipsi en flames sobre Cavalleria

@@ -129,6 +129,7 @@ html.dark header a:hover {
   margin-left: auto;
   z-index: 1100;
   position: relative;
+  isolation: isolate;
 }
 
 .menu-toggle-btn svg {
@@ -248,7 +249,7 @@ hgroup {
 
 .home-slider {
   width: 100%;
-  margin: 0 0 2rem 0;
+  margin: 0 0 3rem 0;
   overflow: visible;
   padding: 0;
 }
@@ -316,6 +317,8 @@ hgroup {
 .slide-content {
   padding: 0.75rem 0 0 0;
   text-align: center;
+  height: calc(0.75rem + (0.8rem * 1.4 * 2) + 0.75rem);
+  overflow: hidden;
 }
 
 .slide-title,
@@ -334,6 +337,7 @@ html.dark .card > div > h2 {
 .slide-title,
 .latest-post-title {
   font-size: 0.8rem;
+  line-height: 1.4;   /* ← añade esto */
   letter-spacing: 0.15em;
   text-transform: uppercase;
   margin: 0.75rem 0 0 0;
@@ -391,6 +395,102 @@ html.dark .card > div > h2 {
 
 .latest-post-img {
   border-radius: 0;
+}
+
+/* ========== EDITORIAL (ÚLTIMO POST BLOG) ========== */
+
+.editorial-section {
+  width: 100%;
+  padding: 0 0 2rem 0;
+}
+
+.editorial-card {
+  display: block;
+  max-width: 900px;
+  margin: 0 auto;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(17, 17, 17, 0.15);
+  text-decoration: none;
+  color: inherit;
+}
+
+html.dark .editorial-card {
+  border-top-color: rgba(238, 238, 238, 0.15);
+}
+
+@media (max-width: 768px) {
+  .editorial-card {
+    max-width: 100%;
+    padding-top: 1.5rem;
+  }
+}
+
+.editorial-mosaic {
+  width: 100%;
+  visibility: hidden;
+}
+
+.editorial-mosaic-item {
+  overflow: hidden;
+}
+
+.editorial-mosaic-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(0%);
+  transition: filter 0.8s ease;
+}
+
+.editorial-mosaic-img:hover {
+  filter: grayscale(100%);
+}
+
+.editorial-body {
+  padding: 1rem 0 0 0;
+  text-align: center;
+}
+
+.editorial-label {
+  display: block;
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(17, 17, 17, 0.55);
+  margin: 0 0 1rem 0;
+}
+
+html.dark .editorial-label {
+  color: rgba(238, 238, 238, 0.55);
+}
+
+.editorial-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: normal;
+  margin: 0 0 0.4rem 0;
+  color: #111;
+}
+
+html.dark .editorial-title {
+  color: #eee;
+}
+
+.editorial-excerpt {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  max-width: 640px;
+  margin: 0 auto;
+  color: rgba(17, 17, 17, 0.75);
+}
+
+html.dark .editorial-excerpt {
+  color: rgba(238, 238, 238, 0.75);
 }
 
 /* ========== PROJECTS — GRID ========== */

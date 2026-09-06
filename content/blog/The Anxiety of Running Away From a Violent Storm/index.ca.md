@@ -5,18 +5,23 @@ draft: false
 description: "Fugint d'una tempesta per s'Autobahn"
 weight: 20
 gallery_position: bottom
+featured_image: featured-1.jpg
+featured_images:
+  - featured-1.jpg
+  - featured-2.jpg
+  - featured-3.jpg
 params:
   featured: true
   private: false
 resources:
-  - src: "feature.jpg"
-    title: "Portada del proyecto"
+  - src: "featured.jpg"
+    title: "The Anxiety of Running Away From a Violent Storm"
     params:
       cover: true
       hidden: true
 ---
 
-![Les tempestes durant l'estiu són normals](03%20Projectes/Fotografia/Portfolio%20Publicar/blog/The%20Anxiety%20of%20Running%20Away%20From%20a%20Violent%20Storm/feature.jpg)
+![](theanxietyofrunningawayfromaviolentstorm-1.webp)
 
 **Les tempestes durant l'estiu són normals. Però mai no hagués pensat que viuriem una així.**
 
