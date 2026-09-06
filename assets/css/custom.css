@@ -138,10 +138,6 @@ html.dark header a:hover {
   height: 24px;
 }
 
-.menu-toggle-btn.menu-open svg {
-  transform: rotate(90deg);
-}
-
 /* Menú móvil */
 #menu {
   position: absolute;
@@ -630,4 +626,37 @@ body.home footer .language-selector {
 
 body.home footer section:last-of-type {
   padding: 0.5rem !important;
+}
+
+/* ========== FIX HEADER MÓVIL ========== */
+
+/* Header siempre a ancho completo (antes se encogía en móvil) */
+.header-container {
+  width: 100%;
+}
+
+/* Botón: tamaño táctil mínimo, el flex no puede triturarlo */
+.menu-toggle-btn {
+  flex: 0 0 auto;
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.menu-toggle-btn svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+/* Intercambio de icono según estado del menú */
+.menu-toggle-btn .icon-close {
+  display: none;
+}
+
+.menu-toggle-btn[aria-expanded="true"] .icon-open {
+  display: none;
+}
+
+.menu-toggle-btn[aria-expanded="true"] .icon-close {
+  display: block;
 }
