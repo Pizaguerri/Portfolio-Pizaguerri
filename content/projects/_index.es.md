@@ -1,6 +1,6 @@
 ---
 title: "Proyectos"
-layout: "gallery"
+layout: "list"
 draft: false
 cascade:
   build:
