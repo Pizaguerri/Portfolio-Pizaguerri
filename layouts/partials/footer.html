@@ -3,9 +3,17 @@
   
   <section>
     <div class="language-selector">
+      {{ $current := . }}
       {{ range $.Site.Home.AllTranslations }}
-        <a href="{{ .Permalink }}" class="{{ if eq .Language.Lang $.Language.Lang }}active{{ end }}">
-          {{ upper .Language.Lang }}
+        {{ $lang := .Language.Lang }}
+        {{ $target := .Permalink }}
+        {{ range $current.AllTranslations }}
+          {{ if eq .Language.Lang $lang }}
+            {{ $target = .Permalink }}
+          {{ end }}
+        {{ end }}
+        <a href="{{ $target }}" class="{{ if eq $lang $.Language.Lang }}active{{ end }}">
+          {{ upper $lang }}
         </a>
       {{ end }}
     </div>

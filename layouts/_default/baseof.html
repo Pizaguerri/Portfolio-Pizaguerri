@@ -14,7 +14,7 @@
       {{ block "main" . }}{{ end }}
     </main>
 
-    {{ block "footer" . }}{{ partialCached "footer.html" . }}{{ end }}
+    {{ block "footer" . }}{{ partial "footer.html" . }}{{ end }}
     
     {{ $hardening := resources.Get "js/gallery-hardening.js" | resources.Minify | resources.Fingerprint }}
     <script src="{{ $hardening.RelPermalink }}"></script>
