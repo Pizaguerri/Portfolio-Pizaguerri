@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("/fonts/SpaceGrotesk-Variable.woff2") format("woff2");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+.site-title,
+.main-nav a,
+#menu a,
+hgroup h1,
+hgroup h2,
+hgroup p,
+.slide-title,
+.latest-post-title,
+.editorial-label,
+.editorial-title,
+.card > div > h2,
+.copyright {
+  font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 500;
+}
