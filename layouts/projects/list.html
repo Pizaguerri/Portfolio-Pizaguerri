@@ -1,0 +1,39 @@
+{{/*
+  layouts/projects/list.html
+
+  Sobrescribe layouts/_default/list.html SOLO para la sección "projects".
+  Hugo prioriza esta plantilla sobre la genérica cuando el contenido
+  pertenece a esa sección — /blog/ sigue usando _default/list.html sin
+  ningún cambio, esta plantilla no le afecta.
+
+  Fusiona proyectos y posts de blog en una sola página ("Índex" en el
+  menú), cada uno en su propio bloque con encabezado, ambos leyendo del
+  catálogo canónico en catalán y resolviendo traducción por elemento.
+*/}}
+{{ define "main" }}
+  {{ $caSite := partial "canonical-site.html" . }}
+  {{ $caProjects := "" }}
+  {{ $caBlog := "" }}
+  {{ if $caSite }}
+    {{ $caProjects = $caSite.GetPage "/projects" }}
+    {{ $caBlog = $caSite.GetPage "/blog" }}
+  {{ end }}
+
+  {{ with $caProjects }}
+    <h2 class="index-section-title">{{ .Title }}</h2>
+    <section class="galleries">
+      {{ range where .RegularPages "Params.private" "ne" true }}
+        {{ partial "album-card.html" (partial "resolve-translation.html" (dict "page" . "lang" $.Language.Lang)) }}
+      {{ end }}
+    </section>
+  {{ end }}
+
+  {{ with $caBlog }}
+    <h2 class="index-section-title">{{ .Title }}</h2>
+    <section class="galleries">
+      {{ range where .RegularPages "Params.private" "ne" true }}
+        {{ partial "album-card.html" (partial "resolve-translation.html" (dict "page" . "lang" $.Language.Lang)) }}
+      {{ end }}
+    </section>
+  {{ end }}
+{{ end }}

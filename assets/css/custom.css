@@ -241,108 +241,7 @@ hgroup {
   z-index: 1;
 }
 
-/* ========== HOME SLIDER ========== */
-
-.home-slider {
-  width: 100%;
-  margin: 0 0 3rem 0;
-  overflow: visible;
-  padding: 0;
-}
-
-.slider-container {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
-
-.slider-wrapper {
-  max-width: 900px;
-  margin: 0 auto;
-  overflow: hidden;
-}
-
-.slide {
-  display: none;
-  text-decoration: none;
-  color: inherit;
-}
-
-.slide.active {
-  display: block;
-}
-
-.slide.slide-enter {
-  display: block;
-  animation: slideInRight 0.6s ease-in-out forwards;
-}
-
-.slide.slide-exit {
-  display: block;
-  animation: slideOutLeft 0.6s ease-in-out forwards;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-}
-
-@keyframes slideInRight {
-  from { transform: translateX(100%); }
-  to   { transform: translateX(0); }
-}
-
-@keyframes slideOutLeft {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-100%); }
-}
-
-.slide-image-wrapper {
-  width: 100%;
-  overflow: hidden;
-}
-
-.slide-image-real,
-.latest-post-img {
-  width: 100%;
-  height: auto;
-  display: block;
-  max-height: 85vh;
-  object-fit: cover;
-}
-
-.slide-content {
-  padding: 0.75rem 0 0 0;
-  text-align: center;
-  height: calc(0.75rem + (0.8rem * 1.4 * 2) + 0.75rem);
-  overflow: hidden;
-}
-
-.slide-title,
-.latest-post-title,
-.card > div > h2 {
-  font-weight: 600;
-  color: #111;
-}
-
-html.dark .slide-title,
-html.dark .latest-post-title,
-html.dark .card > div > h2 {
-  color: #eee;
-}
-
-.slide-title,
-.latest-post-title {
-  font-size: 0.8rem;
-  line-height: 1.4;   /* ← añade esto */
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  margin: 0.75rem 0 0 0;
-  text-align: center;
-  display: block;
-}
-
 /* ========== HOVER GRAYSCALE ========== */
-
 .slide-image-real,
 .latest-post-img,
 .card figure > img {
@@ -355,137 +254,6 @@ html.dark .card > div > h2 {
 .card figure > img:hover {
   filter: grayscale(100%);
   transition: filter 0.8s ease;
-}
-
-/* ========== ÚLTIMO POST HOME ========== */
-
-.latest-post-section {
-  width: 100%;
-  padding: 0 0 2rem 0;
-}
-
-.latest-post-wrapper-outer {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-@media (max-width: 768px) {
-  .slider-wrapper {
-    max-width: 100%;
-  }
-  .latest-post-wrapper-outer {
-    max-width: 100%;
-  }
-}
-
-.latest-post-wrapper {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-}
-
-.latest-post-image-container {
-  width: 100%;
-  overflow: hidden;
-}
-
-.latest-post-img {
-  border-radius: 0;
-}
-
-/* ========== EDITORIAL (ÚLTIMO POST BLOG) ========== */
-
-.editorial-section {
-  width: 100%;
-  padding: 0 0 2rem 0;
-}
-
-.editorial-card {
-  display: block;
-  max-width: 900px;
-  margin: 0 auto;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(17, 17, 17, 0.15);
-  text-decoration: none;
-  color: inherit;
-}
-
-html.dark .editorial-card {
-  border-top-color: rgba(238, 238, 238, 0.15);
-}
-
-@media (max-width: 768px) {
-  .editorial-card {
-    max-width: 100%;
-    padding-top: 1.5rem;
-  }
-}
-
-.editorial-mosaic {
-  width: 100%;
-  visibility: hidden;
-}
-
-.editorial-mosaic-item {
-  overflow: hidden;
-}
-
-.editorial-mosaic-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  filter: grayscale(0%);
-  transition: filter 0.8s ease;
-}
-
-.editorial-mosaic-img:hover {
-  filter: grayscale(100%);
-}
-
-.editorial-body {
-  padding: 1rem 0 0 0;
-  text-align: center;
-}
-
-.editorial-label {
-  display: block;
-  text-align: center;
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: rgba(17, 17, 17, 0.55);
-  margin: 0 0 1rem 0;
-}
-
-html.dark .editorial-label {
-  color: rgba(238, 238, 238, 0.55);
-}
-
-.editorial-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  text-transform: none;
-  letter-spacing: normal;
-  margin: 0 0 0.4rem 0;
-  color: #111;
-}
-
-html.dark .editorial-title {
-  color: #eee;
-}
-
-.editorial-excerpt {
-  font-size: 0.9rem;
-  line-height: 1.5;
-  max-width: 640px;
-  margin: 0 auto;
-  color: rgba(17, 17, 17, 0.75);
-}
-
-html.dark .editorial-excerpt {
-  color: rgba(238, 238, 238, 0.75);
 }
 
 /* ========== PROJECTS — GRID ========== */
@@ -617,8 +385,16 @@ footer .language-selector a:hover {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-/* Ocultar iconos sociales y selector de idioma en la home */
-body.home footer .social-icons,
+/* Iconos sociales solo visibles en "Sobre mí" */
+footer .social-icons {
+  display: none;
+}
+
+body.about-page footer .social-icons {
+  display: flex;
+}
+
+/* Selector de idioma oculto en la home */
 body.home footer .language-selector {
   display: none;
 }
@@ -626,6 +402,7 @@ body.home footer .language-selector {
 body.home footer section:last-of-type {
   padding: 0.5rem !important;
 }
+
 
 /* ========== HEADER MÓVIL ========== */
 
@@ -682,51 +459,6 @@ body.home footer section:last-of-type {
   }
 }
 
-/* ========== CARRUSEL EDITORIAL (TODAS LAS PANTALLAS) ========== */
-
-.editorial-mosaic {
-  visibility: visible !important;
-  display: flex !important;
-  flex-direction: row !important;
-  gap: 0px !important;
-  overflow-x: auto !important;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-  padding-inline: 0px;
-  scroll-padding-inline: 0px;
-}
-
-.editorial-mosaic::-webkit-scrollbar {
-  display: none;
-}
-
-.editorial-mosaic-item {
-  position: static !important;
-  inset: auto !important;
-  width: 62vw !important;
-  height: auto !important;
-  flex: 0 0 62vw !important;
-  scroll-snap-align: center;
-  margin-right: 0px;
-  overflow: visible !important; 
-}
-
-.editorial-mosaic-img {
-  width: 100% !important;
-  height: auto !important;
-  object-fit: contain !important;
-  object-position: center;
-  filter: grayscale(0%);
-  transition: filter 0.8s ease;
-}
-
-/* En móvil cada tarjeta ocupa más pantalla */
-@media (max-width: 768px) {
-  .editorial-mosaic-item {
-    width: 82% !important;
-    flex: 0 0 82% !important;
-  }
-}
 
 /* ========== REJILLA EDITORIAL UNIFICADA (900px) ========== */
 
@@ -744,4 +476,95 @@ section.galleries {
 .page-content {
   max-width: 720px;
   margin-inline: auto;
+}
+
+/* ========== HOME — FILAS DE SCROLL POR PROYECTO/POST ========== */
+
+.home-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
+.home-row {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+}
+
+.home-row-scroll {
+  display: flex;
+  gap: 0.4rem;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+}
+
+.home-row-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.home-row-scroll img {
+  height: 340px;
+  width: auto;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  object-fit: contain;
+  display: block;
+}
+
+.home-row-title {
+  display: block;
+  min-height: 1.4em;
+  margin-top: 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-2);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.home-row:hover .home-row-title {
+  opacity: 1;
+}
+
+/* ========== HOME — MÓVIL: SCROLL CON SOLAPE ========== */
+
+@media (max-width: 768px) {
+  .home-row-title {
+    opacity: 1;
+    margin-top: 0.4rem;
+    font-size: 0.7rem;
+  }
+
+  .home-row-scroll img {
+    height: auto;
+    width: 82vw;
+    flex: 0 0 82vw;
+  }
+}
+
+/* ========== ÍNDEX — ENCABEZADOS DE BLOQUE (PROYECTOS + BLOG) ========== */
+
+.index-section-title {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin: 1.5rem auto 1rem auto;
+  max-width: calc(900px + 8rem);
+  padding: 0 4rem;
+}
+
+.index-section-title:first-of-type {
+  margin-top: 1rem;
+}
+
+@media (max-width: 640px) {
+  .index-section-title {
+    padding: 0 1rem;
+  }
 }

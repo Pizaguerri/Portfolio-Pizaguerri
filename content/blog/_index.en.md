@@ -1,5 +1,5 @@
 ---
-title: "Blog"
+title: "Editorial"
 layout: "list"
 description: "A little compendium of photo stories and editorials."
 weight: 20

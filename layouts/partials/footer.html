@@ -20,7 +20,7 @@
   </section>
   
   <section>
-    <span class="copyright">© {{ now.Year }} {{ .Site.Copyright }}</span>
+    <span class="copyright">© {{ now.Year }} {{ i18n "copyrightNotice" }}</span>
     {{ range .Site.Menus.footer }}
       <a {{ with .Params.rel }}rel="{{ . }}"{{ end }} href="{{ .URL }}">
         {{ .Name }}

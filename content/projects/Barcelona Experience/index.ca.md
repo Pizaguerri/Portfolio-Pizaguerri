@@ -1,22 +1,17 @@
 ---
 title: "Barcelona Experience"
-date: 2023-07-18
-draft: false
 description: "Etnografía visual del turismo en Barcelona"
-weight: 20
-gallery_position: bottom
-params:
-  featured: true 
-  private: false
-resources:
-  - src: "feature.jpg"
-    title: "Portada del proyecto"
-    params:
-      cover: true
-      hidden: true
+date: 2023-07-18
+tags:
+  - fotografia de carrer
+  - Barcelona
+summary: Etnografia visual de la vida diària de turistes a Barcelona.
+draft: false
+featured_image: featured-1.jpg
+
 ---
 
-![Una reflexe del turisme a La Pedrera](03%20Projectes/Fotografia/Portfolio%20Publicar/projects/Barcelona%20Experience/feature.jpg)
+![Una reflexe del turisme a La Pedrera](03%20Projectes/Fotografia/Portfolio%20Publicar/projects/Barcelona%20Experience/featured-1.jpg)
 
 ## Introducción
 

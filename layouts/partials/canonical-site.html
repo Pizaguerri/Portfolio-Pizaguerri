@@ -1,0 +1,18 @@
+{{/*
+  layouts/partials/canonical-site.html
+
+  Devuelve el objeto Site del idioma canónico (catalán, "ca").
+  Se usa para que las páginas de listado (home, galería de proyectos, blog,
+  relacionados) lean siempre el mismo conjunto de contenido sin importar en
+  qué idioma se esté viendo la web.
+
+  Uso: {{ $caSite := partial "canonical-site.html" . }}
+*/}}
+{{ $canonicalLang := "ca" }}
+{{ $result := "" }}
+{{ range hugo.Sites }}
+  {{ if eq .Language.Lang $canonicalLang }}
+    {{ $result = . }}
+  {{ end }}
+{{ end }}
+{{ return $result }}

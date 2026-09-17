@@ -1,5 +1,5 @@
 ---
-title: "Blog"
+title: "Editorial"
 layout: "list"
 description: "Una serie de pequeñas historias y editoriales."
 weight: 20

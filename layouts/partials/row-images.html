@@ -1,0 +1,23 @@
+{{/*
+  layouts/partials/row-images.html
+
+  Devuelve hasta 4 imágenes para la fila de scroll del home de una página
+  (proyecto o post). Si la página define `featured_images` en el front
+  matter, se usa esa selección curada y ordenada. Si no, se cogen las
+  imágenes normales de la página bundle (excluyendo las marcadas como
+  hidden, como la portada feature.jpg).
+
+  Uso: {{ $images := partial "row-images.html" . }}
+*/}}
+{{ $page := . }}
+{{ $images := slice }}
+{{ if $page.Params.featured_images }}
+  {{ range $page.Params.featured_images }}
+    {{ with $page.Resources.GetMatch . }}
+      {{ $images = $images | append . }}
+    {{ end }}
+  {{ end }}
+{{ else }}
+  {{ $images = where ($page.Resources.ByType "image") "Params.hidden" "ne" true }}
+{{ end }}
+{{ return ($images | first 3) }}

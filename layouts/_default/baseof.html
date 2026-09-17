@@ -6,7 +6,7 @@
 
   {{ partial "head.html" . }}
 
-  <body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100{{ if .IsHome }} home{{ end }}">
+  <body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100{{ if .IsHome }} home{{ end }}{{ if eq .Type "page" }} about-page{{ end }}">
 
     {{ block "header" . }}{{ partial "header.html" . }}{{ end }}
 

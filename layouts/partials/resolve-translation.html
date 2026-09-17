@@ -1,0 +1,20 @@
+{{/*
+  layouts/partials/resolve-translation.html
+
+  Dada una página del idioma canónico y un idioma de destino, devuelve la
+  traducción de esa página en ese idioma si existe. Si no existe, devuelve
+  la página tal cual (fallback a catalán).
+
+  Uso: {{ $pagina := partial "resolve-translation.html" (dict "page" $paginaCanonica "lang" .Language.Lang) }}
+*/}}
+{{ $page := .page }}
+{{ $lang := .lang }}
+{{ $resolved := $page }}
+{{ if ne $page.Language.Lang $lang }}
+  {{ range $page.AllTranslations }}
+    {{ if eq .Language.Lang $lang }}
+      {{ $resolved = . }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ return $resolved }}
