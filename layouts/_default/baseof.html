@@ -1,8 +1,24 @@
 <!doctype html>
 {{- $theme := .Params.theme | default .Site.Params.defaultTheme }}
 
-<html class="{{- if (eq $theme "light") -}}light{{- else if (eq $theme "dark") }}dark{{ end }}"
-      lang="{{ .Language.Lang | default "en" }}">
+<script>
+  (function() {
+    // Verifica si hay una preferencia guardada en localStorage
+    const storedTheme = localStorage.getItem('theme');
+    
+    if (storedTheme) {
+      // Preferir elección del usuario sobre sistema
+      if (storedTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+      }
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      // Si no hay elección guardada, usar preferencia del sistema
+      document.documentElement.classList.add('dark');
+    }
+  })();
+</script>
+
+<html lang="{{ .Language.Lang | default "en" }}">
 
   {{ partial "head.html" . }}
 
