@@ -1,0 +1,29 @@
+{{ define "main" }}
+  <hgroup>
+    <h1>{{ .Title }}</h1>
+  </hgroup>
+
+  <section id="gallery">
+    {{/* Recorre todas las subsecciones (ej. masterings/) y obtiene sus imágenes */}}
+    {{ range .RegularPages }}
+      {{ $images := .Resources.ByType "image" }}
+      {{ range $images }}
+        {{ $thumb := .Filter (slice images.AutoOrient (images.Process "fit 800x800 webp q80")) }}
+        {{ $full := .Filter (slice images.AutoOrient (images.Process "fit 1920x1920 webp q82")) }}
+        
+        {{/* DESPUÉS (sin <a>, usar <div> como wrapper) */}}
+        <div class="gallery-item" 
+             data-pswp-src="{{ $full.RelPermalink }}"
+             data-pswp-width="{{ $full.Width }}"
+             data-pswp-height="{{ $full.Height }}"
+             data-pswp-target="{{ .Name | urlize }}">
+          <img src="{{ $thumb.RelPermalink }}"
+               width="{{ $thumb.Width }}"
+               height="{{ $thumb.Height }}"
+               alt="{{ .Name }}"
+               loading="lazy">
+        </div>
+      {{ end }}
+    {{ end }}
+  </section>
+{{ end }}

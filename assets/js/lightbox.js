@@ -10,9 +10,19 @@ if (gallery) {
     gallery,
     children: ".gallery-item",
     showHideAnimationType: "zoom",
-    bgOpacity: 1,
+    bgOpacity: 0.85,
     pswpModule: PhotoSwipe,
     imageClickAction: "close",
+    bgClickAction: "close",
+    pinchClose: "close",
+    loop: true,
+    spacing: 0.12,
+    allowPanToNext: false,
+    closeOnVerticalDrag: false,
+    wheelToZoom: false,
+    pinchToZoom: false,
+    zoomToOpportunityThreshold: 0,
+    
     closeTitle: params.closeTitle,
     zoomTitle: params.zoomTitle,
     arrowPrevTitle: params.arrowPrevTitle,
@@ -20,30 +30,6 @@ if (gallery) {
     errorMsg: params.errorMsg,
   });
 
-  if (params.enableDownload) {
-    lightbox.on("uiRegister", () => {
-      lightbox.pswp.ui.registerElement({
-        name: "download-button",
-        order: 8,
-        isButton: true,
-        tagName: "a",
-        html: {
-          isCustomSVG: true,
-          inner: '<path d="M20.5 14.3 17.1 18V10h-2.2v7.9l-3.4-3.6L10 16l6 6.1 6-6.1ZM23 23H9v2h14Z" id="pswp__icn-download"/>',
-          outlineID: "pswp__icn-download",
-        },
-        onInit: (el, pswp) => {
-          el.setAttribute("download", "");
-          el.setAttribute("target", "_blank");
-          el.setAttribute("rel", "noopener");
-          el.setAttribute("title", params.downloadTitle || "Download");
-          pswp.on("change", () => {
-            el.href = pswp.currSlide.data.element.href;
-          });
-        },
-      });
-    });
-  }
 
   lightbox.on("change", () => {
     const target = lightbox.pswp.currSlide?.data?.element?.dataset["pswpTarget"];
@@ -62,6 +48,18 @@ if (gallery) {
 
   lightbox.init();
 
+  const blurOverlay = document.getElementById('lightbox-blur-overlay');
+  
+  if (blurOverlay) {
+    lightbox.on('opening', () => {
+      blurOverlay.style.opacity = '1';
+    });
+    
+    lightbox.on('close', () => {
+      blurOverlay.style.opacity = '0';
+    });
+  }
+
   if (window.location.hash.substring(1).length > 1) {
     const target = window.location.hash.substring(1);
     const items = gallery.querySelectorAll("a");
@@ -73,3 +71,23 @@ if (gallery) {
     }
   }
 }
+
+// Prevenir clic derecho y doble click en imágenes del lightbox
+document.addEventListener('DOMContentLoaded', () => {
+  const gallery = document.getElementById('gallery');
+  if (!gallery) return;
+
+  // Deshabilitar menú contextual en imágenes de galería
+  gallery.addEventListener('contextmenu', (e) => {
+    if (e.target.tagName === 'IMG') {
+      e.preventDefault();
+    }
+  });
+
+  // Prevenir doble click
+  gallery.addEventListener('dblclick', (e) => {
+    if (e.target.tagName === 'IMG') {
+      e.preventDefault();
+    }
+  });
+});

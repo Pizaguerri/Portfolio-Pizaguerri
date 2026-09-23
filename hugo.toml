@@ -8,10 +8,14 @@ defaultContentLanguageInSubdir = false
     name = "ÍNDEX"
     pageRef = "/projects"
     weight = 1
-  [[languages.ca.menu.main]]
+    [[languages.ca.menu.main]]
     name = "ABOUT"
     pageRef = "/about"
     weight = 2
+    [[languages.ca.menu.main]]
+    name = "Senzills"
+    pageRef = "/selected/"
+    weight = 3
 
 [[languages.es.menu.main]]
     name = "ÍNDICE"
@@ -21,6 +25,10 @@ defaultContentLanguageInSubdir = false
     name = "ABOUT"
     pageRef = "/about"
     weight = 2
+    [[languages.es.menu.main]]
+    name = "Simples"
+    pageRef = "/selected/"
+    weight = 3
 
 [[languages.en.menu.main]]
     name = "INDEX"
@@ -30,6 +38,10 @@ defaultContentLanguageInSubdir = false
     name = "ABOUT"
     pageRef = "/about"
     weight = 2
+    [[languages.en.menu.main]]
+    name = "Selected Works"
+    pageRef = "/selected/"
+    weight = 3
 
 [build]
   publishResources = false

@@ -35,5 +35,50 @@
     {{ $hardening := resources.Get "js/gallery-hardening.js" | resources.Minify | resources.Fingerprint }}
     <script src="{{ $hardening.RelPermalink }}"></script>
 
+    <script>
+      // Bloquear eventos de descarga en TODA la página
+      document.addEventListener('DOMContentLoaded', () => {
+        // Bloquear dragstart globalmente
+        document.addEventListener('dragstart', (e) => {
+          if (e.target.tagName === 'IMG') {
+            e.preventDefault();
+            return false;
+          }
+        }, { capture: true });
+    
+        // Bloquear contextmenu globalmente
+        document.addEventListener('contextmenu', (e) => {
+          if (e.target.tagName === 'IMG') {
+            e.preventDefault();
+            return false;
+          }
+        }, { capture: true });
+    
+        // Bloquear doble/triple click en galería
+        const galleries = document.querySelectorAll('#gallery');
+        galleries.forEach(gallery => {
+          gallery.addEventListener('dblclick', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+          }, { capture: true });
+    
+          gallery.addEventListener('mousedown', (e) => {
+            if (e.button === 1 || e.getModifierState("AltGraph")) {
+              e.preventDefault();
+              return false;
+            }
+          }, { capture: true });
+    
+          // Bloquear gestures Mac trackpad
+          gallery.addEventListener('gesturestart', e => e.preventDefault());
+          gallery.addEventListener('gesturechange', e => e.preventDefault());
+          gallery.addEventListener('gestureend', e => e.preventDefault());
+        });
+      });
+    </script>
+
+    <div class="pswp__blur-overlay" id="lightbox-blur-overlay"></div>
+    
   </body>
 </html>

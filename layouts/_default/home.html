@@ -12,7 +12,27 @@
   {{ end }}
   {{ $items = sort $items "Date" "desc" }}
 
-  <section class="home-rows">
+  {{/* Selected Works */}}
+  {{ with $caSite.GetPage "/selected" }}
+    {{ $sel := partial "resolve-translation.html" (dict "page" . "lang" $.Language.Lang) }}
+    {{/* Acumula todas las imágenes de todas las subsecciones */}}
+    {{ $allImages := slice }}
+    {{ range .RegularPages }}
+      {{ $allImages = $allImages | append (.Resources.ByType "image") }}
+    {{ end }}
+    {{ if gt (len $allImages) 0 }}
+      <a class="home-row" href="{{ $sel.RelPermalink }}">
+        <div class="home-row-scroll">
+          {{ range first 10 $allImages }}
+            {{ $thumb := .Filter (slice images.AutoOrient (images.Process "fit 1200x1200 webp q80")) }}
+            <img src="{{ $thumb.RelPermalink }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" alt="{{ .Name }}" loading="lazy">
+          {{ end }}
+        </div>
+        <span class="home-row-title">{{ $sel.Title }}</span>
+      </a>
+    {{ end }}
+  {{ end }}
+
     {{ range $items }}
       {{ $page := partial "resolve-translation.html" (dict "page" . "lang" $.Language.Lang) }}
       {{ $images := partial "row-images.html" $page }}
