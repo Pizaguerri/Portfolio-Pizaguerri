@@ -15,11 +15,7 @@
   {{/* Selected Works */}}
   {{ with $caSite.GetPage "/selected" }}
     {{ $sel := partial "resolve-translation.html" (dict "page" . "lang" $.Language.Lang) }}
-    {{/* Acumula todas las imágenes de todas las subsecciones */}}
-    {{ $allImages := slice }}
-    {{ range .RegularPages }}
-      {{ $allImages = $allImages | append (.Resources.ByType "image") }}
-    {{ end }}
+    {{ $allImages := $sel.Resources.ByType "image" }}
     {{ if gt (len $allImages) 0 }}
       <a class="home-row" href="{{ $sel.RelPermalink }}">
         <div class="home-row-scroll">

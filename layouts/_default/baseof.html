@@ -32,9 +32,6 @@
 
     {{ block "footer" . }}{{ partial "footer.html" . }}{{ end }}
     
-    {{ $hardening := resources.Get "js/gallery-hardening.js" | resources.Minify | resources.Fingerprint }}
-    <script src="{{ $hardening.RelPermalink }}"></script>
-
     <script>
       // Bloquear eventos de descarga en TODA la página
       document.addEventListener('DOMContentLoaded', () => {
@@ -78,7 +75,5 @@
       });
     </script>
 
-    <div class="pswp__blur-overlay" id="lightbox-blur-overlay"></div>
-    
   </body>
 </html>

@@ -1,5 +1,12 @@
 {{ define "main" }}
   <section class="galleries">
+    {{ if eq .Section "projects" }}
+      {{ $caSite := partial "canonical-site.html" . }}
+      {{ with $caSite.GetPage "/selected" }}
+        {{ $sel := partial "resolve-translation.html" (dict "page" . "lang" $.Language.Lang) }}
+        {{ partial "album-card.html" $sel }}
+      {{ end }}
+    {{ end }}
     {{ range where .Pages "Params.private" "ne" true }}
       {{ partial "album-card.html" . }}
     {{ end }}

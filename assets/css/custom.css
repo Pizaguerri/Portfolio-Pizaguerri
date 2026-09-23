@@ -677,6 +677,7 @@ html.dark .work-tags {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  -webkit-touch-callout: none;
 }
 
 /* Bloquear drag */
@@ -700,35 +701,8 @@ html.dark .work-tags {
 
 /* ========== LIGHTBOX — FONDO CON BLUR ========== */
 
-/* Overlay de blur separado */
-.pswp__blur-overlay {
-  position: fixed;
-  inset: 0;
+.pswp__bg {
   background: rgba(0, 0, 0, 0.65);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  z-index: 9998;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 300ms ease;
-}
-
-/* Asegurar jerarquía z-index correcta */
-.pswp__bg {
-  background: transparent !important;
-  opacity: 1 !important;
-  z-index: 9999;
-}
-
-.pswp__item {
-  z-index: 100000 !important;
-}
-
-.pswp__dynamic-caption {
-  z-index: 100001 !important;
-}
-
-/* Activar blur cuando el overlay esté presente */
-.pswp.pswp--open ~ .pswp__blur-overlay {
-  opacity: 1;
 }

@@ -48,18 +48,6 @@ if (gallery) {
 
   lightbox.init();
 
-  const blurOverlay = document.getElementById('lightbox-blur-overlay');
-  
-  if (blurOverlay) {
-    lightbox.on('opening', () => {
-      blurOverlay.style.opacity = '1';
-    });
-    
-    lightbox.on('close', () => {
-      blurOverlay.style.opacity = '0';
-    });
-  }
-
   if (window.location.hash.substring(1).length > 1) {
     const target = window.location.hash.substring(1);
     const items = gallery.querySelectorAll("a");
