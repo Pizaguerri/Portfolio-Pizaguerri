@@ -13,10 +13,16 @@ if (gallery) {
     bgOpacity: 0.85,
     pswpModule: PhotoSwipe,
     imageClickAction: "close",
+    tapAction: "close",
     bgClickAction: "close",
     pinchClose: "close",
     loop: true,
-    spacing: 0.12,
+    padding: {
+      top: 25,
+      bottom: 25,
+      left: 25,
+      right: 25,
+    },
     allowPanToNext: false,
     closeOnVerticalDrag: false,
     wheelToZoom: false,
@@ -41,9 +47,9 @@ if (gallery) {
   });
 
   new PhotoSwipeDynamicCaption(lightbox, {
-    mobileLayoutBreakpoint: 700,
-    type: "auto",
-    mobileCaptionOverlapRatio: 1,
+    type: "below",
+    mobileLayoutBreakpoint: 0,
+    verticallyCenterImage: true,
   });
 
   lightbox.init();

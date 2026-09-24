@@ -9,22 +9,28 @@
       {{ if ne .Title .Name }}
         {{ $title = .Title }}
       {{ end }}
+
       {{ $thumb := .Filter (slice images.AutoOrient (images.Process "fit 800x800 webp q80")) }}
       {{ $full := .Filter (slice images.AutoOrient (images.Process "fit 1920x1920 webp q82")) }}
-      <div class="gallery-item"
-           data-pswp-src="{{ $full.RelPermalink }}"
-           data-pswp-width="{{ $full.Width }}"
-           data-pswp-height="{{ $full.Height }}"
-           data-pswp-target="{{ .Name | urlize }}">
+
+      <a class="gallery-item"
+         href="{{ $full.RelPermalink }}"
+         data-pswp-src="{{ $full.RelPermalink }}"
+         data-pswp-width="{{ $full.Width }}"
+         data-pswp-height="{{ $full.Height }}"
+         data-pswp-target="{{ .Name | urlize }}">
+
         <img src="{{ $thumb.RelPermalink }}"
              width="{{ $thumb.Width }}"
              height="{{ $thumb.Height }}"
              alt="{{ default .Name $title }}"
              loading="lazy">
+
         {{ with $title }}
           <p class="pswp-caption-content">{{ . }}</p>
         {{ end }}
-      </div>
+
+      </a>
     {{ end }}
   </section>
 {{ end }}
