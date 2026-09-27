@@ -17,30 +17,50 @@
 {{- end }}
 
 {{- if .IsPage }}
+
   <meta property="og:type" content="article" />
+
   {{- with .Section }}
     <meta property="article:section" content="{{ . }}" />
   {{- end }}
+
   {{- $ISO8601 := "2006-01-02T15:04:05-07:00" -}}
+
   {{- with .PublishDate }}
-    <meta property="article:published_time" {{ .Format $ISO8601 | printf "content=%q" | safeHTMLAttr }} />
+    <meta
+      property="article:published_time"
+      {{ .Format $ISO8601 | printf "content=%q" | safeHTMLAttr }}
+    />
   {{- end }}
+
   {{- with .Lastmod }}
-    <meta property="article:modified_time" {{ .Format $ISO8601 | printf "content=%q" | safeHTMLAttr }} />
+    <meta
+      property="article:modified_time"
+      {{ .Format $ISO8601 | printf "content=%q" | safeHTMLAttr }}
+    />
   {{- end }}
+
 {{- else }}
+
   <meta property="og:type" content="website" />
+
 {{- end }}
 
-{{- $images := $.Resources.ByType "image" -}}
-{{ $index := 0 }}
-{{ range $i, $image := $images }}
-  {{ if index $image.Params "cover" }}
-    {{ $index = $i }}
-  {{ end }}
+
+{{/* =========================================================
+     COVER
+     ========================================================= */}}
+
+{{ with partial "get-cover.html" . }}
+
+  {{ $full := .Filter (slice
+    images.AutoOrient
+    (images.Process "fit 1600x1600")
+  ) }}
+
+  <meta
+    property="og:image"
+    content="{{ $full.Permalink }}"
+  />
+
 {{ end }}
-{{ $image := ($images.GetMatch (.Params.featured_image | default "*feature*")) | default (index $images $index) }}
-{{- with $image -}}
-  {{ $full := $image.Filter (slice images.AutoOrient (images.Process "fit 1600x1600")) }}
-  <meta property="og:image" content="{{ $full.Permalink }}" />
-{{- end -}}

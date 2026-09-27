@@ -7,11 +7,6 @@ tags:
   - paisatge
 summary: Una tempesta molt virulenta ens encalça per s'autobahn.
 draft: false
-featured_image: featured-1.jpg
-featured_images:
-  - featured-1.webp
-  - featured-2.webp
-  - featured-3.webp
 ---
 
 **Les tempestes durant l'estiu són normals. Però mai no hagués pensat que viuriem una així.**
@@ -22,6 +17,8 @@ Record que, mentre travessàvem el sud de França, es podia sentir com la humita
 
 En creuar el Rihn van començar a sonar les alarmes del telèfon. Sense aturar. Deien en francés que s'esperava una tempesta de força extrema en les properes hores, i estavem just al mig de les regions marcades en vermell. Vam creuar la Selva Negra, i les alarmes van deixar de sonar. Ens quedaven tres hores a la autobahn, on la velocitat la marca la voluntat. El cel es va començar a tapar,  just a la vegada que començava a baixar la claror. 
 
+![](theanxietyofrunningawayfromaviolentstorm-2.webp)
+
 S'aixecà la brissa. Es va fer fosc a alta velocitat i es vislumbraven llamps a la llunyania. Vaig treure la càmera per canalitzar els nirvis mentre avisava de la nostra ubicació al nostre amfitrió. Quedaven 50km i la furgoneta es conduïa cada vegada amb més nirvi i menys velocitat.  Mirant al retrovisor, els niguls formaven un vòrtex amb més estructura, cada vegada més gran, el que significava que s'apropava. La tormenta anava més aviat que noltros, i el vent feia que els vehicles anèssim més a poc a poc. 
 
 ![](theanxietyofrunningawayfromaviolentstorm-3.webp)
@@ -30,7 +27,8 @@ Els llamps van començar a succeïr-se. L'un darrere l'altre. En un espectacle n
 
 Va començar a ploure, d'una forma escandalosa. No es veia a tres metres per la quantitat d'aigua que ens ofegava. Calabruix. Bolles com de golf. I una nit ja espesa degut al cicló que ja teníem al damunt. El vent feia impossible controlar un vehicle que havia de ser refugi les properes setmanes, però ja ni tan sols estavem segures que resistiria aquesta segona nit de trajecte. Calia aturar, i entre llamp i llamp vam poder veure un pont a poca distància. Record perfectament l'aigua que em regalimava als pantalons per les gomes de la porta. Estava segur que els vidres no aguantarien les bolles de gel si no arribàvem al resguard del pont. També estava segur que si aturàvem, a sa vorera de la autopista, ens estrellaria algú per darrere. Es van començar a amuntegar els vehicles darrera nostre, cercant el resguard d'un pont massa petit per tothom. Un autocar ens va fer de tap i vaig poder respirar.
 
-![](theanxietyofrunningawayfromaviolentstorm-7.webp)
+![](theanxietyofrunningawayfromaviolentstorm-6.webp)
 
 Allà vam aguantar fins que la tormenta, que ens va donar caça, va permetre reemprendre la marxa. Tornava la calma. Però aquesta va ser la primera de cinc tempestes que van fer tremolar Europa Central aquell juliol.
 
+![](theanxietyofrunningawayfromaviolentstorm-9.webp)

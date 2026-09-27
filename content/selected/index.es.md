@@ -1,5 +1,3 @@
 ---
-title: "Works"
+title: "Selected Works"
 ---
-
-Lorem ipsum

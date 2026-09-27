@@ -1,5 +1,3 @@
 ---
-title: "Simples"
+title: "Selected Works"
 ---
-
-Lorem ipsum

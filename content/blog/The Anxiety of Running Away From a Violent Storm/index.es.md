@@ -1,30 +1,34 @@
 ---
-title: "The Anxiety of Running Away From a Violent Storm"
-date: 2023-07-11
-draft: false
+title: The Anxiety of Running Away From a Violent Storm
 description: "Huyendo de una tormenta por la Autobahn"
-weight: 20
-gallery_position: bottom
-featured: true
-private: false
-resources:
-  - src: "feature.jpg"
-    title: "Portada del proyecto"
-    params:
-      hidden: true
+date: 2023-07-11
+tags:
+  - fotografia
+  - paisatge
+summary: Una tempesta molt virulenta ens encalça per s'autobahn.
+draft: false
 ---
-![Las tormentas durante el verano son normales](03%20Projectes/Fotografia/Portfolio%20Publicar/blog/The%20Anxiety%20of%20Running%20Away%20From%20a%20Violent%20Storm/feature.jpg)
 
-**Las tormentas durante el verano son normales. Pero nunca habría pensado que viviríamos algo así.**
+**Les tempestes durant l'estiu són normals. Però mai no hagués pensat que viuriem una així.**
 
-Recuerdo que, mientras atravesábamos el sur de Francia, se podía sentir cómo la humedad de las plantas se evaporaba con la fuerza del sol. Aquellos días hacía tanto calor que se preveía que la atmósfera no fuera capaz de absorber tanta energía. Calor, humedad y días de templanza convergieron en el miedo más absoluto.
+Record que, mentre travessàvem el sud de França, es podia sentir com la humitat de les plantes s'evaporava amb la força del sol. Aquells dies feia tantíssima calor, que es preveia que l'atmosfera no fos capaç d'absorbir tanta energia. Calor, humitat i dies de templança van convergir en la por més absoluta.
 
-Al cruzar el Rin empezaron a sonar las alarmas del teléfono. Sin parar. Decían en francés que se esperaba una tormenta de fuerza extrema en las próximas horas, y estábamos justo en medio de las regiones marcadas en rojo. Cruzamos la Selva Negra y las alarmas dejaron de sonar. Nos quedaban tres horas de autobahn, donde la velocidad la marca la voluntad. El cielo empezó a cubrirse, justo cuando comenzaba a bajar la claridad.
+![](theanxietyofrunningawayfromaviolentstorm-1.webp)
 
-Se levantó la brisa. Oscureció a alta velocidad y se vislumbraban relámpagos a lo lejos. Saqué la cámara para canalizar los nervios mientras avisaba de nuestra ubicación a nuestro anfitrión. Quedaban 50km y la furgoneta se conducía cada vez con más nervio y menos velocidad. Mirando por el retrovisor, las nubes formaban un vórtice con más estructura, cada vez más grande, lo que significaba que se acercaba. La tormenta iba más rápido que nosotros, y el viento hacía que los vehículos fuéramos cada vez más despacio.
+En creuar el Rihn van començar a sonar les alarmes del telèfon. Sense aturar. Deien en francés que s'esperava una tempesta de força extrema en les properes hores, i estavem just al mig de les regions marcades en vermell. Vam creuar la Selva Negra, i les alarmes van deixar de sonar. Ens quedaven tres hores a la autobahn, on la velocitat la marca la voluntat. El cel es va començar a tapar,  just a la vegada que començava a baixar la claror. 
 
-Los rayos empezaron a sucederse. Uno tras otro. En un espectáculo nervioso que asustaría a cualquiera. A nadie le gusta una tormenta en plena carretera. A mí me vuelven eufórico. Serán los nervios.
+![](theanxietyofrunningawayfromaviolentstorm-2.webp)
 
-Empezó a llover de forma escandalosa. No se veía a tres metros por la cantidad de agua que nos ahogaba. Granizo. Bolas como de golf. Y una noche ya espesa por el ciclón que teníamos encima. El viento hacía imposible controlar un vehículo que debía ser refugio las próximas semanas, pero ya ni siquiera estábamos seguros de que resistiría esta segunda noche de trayecto. Había que parar, y entre relámpago y relámpago pudimos ver un puente a poca distancia. Recuerdo perfectamente el agua que me resbalaba por los pantalones por las gomas de la puerta. Estaba seguro de que los cristales no aguantarían las bolas de hielo si no llegábamos al resguardo del puente. También estaba seguro de que si parábamos en el arcén de la autopista, alguien nos embestiría por detrás. Los vehículos empezaron a amontonarse detrás de nosotros, buscando el resguardo de un puente demasiado pequeño para todos. Un autocar nos hizo de tapón y pude respirar.
+S'aixecà la brissa. Es va fer fosc a alta velocitat i es vislumbraven llamps a la llunyania. Vaig treure la càmera per canalitzar els nirvis mentre avisava de la nostra ubicació al nostre amfitrió. Quedaven 50km i la furgoneta es conduïa cada vegada amb més nirvi i menys velocitat.  Mirant al retrovisor, els niguls formaven un vòrtex amb més estructura, cada vegada més gran, el que significava que s'apropava. La tormenta anava més aviat que noltros, i el vent feia que els vehicles anèssim més a poc a poc. 
 
-Allí aguantamos hasta que la tormenta, que nos había dado caza, permitió reemprender la marcha. Volvía la calma. Pero esta fue la primera de cinco tormentas que hicieron temblar Europa Central aquel julio.
+![](theanxietyofrunningawayfromaviolentstorm-3.webp)
+
+Els llamps van començar a succeïr-se. L'un darrere l'altre. En un espectacle nirviós que espantaria a qualsevol. A ningú no li agrada una tempesta al bell mig de la carretera. A jo em tornen eufòric. Serán els nirvis.
+
+Va començar a ploure, d'una forma escandalosa. No es veia a tres metres per la quantitat d'aigua que ens ofegava. Calabruix. Bolles com de golf. I una nit ja espesa degut al cicló que ja teníem al damunt. El vent feia impossible controlar un vehicle que havia de ser refugi les properes setmanes, però ja ni tan sols estavem segures que resistiria aquesta segona nit de trajecte. Calia aturar, i entre llamp i llamp vam poder veure un pont a poca distància. Record perfectament l'aigua que em regalimava als pantalons per les gomes de la porta. Estava segur que els vidres no aguantarien les bolles de gel si no arribàvem al resguard del pont. També estava segur que si aturàvem, a sa vorera de la autopista, ens estrellaria algú per darrere. Es van començar a amuntegar els vehicles darrera nostre, cercant el resguard d'un pont massa petit per tothom. Un autocar ens va fer de tap i vaig poder respirar.
+
+![](theanxietyofrunningawayfromaviolentstorm-6.webp)
+
+Allà vam aguantar fins que la tormenta, que ens va donar caça, va permetre reemprendre la marxa. Tornava la calma. Però aquesta va ser la primera de cinc tempestes que van fer tremolar Europa Central aquell juliol.
+
+![](theanxietyofrunningawayfromaviolentstorm-9.webp)

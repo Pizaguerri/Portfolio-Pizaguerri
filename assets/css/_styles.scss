@@ -315,15 +315,6 @@ section.gallery {
   display: none;
 }
 
-#menu-toggle[aria-expanded="true"] {
-  .icon-menu {
-    display: none;
-  }
-
-  .icon-close {
-    display: block;
-  }
-}
 
 section.social-icons {
   display: flex;

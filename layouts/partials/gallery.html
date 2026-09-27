@@ -1,50 +1,85 @@
-<section class="gallery">
-  <div id="gallery" style="visibility: hidden; height: 1px; overflow: hidden">
-    {{ $images := slice }}
-    {{ range $image := where (.Resources.ByType "image") "Params.hidden" "ne" true }}
-      {{ $title := "" }}
-      {{ $date := "" }}
-      {{ with $image.Meta }}
-        {{ $date = .Date }}
-        {{ with .Exif.ImageDescription }}
-          {{/* Title from EXIF ImageDescription */}}
-          {{ $title = . }}
-        {{ end }}
-      {{ end }}
-      {{ if ne $image.Title $image.Name }}
-        {{/* Title from front matter */}}
-        {{ $title = $image.Title }}
-      {{ end }}
-      {{ if $image.Params.Date }}
-        {{/* Date from front matter */}}
-        {{ $date = time $image.Params.Date }}
-      {{ end }}
-      {{ $images = $images | append (dict
-        "Name" $image.Name
-        "Title" $title
-        "Date" $date
-        "image" $image
-        "Params" $image.Params
-        )
-      }}
-    {{ end }}
-    {{ $publishResources := default true .Params.build.publishResources }}
-    {{ range sort $images (.Params.sort_by | default "Name") (.Params.sort_order | default "asc") }}
-      {{ $image := .image }}
-      {{ $thumbnail := $image.Filter (slice images.AutoOrient (images.Process "fit 600x600 webp q80")) }}
-      {{ $full := $image.Filter (slice images.AutoOrient (images.Process "fit 1600x1600 webp q80")) }}
-      {{ $color := index $thumbnail.Colors 0 | default "transparent" }}
-      <a class="gallery-item" href="{{ if $publishResources }}{{ $image.RelPermalink }}{{ else }}{{ $full.RelPermalink }}{{ end }}" data-pswp-src="{{ $full.RelPermalink }}" data-pswp-width="{{ $full.Width }}" data-pswp-height="{{ $full.Height }}" data-pswp-target="{{ $image.Name | urlize }}" title="{{ .Title }}" itemscope itemtype="https://schema.org/ImageObject" style="aspect-ratio: {{ $thumbnail.Width }} / {{ $thumbnail.Height }}">
-        <figure style="background-color: {{ $color }}; aspect-ratio: {{ $thumbnail.Width }} / {{ $thumbnail.Height }}">
-          <img class="lazyload" width="{{ $thumbnail.Width }}" height="{{ $thumbnail.Height }}" data-src="{{ $thumbnail.RelPermalink }}" alt="{{ .Title }}" />
-        </figure>
-        <meta itemprop="contentUrl" content="{{ if $publishResources }}{{ $image.RelPermalink }}{{ else }}{{ $full.RelPermalink }}{{ end }}" />
-        {{ with site.Params.Author }}
-          <span itemprop="creator" itemtype="https://schema.org/Person" itemscope>
-            <meta itemprop="name" content="{{ site.Params.Author.name }}" />
-          </span>
-        {{ end }}
-      </a>
-    {{ end }}
+{{- $images := where (.Resources.ByType "image") "Params.hidden" "ne" true -}}
+
+{{- $galleryImages := slice -}}
+
+{{- range $image := $images -}}
+  {{- if not (hasPrefix (lower $image.Name) "cover.") -}}
+    {{- $galleryImages = $galleryImages | append $image -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if gt (len $galleryImages) 0 -}}
+
+<section id="post-gallery" class="post-gallery">
+
+  <div class="post-gallery-heading">
+    <span class="post-gallery-line"></span>
+    <h2>{{ i18n "gallery" }}</h2>
   </div>
+
+  {{ $total := len $galleryImages }}
+
+  {{ range $index, $image := $galleryImages }}
+
+    {{ $position := mod $index 3 }}
+    {{ $remaining := sub $total $index }}
+
+    {{/* ─────────────────────────────
+         INICIO DE UN GRUPO
+         ───────────────────────────── */}}
+
+    {{ if eq $position 0 }}
+
+      {{ if ge $remaining 3 }}
+
+        <div class="post-gallery-block {{ if eq (mod (div $index 3) 2) 0 }}post-gallery-block-left{{ else }}post-gallery-block-right{{ end }}">
+
+          {{ partial "post-gallery-item.html" (dict "image" $image "class" "is-large") }}
+
+      {{ else }}
+
+        <div class="post-gallery-remainder post-gallery-remainder-{{ $remaining }}">
+
+          {{ partial "post-gallery-item.html" (dict "image" $image "class" "") }}
+
+      {{ end }}
+
+    {{/* ─────────────────────────────
+         CONTINUACIÓN DEL GRUPO (posiciones 1 y 2)
+         ───────────────────────────── */}}
+
+    {{ else if eq $position 1 }}
+
+      {{ partial "post-gallery-item.html" (dict "image" $image "class" "is-small-top") }}
+
+    {{ else }}
+
+      {{ partial "post-gallery-item.html" (dict "image" $image "class" "is-small-bottom") }}
+
+    {{ end }}
+
+    {{/* ─────────────────────────────
+         CIERRE DE GRUPO COMPLETO
+         ───────────────────────────── */}}
+
+    {{ if eq $position 2 }}
+
+        </div>
+
+    {{ end }}
+
+    {{/* ─────────────────────────────
+         CIERRE DEL RESTO FINAL
+         ───────────────────────────── */}}
+
+    {{ if and (lt $remaining 3) (eq $remaining 1) (ne $position 2) }}
+
+        </div>
+
+    {{ end }}
+
+  {{ end }}
+
 </section>
+
+{{- end -}}

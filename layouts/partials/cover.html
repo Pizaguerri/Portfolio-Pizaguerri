@@ -1,0 +1,13 @@
+{{- with partial "get-cover.html" . -}}
+  {{- $cover := .Filter (slice images.AutoOrient (images.Process "fit 1920x1920 webp q82")) -}}
+
+  <figure class="post-featured-wrapper">
+    <img
+      src="{{ $cover.RelPermalink }}"
+      width="{{ $cover.Width }}"
+      height="{{ $cover.Height }}"
+      alt="{{ $.Title }} portada"
+      class="post-featured"
+    >
+  </figure>
+{{- end -}}

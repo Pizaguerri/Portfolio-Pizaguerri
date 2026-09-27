@@ -2,20 +2,14 @@
 
   {{ partial "title.html" . }}
 
-  {{/* ---------- IMAGEN DESTACADA (portada) ---------- */}}
-  {{ $featured := .Resources.GetMatch "*featured*" }}
-  {{ with $featured }}
-    <figure class="post-featured-wrapper mb-6">
-      <img src="{{ .RelPermalink }}" alt="{{ $.Title }} portada"
-           class="post-featured">
-    </figure>
-  {{ end }}
+  {{ partial "cover.html" . }}
 
-  {{/* ---------- CONTENIDO DEL POST ---------- */}}
   {{ with .Content }}
     <section class="page-content">
       {{ . }}
     </section>
   {{ end }}
+
+  {{ partial "gallery.html" . }}
 
 {{ end }}

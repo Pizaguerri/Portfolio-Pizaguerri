@@ -1,48 +1,123 @@
 {{ define "main" }}
+
   {{ $caSite := partial "canonical-site.html" . }}
   {{ $items := slice }}
+
   {{ if $caSite }}
     {{ range (slice "/projects" "/blog") }}
+
       {{ with $caSite.GetPage . }}
+
         {{ range where .RegularPages "Params.private" "ne" true }}
           {{ $items = $items | append . }}
         {{ end }}
+
       {{ end }}
+
     {{ end }}
   {{ end }}
+
   {{ $items = sort $items "Date" "desc" }}
 
-  {{/* Selected Works */}}
+
+  {{/* =========================================================
+       SELECTED WORKS
+       ========================================================= */}}
+
   {{ with $caSite.GetPage "/selected" }}
-    {{ $sel := partial "resolve-translation.html" (dict "page" . "lang" $.Language.Lang) }}
+
+    {{ $sel := partial "resolve-translation.html" (dict
+      "page" .
+      "lang" $.Language.Lang
+    ) }}
+
     {{ $allImages := $sel.Resources.ByType "image" }}
+
     {{ if gt (len $allImages) 0 }}
+
       <a class="home-row" href="{{ $sel.RelPermalink }}">
+
         <div class="home-row-scroll">
+
           {{ range first 10 $allImages }}
-            {{ $thumb := .Filter (slice images.AutoOrient (images.Process "fit 1200x1200 webp q80")) }}
-            <img src="{{ $thumb.RelPermalink }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" alt="{{ .Name }}" loading="lazy">
+
+            {{ $thumb := .Filter (slice
+              images.AutoOrient
+              (images.Process "fit 1200x1200 webp q80")
+            ) }}
+
+            <img
+              src="{{ $thumb.RelPermalink }}"
+              width="{{ $thumb.Width }}"
+              height="{{ $thumb.Height }}"
+              alt="{{ .Name }}"
+              loading="lazy"
+            >
+
           {{ end }}
+
         </div>
-        <span class="home-row-title">{{ $sel.Title }}</span>
+
+        <span class="home-row-title">
+          {{ $sel.Title }}
+        </span>
+
       </a>
+
     {{ end }}
+
   {{ end }}
 
-    {{ range $items }}
-      {{ $page := partial "resolve-translation.html" (dict "page" . "lang" $.Language.Lang) }}
-      {{ $images := partial "row-images.html" $page }}
-      {{ if gt (len $images) 0 }}
-        <a class="home-row" href="{{ $page.RelPermalink }}">
-          <div class="home-row-scroll">
-            {{ range $images }}
-              {{ $thumb := .Filter (slice images.AutoOrient (images.Process "fit 1200x1200 webp q80")) }}
-              <img src="{{ $thumb.RelPermalink }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" alt="{{ $page.Title }}" loading="lazy">
-            {{ end }}
-          </div>
-          <span class="home-row-title">{{ $page.Title }}</span>
-        </a>
-      {{ end }}
+
+  {{/* =========================================================
+       PROJECTS + BLOG
+       Las imágenes salen SIEMPRE del bundle canónico.
+       ========================================================= */}}
+
+  {{ range $items }}
+
+    {{ $sourcePage := . }}
+
+    {{ $page := partial "resolve-translation.html" (dict
+      "page" $sourcePage
+      "lang" $.Language.Lang
+    ) }}
+
+    {{ $images := partial "row-images.html" $sourcePage }}
+
+    {{ if gt (len $images) 0 }}
+
+      <a class="home-row" href="{{ $page.RelPermalink }}">
+
+        <div class="home-row-scroll">
+
+          {{ range $images }}
+
+            {{ $thumb := .Filter (slice
+              images.AutoOrient
+              (images.Process "fit 1200x1200 webp q80")
+            ) }}
+
+            <img
+              src="{{ $thumb.RelPermalink }}"
+              width="{{ $thumb.Width }}"
+              height="{{ $thumb.Height }}"
+              alt="{{ $page.Title }}"
+              loading="lazy"
+            >
+
+          {{ end }}
+
+        </div>
+
+        <span class="home-row-title">
+          {{ $page.Title }}
+        </span>
+
+      </a>
+
     {{ end }}
-  </section>
+
+  {{ end }}
+
 {{ end }}

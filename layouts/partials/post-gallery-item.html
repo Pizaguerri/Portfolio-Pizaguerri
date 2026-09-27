@@ -1,0 +1,47 @@
+{{- $image := .image -}}
+{{- $class := .class -}}
+
+{{- $title := "" -}}
+
+{{- with $image.Meta -}}
+  {{- with .Exif.ImageDescription -}}
+    {{- $title = . -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if ne $image.Title $image.Name -}}
+  {{- $title = $image.Title -}}
+{{- end -}}
+
+{{- $thumbnail := $image.Filter (slice
+  images.AutoOrient
+  (images.Process "fit 1200x1200 webp q80")
+) -}}
+
+{{- $full := $image.Filter (slice
+  images.AutoOrient
+  (images.Process "fit 1920x1920 webp q82")
+) -}}
+
+<a
+  class="gallery-item post-gallery-item{{ with $class }} {{ . }}{{ end }}"
+  href="{{ $full.RelPermalink }}"
+  data-pswp-src="{{ $full.RelPermalink }}"
+  data-pswp-width="{{ $full.Width }}"
+  data-pswp-height="{{ $full.Height }}"
+  data-pswp-target="{{ $image.Name | urlize }}"
+>
+  <img
+    src="{{ $thumbnail.RelPermalink }}"
+    width="{{ $thumbnail.Width }}"
+    height="{{ $thumbnail.Height }}"
+    alt="{{ default $image.Name $title }}"
+    loading="lazy"
+  >
+
+  {{ with $title }}
+    <p class="pswp-caption-content">
+      {{ . }}
+    </p>
+  {{ end }}
+</a>

@@ -1,5 +1,3 @@
 ---
-title: "Feinetes"
+title: "Selected Works"
 ---
-
-Lorem ipsum

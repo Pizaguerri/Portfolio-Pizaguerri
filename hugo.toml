@@ -67,7 +67,7 @@ defaultContentLanguageInSubdir = false
     lightbox_download = false
   
   [params.socialIcons]
-    email     = "mailto:infopizaguerri@pm.me"
+    email     = "mailto:hola@pabloizaguerri.org"
     instagram = "https://www.instagram.com/pizaguerri/"
     mastodon  = "https://mastodon.social/@Pizzaguerri"
     youtube   = "http://www.youtube.com/@Pizzaguerri"

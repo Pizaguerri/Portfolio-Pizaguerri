@@ -3,7 +3,7 @@ import PhotoSwipe from "./photoswipe/photoswipe.esm.js";
 import PhotoSwipeDynamicCaption from "./photoswipe/photoswipe-dynamic-caption-plugin.esm.min.js";
 import * as params from "@params";
 
-const gallery = document.getElementById("gallery");
+const gallery = document.querySelector("#gallery, #post-gallery");
 
 if (gallery) {
   const lightbox = new PhotoSwipeLightbox({
@@ -12,23 +12,28 @@ if (gallery) {
     showHideAnimationType: "zoom",
     bgOpacity: 0.85,
     pswpModule: PhotoSwipe,
+
+    // Tap/click on the image or background closes the lightbox.
     imageClickAction: "close",
     tapAction: "close",
     bgClickAction: "close",
+
     pinchClose: "close",
     loop: true,
+
     padding: {
-      top: 25,
-      bottom: 25,
-      left: 25,
-      right: 25,
+      top: 50,
+      bottom: 50,
+      left: 50,
+      right: 50,
     },
+
     allowPanToNext: false,
     closeOnVerticalDrag: false,
     wheelToZoom: false,
     pinchToZoom: false,
     zoomToOpportunityThreshold: 0,
-    
+
     closeTitle: params.closeTitle,
     zoomTitle: params.zoomTitle,
     arrowPrevTitle: params.arrowPrevTitle,
@@ -36,10 +41,13 @@ if (gallery) {
     errorMsg: params.errorMsg,
   });
 
-
   lightbox.on("change", () => {
-    const target = lightbox.pswp.currSlide?.data?.element?.dataset["pswpTarget"];
-    history.replaceState("", document.title, "#" + target);
+    const target =
+      lightbox.pswp?.currSlide?.data?.element?.dataset?.pswpTarget;
+
+    if (target) {
+      history.replaceState("", document.title, `#${target}`);
+    }
   });
 
   lightbox.on("close", () => {
@@ -54,34 +62,16 @@ if (gallery) {
 
   lightbox.init();
 
-  if (window.location.hash.substring(1).length > 1) {
-    const target = window.location.hash.substring(1);
-    const items = gallery.querySelectorAll("a");
-    for (let i = 0; i < items.length; i++) {
-      if (items[i].dataset["pswpTarget"] === target) {
-        lightbox.loadAndOpen(i, { gallery });
+  const hash = window.location.hash.substring(1);
+
+  if (hash.length > 1) {
+    const items = gallery.querySelectorAll(".gallery-item");
+
+    for (let index = 0; index < items.length; index++) {
+      if (items[index].dataset.pswpTarget === hash) {
+        lightbox.loadAndOpen(index, { gallery });
         break;
       }
     }
   }
 }
-
-// Prevenir clic derecho y doble click en imágenes del lightbox
-document.addEventListener('DOMContentLoaded', () => {
-  const gallery = document.getElementById('gallery');
-  if (!gallery) return;
-
-  // Deshabilitar menú contextual en imágenes de galería
-  gallery.addEventListener('contextmenu', (e) => {
-    if (e.target.tagName === 'IMG') {
-      e.preventDefault();
-    }
-  });
-
-  // Prevenir doble click
-  gallery.addEventListener('dblclick', (e) => {
-    if (e.target.tagName === 'IMG') {
-      e.preventDefault();
-    }
-  });
-});

@@ -9,6 +9,8 @@ date: 2026-06-04
   <img src="/images/profilepic.png" class="profile-pic" alt="Pablo Izaguerri photo">
 </div>
 
+**Contacte: hola@pabloizaguerri.org**
+
 My name is Pablo Izaguerri, born in Mallorca in 1995, but living in Catalonia since 2018. During these years in Barcelona I've developed as a photographer, first through free exploration and later at the **Escuela Libre Date Cuenta**. As an anthropologist, I studied at **URV** and now participate in the Digital Anthropology and Ethnography research group, **ANED**, at **ICA**.
 
 Music has always been a passion — it led me to create **Sonomada**, a daily record recommendation project; and later to collaborate with outlets such as **S'altra Música**, **Enderrock**, **Binaural** and **Nuevas Frecuencias**, this time through photography.

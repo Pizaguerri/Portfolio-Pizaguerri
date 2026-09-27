@@ -1,0 +1,11 @@
+{{- with .Resources.GetMatch "cover*" -}}
+  {{- return . -}}
+{{- end -}}
+
+{{- if eq .Section "selected" -}}
+  {{- with index (.Resources.ByType "image") 0 -}}
+    {{- return . -}}
+  {{- end -}}
+{{- end -}}
+
+{{- return nil -}}
