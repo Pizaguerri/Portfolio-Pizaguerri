@@ -21,7 +21,7 @@ Me considero *fotógrafo documental*, aunque con los años me hace gracia pensar
 
 > He hecho esta web, programada desde cero, con el ánimo de dejar dos cosas claras. La primera, que nuestra soberanía digital debe ir por delante de las plataformas, porque el giro de las grandes tecnológicas hacia el control absoluto de nuestras mentes me ha empujado a hacerlo de esta manera. La segunda, ahora que controlo yo el formato, ¿quién sabe si se podrá explorar de nuevo esta pregunta inicial? No tengo ninguna prisa para hacerlo, pero sí la intención de hacer una larga búsqueda.
 
-<img src="/images/about4.jpg" class="" alt="Kein Mensch Ist Illegal">
+{{< print-request >}}
 
 ---
 ### Exposiciones
@@ -44,3 +44,5 @@ Me considero *fotógrafo documental*, aunque con los años me hace gracia pensar
 - 2021 - *Millor que sa mel* (Fotografía fija y BTS, videoclip, dirigido por Josep Sarrate)
 - 2024 - *A la Riba* (Fotografía fija y BTS, cortometraje, dirigido por Josep Sarrate)
 - 2025 - *Diciembre* (Fotografía fija y BTS, videoclip, dirigido por Josep Sarrate)
+
+<img src="/images/about4.jpg" class="" alt="Kein Mensch Ist Illegal">

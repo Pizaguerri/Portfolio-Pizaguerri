@@ -25,3 +25,19 @@ latestPost: "Última publicación"
 alsoAvailableIn: "También disponible en"
 copyrightNotice: "Pablo Izaguerri. Todos los derechos reservados."
 gallery: "Galería"
+
+requestPrint: "Quiero una copia impresa"
+printRequestSubject: "Print request"
+printRequestBody: |
+  Hola Pablo,
+
+  Me gustaría recibir más información sobre las copias impresas:
+  tamaños disponibles, precios y opciones de envío.
+
+  La fotografía que me interesa es:
+
+  - 
+
+  Muchas gracias.
+
+  Un saludo,

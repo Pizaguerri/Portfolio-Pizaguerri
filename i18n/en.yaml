@@ -25,3 +25,19 @@ latestPost: "Latest post"
 alsoAvailableIn: "Also available in"
 copyrightNotice: "Pablo Izaguerri. All rights reserved."
 gallery: "Gallery"
+
+requestPrint: "Request a print"
+printRequestSubject: "Print request"
+printRequestBody: |
+  Hello there, Pablo
+
+  I'd like to receive more information about the prints:
+  available sizes, prices and shipping options.
+
+  The photograph I'm interested in is:
+
+  - 
+
+  Thank you very much.
+
+  Best,

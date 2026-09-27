@@ -21,7 +21,7 @@ I think of myself as a _documentary photographer_, though over the years I've co
 
 > I built this website from scratch with two things in mind. First, that our digital sovereignty must come before the platforms — the turn of big tech toward total control of our minds pushed me to take this approach. Second, now that I control the format, who knows whether this initial question can be explored again? I'm in no hurry, but I do intend to make a long search.
 
-<img src="/images/about4.jpg" class="" alt="Kein Mensch Ist Illegal">
+{{< print-request >}}
 
 ---
 
@@ -48,3 +48,5 @@ I think of myself as a _documentary photographer_, though over the years I've co
 - 2021 - _Millor que sa mel_ (Still photography and BTS, music video, directed by Josep Sarrate)
 - 2024 - _A la Riba_ (Still photography and BTS, short film, directed by Josep Sarrate)
 - 2025 - _Diciembre_ (Still photography and BTS, music video, directed by Josep Sarrate)
+
+<img src="/images/about4.jpg" class="" alt="Kein Mensch Ist Illegal">

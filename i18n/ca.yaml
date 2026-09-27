@@ -25,3 +25,19 @@ latestPost: "Darrer post"
 alsoAvailableIn: "També disponible en"
 copyrightNotice: "Pablo Izaguerri. Tots els drets reservats."
 gallery: "Galeria"
+
+requestPrint: "Vull una còpia impressa"
+printRequestSubject: "Print request"
+printRequestBody: |
+  Hola Pablo,
+
+  M'agradaria rebre més informació sobre les còpies impreses:
+  mides disponibles, preus i opcions d'enviament.
+
+  La fotografia que m'interessa és:
+
+  - 
+
+  Moltes gràcies.
+
+  Atentament,

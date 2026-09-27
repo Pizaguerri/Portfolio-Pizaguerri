@@ -13,7 +13,7 @@ draft: false
 
 El turismo supone una actividad **pasiva disfrazada de experiencia** con el individuo en el centro: a priori se cree que se es protagonista, viviendo aventuras y en constante movimiento, cuando la realidad es que sólo se forma parte de un decorado, un consumismo activo en el que no hay integración (y, por ende, no hay una experiencia real). No se es más protagonista que en las historias de Instagram, una sombra en la postal vendida como souvenir. Quien visita Barcelona, una y otra vez, encuentra una ciudad al **servicio del consumo**: fiestas, festivales, congresos, ferias, museos, lujos y una suerte de “experiencia límite” en los muchísimos lugares marginales que conviven en las calles. Un pack completo, entre la seguridad del individuo y la exotización de lo desconocido, como si de un safari urbano se tratase.
 
-![](barcelonaexperience-08.jpg)
+![](barcelonaexperience-02.jpg)
 
 ## Barcelona como marca global
 

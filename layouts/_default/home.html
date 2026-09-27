@@ -1,28 +1,27 @@
 {{ define "main" }}
 
   {{ $caSite := partial "canonical-site.html" . }}
-  {{ $items := slice }}
+
+  {{ $projects := slice }}
+  {{ $blog := slice }}
 
   {{ if $caSite }}
-    {{ range (slice "/projects" "/blog") }}
 
-      {{ with $caSite.GetPage . }}
-
-        {{ range where .RegularPages "Params.private" "ne" true }}
-          {{ $items = $items | append . }}
-        {{ end }}
-
-      {{ end }}
-
+    {{ with $caSite.GetPage "/projects" }}
+      {{ $projects = where .RegularPages "Params.private" "ne" true }}
+      {{ $projects = sort $projects "Date" "desc" }}
     {{ end }}
+
+    {{ with $caSite.GetPage "/blog" }}
+      {{ $blog = where .RegularPages "Params.private" "ne" true }}
+      {{ $blog = sort $blog "Date" "desc" }}
+      {{ $blog = first 3 $blog }}
+    {{ end }}
+
   {{ end }}
 
-  {{ $items = sort $items "Date" "desc" }}
 
-
-  {{/* =========================================================
-       SELECTED WORKS
-       ========================================================= */}}
+  {{/* Selected Works */}}
 
   {{ with $caSite.GetPage "/selected" }}
 
@@ -69,21 +68,63 @@
   {{ end }}
 
 
-  {{/* =========================================================
-       PROJECTS + BLOG
-       Las imágenes salen SIEMPRE del bundle canónico.
-       ========================================================= */}}
+  {{/* Projects — newest to oldest */}}
 
-  {{ range $items }}
-
-    {{ $sourcePage := . }}
+  {{ range $projects }}
 
     {{ $page := partial "resolve-translation.html" (dict
-      "page" $sourcePage
+      "page" .
       "lang" $.Language.Lang
     ) }}
 
-    {{ $images := partial "row-images.html" $sourcePage }}
+    {{ $images := partial "row-images.html" $page }}
+
+    {{ if gt (len $images) 0 }}
+
+      <a class="home-row" href="{{ $page.RelPermalink }}">
+
+        <div class="home-row-scroll">
+
+          {{ range $images }}
+
+            {{ $thumb := .Filter (slice
+              images.AutoOrient
+              (images.Process "fit 1200x1200 webp q80")
+            ) }}
+
+            <img
+              src="{{ $thumb.RelPermalink }}"
+              width="{{ $thumb.Width }}"
+              height="{{ $thumb.Height }}"
+              alt="{{ $page.Title }}"
+              loading="lazy"
+            >
+
+          {{ end }}
+
+        </div>
+
+        <span class="home-row-title">
+          {{ $page.Title }}
+        </span>
+
+      </a>
+
+    {{ end }}
+
+  {{ end }}
+
+
+  {{/* Blog / Editorial — newest 3 only */}}
+
+  {{ range $blog }}
+
+    {{ $page := partial "resolve-translation.html" (dict
+      "page" .
+      "lang" $.Language.Lang
+    ) }}
+
+    {{ $images := partial "row-images.html" $page }}
 
     {{ if gt (len $images) 0 }}
 

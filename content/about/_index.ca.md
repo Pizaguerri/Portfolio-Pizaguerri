@@ -11,6 +11,7 @@ date: 2026-06-04
 
 **Contacte: hola@pabloizaguerri.org**
 
+
 Em dic Pablo Izaguerri, Mallorca 1995, però visc a Catalunya des del 2018.  En aquests anys a la ciutat comtal m'he desenvolupat com a fotògraf, primer com una exploració lliure i després a la **Escuela Libre Date Cuenta**.  Com a antropòleg, he pogut estudiar al grau de la **URV** i ara participo del grup de recerca d'Antropologia i Etnografia Digital  o **ANED** del **ICA**. 
 
 M'apasiona la música, pel qual vaig poder crear el meu propi projecte de recomanacions de discos diàries, **Sonomada**; i després he pogut col·laborar amb mitjans com **S'altra Música**, **Enderrock**, **Binaural** o **Nuevas Frecuencias**, ja mitjançant la fotografia. 
@@ -21,7 +22,7 @@ Em considero *fotògraf documental*, tot i que amb els anys, em fa gràcia pensa
 
 > He fet aquesta web, programada des de zero, amb l'ànim de deixar dues coses clares. La primera, que la nostra sobirania digital ha d'anar per endavant de les plataformes, perque el gir de les grans tecnològiques cap al control absolut de les nostres ments m'ha empès a fer-ho d'aquesta manera. La segona, ara que controlo jo el format, qui sap si es podrá explorar aquesta pregunta inicial de nou? No tinc cap mena de pressa per fer-ho, però si la intenció de fer una llarga cerca.
 
-<img src="/images/about4.jpg" class="" alt="Kein Mensch Ist Illegal">
+{{< print-request >}}
 
 ---
 ### Exposicions
@@ -46,3 +47,5 @@ Em considero *fotògraf documental*, tot i que amb els anys, em fa gràcia pensa
 - 2021 - *Millor que sa mel* (Fotografia fixa i BTS, videoclip, dirigit per Josep Sarrate)
 - 2024 - *A la Riba* (Fotografia fixa i BTS, curtmetratge, dirigit per Josep Sarrate)
 - 2025 -  *Diciembre* (Fotografia fixa i BTS, videoclip, dirigit per Josep Sarrate)
+
+<img src="/images/about4.jpg" class="" alt="Kein Mensch Ist Illegal">

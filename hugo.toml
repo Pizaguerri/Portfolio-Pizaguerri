@@ -34,10 +34,15 @@ defaultContentLanguageInSubdir = false
 [build]
   publishResources = false
 
-[imaging]
-  quality = 82
+  [imaging]
   resampleFilter = "lanczos"
   formats = ["webp", "jpg"]
+  
+  [imaging.jpeg]
+  quality = 82
+  
+  [imaging.webp]
+  quality = 82
 
 [markup]
   [markup.goldmark]
@@ -58,7 +63,7 @@ defaultContentLanguageInSubdir = false
   
   [params.author]
     name  = "Pablo Izaguerri"
-    email = "infopizaguerri@pm.me"
+    email = "hola@pabloizaguerri.org"
   
   [params.assets]
     customCSS = ["css/custom.css"]

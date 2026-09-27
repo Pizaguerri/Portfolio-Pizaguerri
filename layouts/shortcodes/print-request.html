@@ -1,0 +1,19 @@
+{{- $email := .Site.Params.author.email -}}
+{{- $subject := i18n "printRequestSubject" -}}
+{{- $body := i18n "printRequestBody" -}}
+
+{{- $query := querify
+  "subject" $subject
+  "body" $body
+-}}
+
+{{- $query = replace $query "+" "%20" -}}
+
+{{- $href := printf "mailto:%s?%s" $email $query -}}
+
+<a
+  class="print-request-button"
+  href="{{ $href | safeURL }}"
+>
+  {{ i18n "requestPrint" }}
+</a>
